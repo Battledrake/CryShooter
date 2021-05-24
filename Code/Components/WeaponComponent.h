@@ -19,15 +19,15 @@ enum class EFireMode : uint8
 
 enum class EWeaponType : uint8
 {
+	Rifle,
+	Pistol
+};
+
+enum class EEquipType : uint8
+{
 	Primary,
 	Secondary,
 	Both
-};
-
-enum class EAnimationType : uint8
-{
-	Rifle,
-	Pistol
 };
 
 static void ReflectType(Schematyc::CTypeDesc<EFireMode>& desc)
@@ -44,21 +44,21 @@ static void ReflectType(Schematyc::CTypeDesc<EWeaponType>& desc)
 {
 	desc.SetGUID("{ED5FBADA-0B8D-4419-BD3C-0AA781999414}"_cry_guid);
 	desc.SetLabel("Weapon Type");
-	desc.SetDescription("Determines which equipment slot weapon belongs to");
-	desc.SetDefaultValue(EWeaponType::Primary);
-	desc.AddConstant(EWeaponType::Primary, "Primary", "Primary");
-	desc.AddConstant(EWeaponType::Secondary, "Secondary", "Secondary");
-	desc.AddConstant(EWeaponType::Both, "Both", "Both");
+	desc.SetDescription("Determines animation tag and attach slot");
+	desc.SetDefaultValue(EWeaponType::Rifle);
+	desc.AddConstant(EWeaponType::Rifle, "Rifle", "Rifle");
+	desc.AddConstant(EWeaponType::Pistol, "Pistol", "Pistol");
 }
 
-static void ReflectType(Schematyc::CTypeDesc<EAnimationType>& desc)
+static void ReflectType(Schematyc::CTypeDesc<EEquipType>& desc)
 {
 	desc.SetGUID("{D5F09339-E774-405E-85D6-8A93873B2502}"_cry_guid);
 	desc.SetLabel("Animation Type");
-	desc.SetDescription("Determines which animation tag to set");
-	desc.SetDefaultValue(EAnimationType::Rifle);
-	desc.AddConstant(EAnimationType::Rifle, "Rifle", "Rifle");
-	desc.AddConstant(EAnimationType::Pistol, "Pistol", "Pistol");
+	desc.SetDescription("Determines which equipment slot weapon belongs to");
+	desc.SetDefaultValue(EEquipType::Primary);
+	desc.AddConstant(EEquipType::Primary, "Primary", "Primary");
+	desc.AddConstant(EEquipType::Secondary, "Secondary", "Secondary");
+	desc.AddConstant(EEquipType::Both, "Both", "Both");
 }
 
 
@@ -83,9 +83,10 @@ public:
 
 	string GetWeaponName() const { return m_weaponName.c_str(); }
 	string GetIconName() const { return m_iconName.c_str(); }
+	string GetProjectileClass() const { return m_projectileClass.value; }
 	EFireMode GetFireMode() const { return m_currentFireMode; }
 	EWeaponType GetWeaponType() const { return m_weaponType; }
-	EAnimationType GetAnimationType() const { return m_animType; }
+	EEquipType GetEquipType() const { return m_equipType; }
 	int GetClipCapacity() const { return m_clipCapacity; }
 	int GetClipCount() const { return m_clipCount; }
 
@@ -104,8 +105,9 @@ public:
 		desc.SetDescription("Creates weapons");
 		desc.AddMember(&CWeaponComponent::m_weaponName, 'name', "WeaponName", "Weapon Name", "Name of weapon, used for interaction icon", "");
 		desc.AddMember(&CWeaponComponent::m_iconName, 'icon', "IconName", "Icon Name", "Name of icon to load for Hud", "");
-		desc.AddMember(&CWeaponComponent::m_weaponType, 'type', "WeaponType", "Weapon Type", "Type of weapon, used for equipping", EWeaponType::Primary);
-		desc.AddMember(&CWeaponComponent::m_animType, 'anim', "AnimationType", "Animation Type", "Determines animation tag to activate", EAnimationType::Rifle);
+		desc.AddMember(&CWeaponComponent::m_projectileClass, 'proj', "ProjectileClass", "Projectile Class", "Entity class to spawn on fire", "");
+		desc.AddMember(&CWeaponComponent::m_weaponType, 'type', "WeaponType", "Weapon Type", "Determines animation tag and attach slot", EWeaponType::Rifle);
+		desc.AddMember(&CWeaponComponent::m_equipType, 'anim', "EquipmentType", "Equipment Type", "Determines which equip slot to use", EEquipType::Primary);
 		desc.AddMember(&CWeaponComponent::m_fireModes, 'mode', "FireModes", "Weapon Fire Modes", "Determines the firing modes the weapon supports", Schematyc::CArray<EFireMode>());
 		desc.AddMember(&CWeaponComponent::m_fireRate, 'rate', "FireRate", "Weapon Fire Rate", "Rate per minute", 500);
 		desc.AddMember(&CWeaponComponent::m_wepRecoil, 'coil', "WeaponRecoil", "Weapon Recoil", "Sets the recoil", Vec2(-2.0f, 5.0f));
@@ -128,6 +130,7 @@ private:
 
 	Schematyc::CSharedString m_weaponName;
 	Schematyc::CSharedString m_iconName;
+	Schematyc::EntityClassName m_projectileClass;
 	Schematyc::CArray<EFireMode> m_fireModes;
 	int m_fireModesIndex;
 
@@ -147,6 +150,6 @@ private:
 	int m_clipCapacity = 30;
 
 	EWeaponType m_weaponType;
-	EAnimationType m_animType;
+	EEquipType m_equipType;
 	EFireMode m_currentFireMode;
 };

@@ -37,6 +37,7 @@ public:
 	void ProcessJump();
 	void ProcessReload();
 	void ProcessSprinting(bool isPressed);
+	void HandleWeaponFired();
 	void SetOwner(IEntity* pOwner) { m_pOwner = pOwner; }
 	void SwitchFireMode();
 
@@ -68,7 +69,7 @@ protected:
 
 private:
 	void AttachWeapon();
-	void ClearEquipBinding(const char* szName);
+	void ClearAttachBinding(const char* szName);
 	void SetIKJoints();
 
 	IEntity* m_pOwner;
@@ -96,8 +97,8 @@ private:
 
 	int m_jumpFrameId;
 
-	std::map<string, int> m_ammoMap;
+	std::map<uint, int> m_ammoMap;
 
-	//TODO: Replace this with map use
+	//TODO: Replace this with map use.
 	int m_totalAmmo = 50;
 };

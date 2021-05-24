@@ -417,7 +417,6 @@ void CPlayerComponent::UpdateLookDirectionRequest(float frameTime)
 
 	if (ISkeletonAnim* pSkelAnim = m_pAnimationComponent->GetCharacter()->GetISkeletonAnim())
 	{
-		//TODO: This will work in single player, but networking will fail with camera grab. Also ugly. Look into later with fresh mind
 		Quat localRot = !m_pEntity->GetWorldRotation();
 		Vec3 camDirection = m_pCameraComponent->GetCamera().GetPosition() + m_pCameraComponent->GetCamera().GetViewdir() * 10.0f;
 		Vec3 entPos = m_pEntity->GetPos() + Vec3(0.0f, 0.0f, 1.5f);

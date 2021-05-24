@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Mesh" guid="ce585b26-df55-cb34-4407-caaa438a0d0b" source="Pistol.FBX">
+ <Files>
+  <File path="Pistol.cgf"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">3</Detail>
+  <Detail name="triangleCount">3245</Detail>
+  <Detail name="vertexCount">3013</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">materials/m_pistol.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

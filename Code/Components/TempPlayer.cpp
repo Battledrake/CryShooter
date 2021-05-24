@@ -4,10 +4,8 @@
 #include <CrySchematyc/Env/IEnvRegistrar.h>
 #include <CrySchematyc/Env/Elements/EnvComponent.h>
 #include <CryCore/StaticInstanceList.h>
-#include <FlashUI/FlashUI.h>
 
 #include "Components/CharacterComponent.h"
-#include "Interfaces/IInteractable.h"
 
 namespace
 {
@@ -35,8 +33,6 @@ void CTempPlayerComponent::Initialize()
 	m_viewBeforeSpectate = m_currentViewMode;
 
 	RegisterInputs();
-
-	m_pInteractableUI = gEnv->pFlashUI->GetUIElement("InteractableText");
 }
 
 Cry::Entity::EventFlags CTempPlayerComponent::GetEventMask() const
@@ -44,7 +40,6 @@ Cry::Entity::EventFlags CTempPlayerComponent::GetEventMask() const
 	return
 		Cry::Entity::EEvent::GameplayStarted |
 		Cry::Entity::EEvent::Update |
-		Cry::Entity::EEvent::PhysicsCollision |
 		Cry::Entity::EEvent::Reset;
 }
 
@@ -111,26 +106,6 @@ void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
 			m_mouseDeltaRotation = ZERO;
 
 			CheckInteractables();
-
-			Vec3 origin = m_pEntity->GetWorldPos();
-			Vec3 dir = ((m_pCharacter->GetEntity()->GetWorldPos() + Vec3(0.0f, 0.0f, 1.75f)) - origin).normalized();
-			const unsigned int rayFlags = rwi_stop_at_pierceable | rwi_colltype_any;
-			ray_hit hitInfo;
-			if (gEnv->pPhysicalWorld->RayWorldIntersection(origin, dir, ent_all, rayFlags, &hitInfo, 1, m_pEntity->GetPhysicalEntity()))
-			{
-				if (IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(hitInfo.pCollider))
-				{
-					if (m_pCharacter->GetEntity() != pEntity)
-					{
-						CryLogAlways("We start here");
-					}
-				}
-			}
-		}
-		break;
-		case Cry::Entity::EEvent::PhysicsCollision:
-		{
-			CryLogAlways("Triggered");
 		}
 		break;
 		case Cry::Entity::EEvent::Reset:
@@ -202,9 +177,7 @@ void CTempPlayerComponent::CheckInteractables()
 						pInteractable->Observe(m_pCharacter, objData);
 						m_pActiveInteractable = pInteractable;
 
-						string combinedString = objData.objectKeyword + " " + objData.objectName + " " + objData.objectBonus;
-						m_pInteractableUI->CallFunction("UpdateText", SUIArguments::Create(combinedString));
-						m_pInteractableUI->SetVisible(true);
+						m_interactEvent.Invoke(objData, true);
 						return;
 					}
 					return;
@@ -213,16 +186,14 @@ void CTempPlayerComponent::CheckInteractables()
 		}
 	}
 
-	m_pInteractableUI->SetVisible(false);
+	m_interactEvent.Invoke(SObjectData(), false); //I should make this a separate event, but I probably won't.
 	m_pActiveInteractable = nullptr;
 }
 
 void CTempPlayerComponent::RegisterInputs()
 {
 
-	// Register an action, and the callback that will be sent when it's triggered
 	m_pInputComponent->RegisterAction("player", "moveleft", [this](int activationMode, float value) { HandleInputFlagChange(EInputFlag::MoveLeft, (EActionActivationMode)activationMode); });
-	// Bind the 'A' key the "moveleft" action
 	m_pInputComponent->BindAction("player", "moveleft", eAID_KeyboardMouse, EKeyId::eKI_A);
 
 	m_pInputComponent->RegisterAction("player", "moveright", [this](int activationMode, float value) { HandleInputFlagChange(EInputFlag::MoveRight, (EActionActivationMode)activationMode); });

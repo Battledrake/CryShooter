@@ -7,6 +7,14 @@
      <Animation name="unarmed_jump_loop" flags="Loop"/>
     </AnimLayer>
    </Fragment>
+   <Fragment BlendOutDuration="0.2" Tags="Pistol">
+    <AnimLayer>
+     <Blend ExitTime="0" StartTime="0" Duration="0.00077056885"/>
+     <Animation name="unarmed_jump_begin"/>
+     <Blend ExitTime="0" StartTime="0" Duration="0.25077054"/>
+     <Animation name="unarmed_jump_loop" flags="Loop"/>
+    </AnimLayer>
+   </Fragment>
    <Fragment BlendOutDuration="0.2" Tags="">
     <AnimLayer>
      <Blend ExitTime="0" StartTime="0" Duration="0.00077056885"/>
@@ -21,6 +29,12 @@
     <AnimLayer>
      <Blend ExitTime="0" StartTime="0" Duration="1.7881393e-07"/>
      <Animation name="BSpace_MoveStrafe_Rifle" flags="Loop"/>
+    </AnimLayer>
+   </Fragment>
+   <Fragment BlendOutDuration="0.2" Tags="Pistol">
+    <AnimLayer>
+     <Blend ExitTime="0" StartTime="0" Duration="0"/>
+     <Animation name="BSpace_MoveStrafe_Pistol" flags="Loop"/>
     </AnimLayer>
    </Fragment>
    <Fragment BlendOutDuration="0.2" Tags="">

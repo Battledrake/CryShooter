@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="25d735ab-8833-4aef-2724-24878a68753b" source="pistol_masks.tif">
+ <Files>
+  <File path="pistol_masks.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">2048</Detail>
+  <Detail name="height">2048</Detail>
+  <Detail name="mipCount">10</Detail>
+ </Details>
+</AssetMetadata>

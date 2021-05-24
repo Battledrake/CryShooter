@@ -1,0 +1,8 @@
+<Params>
+ <AnimationList>
+  <Animation name="#filepath" path="Objects/Weapons/MilitaryDark/pistol"/>
+  <Animation name="*" path="*/*.caf"/>
+  <Animation name="*" path="*/*.bspace"/>
+  <Animation name="*" path="*/*.comb"/>
+ </AnimationList>
+</Params>

@@ -79,9 +79,9 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 		break;
 		case Cry::Entity::EEvent::Reset:
 		{
-			ClearEquipBinding("rifle");
 			if (m_pActiveWeapon)
 			{
+				ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
 				m_pActiveWeapon->GetEntity()->EnablePhysics(true);
 				m_pActiveWeapon = nullptr;
 			}
@@ -95,7 +95,7 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 
 void CCharacterComponent::UpdateMovement(float travelSpeed, float travelAngle)
 {
-	
+
 	Vec3 velocity(travelAngle, travelSpeed, 0.0f);
 	velocity.Normalize();
 	velocity.z = 0.0f;
@@ -182,16 +182,16 @@ void CCharacterComponent::ProcessSprinting(bool isPressed)
 		return;
 	}
 
-		if (isPressed)
-		{
-			if (m_pActiveWeapon)
-				m_pActiveWeapon->DisableFiring();
-			m_isRunning = true;
-		}
-		else
-		{
-			m_isRunning = false;
-		}
+	if (isPressed)
+	{
+		if (m_pActiveWeapon)
+			m_pActiveWeapon->DisableFiring();
+		m_isRunning = true;
+	}
+	else
+	{
+		m_isRunning = false;
+	}
 }
 
 void CCharacterComponent::SwitchFireMode()
@@ -209,7 +209,7 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 	{
 		m_pActiveWeapon->DisableFiring();
 
-		ClearEquipBinding("rifle");
+		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
 
 		m_totalAmmo -= m_pActiveWeapon->GetClipCount();
 
@@ -223,6 +223,7 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 
 		m_pActiveWeapon->m_fireEvent.RemoveListener();
 		m_pActiveWeapon->m_recoilEvent.RemoveListener();
+		m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), false);
 		m_pActiveWeapon = nullptr;
 	}
 
@@ -236,27 +237,84 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 	m_equipEvent.Invoke(m_pActiveWeapon->GetIconName(), EnumToString(m_pActiveWeapon->GetFireMode()),
 		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(), m_totalAmmo);
 
-	m_pActiveWeapon->m_fireEvent.RegisterListener([this]()
-	{
-		m_totalAmmo--;
-		m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount(), m_totalAmmo);
-	});
+	m_pActiveWeapon->m_fireEvent.RegisterListener(std::bind(&CCharacterComponent::HandleWeaponFired, this));
 	m_pActiveWeapon->m_recoilEvent.RegisterListener([this](Vec2 recoil)
 	{
 		if (CTempPlayerComponent* pPlayer = m_pOwner->GetComponent<CTempPlayerComponent>())
 			pPlayer->AddRecoilEffect(recoil);
 	});
 
-	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetAnimationType()), true);
+	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), true);
 	m_pAnimComp->QueueFragment("Locomotion");
+}
+
+void CCharacterComponent::HandleWeaponFired()
+{
+	//TODO: Shoot two raycasts. One from owner, one from character.
+	//If both hit, shoot projectile from owner.
+	//If char hits wall, shoot from char
+	//If char hits another char, shoot from owner
+	//If both miss, shoot from owner.
+	//If owner miss, char hits, shoot from char
+	int aimJoint = m_pAnimComp->GetCharacter()->GetIDefaultSkeleton().GetJointIDByName(m_aimJointName.c_str());
+	const QuatT& jointQuat = m_pAnimComp->GetCharacter()->GetISkeletonPose()->GetAbsJointByID(aimJoint);
+	Matrix34 charMatrix = m_pEntity->GetWorldTM();
+	charMatrix.AddTranslation(charMatrix.TransformVector(jointQuat.t));
+	charMatrix.SetRotation33(Matrix33(m_pOwner->GetWorldRotation()));
+
+	Vec3 ownerOrigin = m_pOwner->GetWorldPos();
+	Vec3 charOrigin = m_pEntity->GetWorldPos() + Vec3(0.0f, 0.0f, 1.5f);
+	Vec3 ownerDir = m_pOwner->GetForwardDir();
+	Vec3 charDir = charMatrix.GetColumn1();
+	const unsigned int rayFlags = rwi_stop_at_pierceable | rwi_colltype_any;
+	ray_hit ownerHitInfo;
+	ray_hit charHitInfo;
+
+	// 	bool ownerHit;
+	// 	bool charHit;
+
+	SEntitySpawnParams projectileParams;
+	projectileParams.pClass = gEnv->pEntitySystem->GetClassRegistry()->FindClass(m_pActiveWeapon->GetProjectileClass());
+
+	if (gEnv->pPhysicalWorld->RayWorldIntersection(ownerOrigin, ownerDir * 1000.0f, ent_all, rayFlags, &ownerHitInfo, 1, m_pOwner->GetPhysicalEntity()))
+	{
+		charDir = (ownerHitInfo.pt - charOrigin).normalized();
+	}
+	if (gEnv->pPhysicalWorld->RayWorldIntersection(charOrigin, charDir * 1000.0f, ent_all, rayFlags, &charHitInfo, 1, m_pEntity->GetPhysicalEntity()))
+	{
+		CCharacterComponent* pCharComp = nullptr;
+		if (IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(charHitInfo.pCollider))
+		{
+			pCharComp = pEntity->GetComponent<CCharacterComponent>();
+		}
+		if (ownerHitInfo.pCollider != charHitInfo.pCollider && !pCharComp)
+		{
+			projectileParams.vPosition = charOrigin;
+		}
+		else
+		{
+			projectileParams.vPosition = ownerOrigin;
+		}
+	}
+
+	projectileParams.qRotation = m_pOwner->GetWorldRotation();
+	const float bulletScale = 0.05f;
+	projectileParams.vScale = Vec3(bulletScale);
+	gEnv->pEntitySystem->SpawnEntity(projectileParams);
+
+
+	m_totalAmmo--;
+	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount(), m_totalAmmo);
 }
 
 void CCharacterComponent::ChangeCharacter(const Schematyc::CharacterFileName charFile, const Schematyc::CSharedString context)
 {
 	if (m_pActiveWeapon)
+	{
 		m_pActiveWeapon->DisableFiring();
+		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
+	}
 
-	ClearEquipBinding("rifle");
 
 	m_pAnimComp->SetCharacterFile(charFile.value);
 	if (context.length() > 0)
@@ -274,9 +332,9 @@ void CCharacterComponent::ChangeCharacter(const Schematyc::CharacterFileName cha
 
 void CCharacterComponent::AttachWeapon()
 {
-	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetAnimationType()), true);
+	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), true);
 
-	if (IAttachment* pAttach = m_pAnimComp->GetCharacter()->GetIAttachmentManager()->GetInterfaceByName("rifle"))
+	if (IAttachment* pAttach = m_pAnimComp->GetCharacter()->GetIAttachmentManager()->GetInterfaceByName(EnumToString(m_pActiveWeapon->GetWeaponType())))
 	{
 		CEntityAttachment* pWepAttach = new CEntityAttachment();
 		pWepAttach->SetEntityId(m_pActiveWeapon->GetEntityId());
@@ -284,7 +342,7 @@ void CCharacterComponent::AttachWeapon()
 	}
 }
 
-void CCharacterComponent::ClearEquipBinding(const char* szName)
+void CCharacterComponent::ClearAttachBinding(const char* szName)
 {
 	if (IAttachment* pAttach = m_pAnimComp->GetCharacter()->GetIAttachmentManager()->GetInterfaceByName(szName))
 	{

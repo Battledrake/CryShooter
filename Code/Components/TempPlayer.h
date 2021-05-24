@@ -15,9 +15,9 @@
 #include "Components/UIComponent.h"
 
 #include "Events/SimpleEvent.h"
+#include "Interfaces/IInteractable.h"
 
 struct IUIElement;
-struct IInteractable;
 
 class CTempPlayerComponent final : public IEntityComponent
 {
@@ -98,6 +98,7 @@ public:
 
 	//Events
 	SimpleEvent<void> m_fireEvent;
+	SimpleEvent<void, const SObjectData&, bool> m_interactEvent;
 	//~Events
 
 	inline CCharacterComponent* GetCharacter() { return m_pCharacter; }
@@ -134,9 +135,9 @@ private:
 	CCharacterComponent* m_pCharacter = nullptr;
 	CUIComponent* m_pUIComponent = nullptr;
 
+	//Private variables
 	IInteractable* m_pActiveInteractable;
 
-	//Private variables
 	CEnumFlags<EInputFlag> m_inputFlags;
 	Vec2 m_mouseDeltaRotation;
  	MovingAverage<Vec2, 10> m_mouseDeltaSmoothingFilter; //Makes look ik and recoil smoother. Keep!
@@ -148,11 +149,4 @@ private:
 	Vec3 m_firstPersonPos = Vec3(-0.1f, 0.0f, 0.1f);
 	Vec3 m_thirdPersonPos = Vec3(0.5f, -1.5f, 0.26f);
 	int m_attachJointId;
-
-	//TODO:Convert this to an event, and have UIComponent handle it.
-	IUIElement* m_pInteractableUI;
-
-	int m_totalAmmo = 1000;
-	int m_clipSize = 25;
-	int m_clipCount = 25;
 };

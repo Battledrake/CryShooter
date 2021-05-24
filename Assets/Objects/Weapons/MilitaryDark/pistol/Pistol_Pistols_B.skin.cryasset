@@ -1,0 +1,15 @@
+<AssetMetadata version="0" type="SkinnedMesh" guid="ed9afb8a-6083-d9f5-ba15-2dc3d8a77866" source="Pistol.FBX">
+ <Files>
+  <File path="Pistol_Pistols_B.skin"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">3</Detail>
+  <Detail name="triangleCount">3245</Detail>
+  <Detail name="vertexCount">3013</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+  <Detail name="bonesCount">6</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">materials/m_pistol.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

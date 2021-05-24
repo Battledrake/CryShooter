@@ -24,7 +24,7 @@ void CWeaponComponent::Initialize()
 	m_pInterfaceComponent = m_pEntity->GetOrCreateComponent<CInterfaceComponent>();
 	m_pMesh = m_pEntity->GetComponent<Cry::DefaultComponents::CBaseMeshComponent>();
 
-	m_currentFireMode = m_fireModes.At(0);
+	m_currentFireMode = m_fireModes.At(m_fireModesIndex);
 
 	m_clipCount = m_clipCapacity;
 
@@ -69,7 +69,8 @@ void CWeaponComponent::ProcessEvent(const SEntityEvent& event)
 		case Cry::Entity::EEvent::Reset:
 		{
 			m_clipCount = m_clipCapacity;
-			m_currentFireMode = m_fireModes.At(0);
+			m_fireModesIndex = 0;
+			m_currentFireMode = m_fireModes.At(m_fireModesIndex);
 		}
 		break;
 	}

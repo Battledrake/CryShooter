@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Material" guid="31d5f6de-559c-1415-2f15-92005ac80833" source="" timestamp="1621871997">
+ <Files>
+  <File path="m_pistol.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">0</Detail>
+  <Detail name="textureCount">3</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/pistol/textures/pistol_diff.dds</Path>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/pistol/textures/pistol_norm.dds</Path>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/pistol/textures/pistol_masks.dds</Path>
+ </Dependencies>
+</AssetMetadata>
