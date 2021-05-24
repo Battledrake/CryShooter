@@ -16,18 +16,18 @@
 
 #include "Events/SimpleEvent.h"
 
-enum class EViewMode : uint8
-{
-	Spectator,
-	FirstPerson,
-	ThirdPerson
-};
-
 struct IUIElement;
 struct IInteractable;
 
 class CTempPlayerComponent final : public IEntityComponent
 {
+	enum class EViewMode : uint8
+	{
+		Spectator,
+		FirstPerson,
+		ThirdPerson
+	};
+
 	enum class EInputFlagType
 	{
 		Hold = 0,
@@ -104,7 +104,7 @@ public:
 	inline Vec3 GetFirstPersonPosition() const { return m_thirdPersonPos; }
 	inline Vec3 GetThirdPersonPosition() const { return m_thirdPersonPos; }
 
-	void AddRecoilEffect(Vec2 recoil) { m_mouseDeltaRotation += recoil; m_mouseDeltaRotation = m_mouseDeltaSmoothingFilter.Push(m_mouseDeltaRotation).Get(); }
+	void AddRecoilEffect(Vec2 recoil) { m_mouseDeltaRotation += recoil; }
 	void SetCharacter(CCharacterComponent* character);
 	void CheckInteractables();
 
@@ -137,7 +137,7 @@ private:
 	//Private variables
 	CEnumFlags<EInputFlag> m_inputFlags;
 	Vec2 m_mouseDeltaRotation;
- 	MovingAverage<Vec2, 10> m_mouseDeltaSmoothingFilter;
+ 	MovingAverage<Vec2, 10> m_mouseDeltaSmoothingFilter; //Makes look ik and recoil smoother. Keep!
 	Quat m_lookOrientation;
 
 	EViewMode m_currentViewMode;

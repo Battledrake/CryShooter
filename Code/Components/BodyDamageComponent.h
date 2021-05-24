@@ -32,7 +32,6 @@ class CBodyDamageComponent final : public IEntityComponent
 	};
 
 public:
-
 	CBodyDamageComponent() = default;
 	virtual ~CBodyDamageComponent() = default;
 

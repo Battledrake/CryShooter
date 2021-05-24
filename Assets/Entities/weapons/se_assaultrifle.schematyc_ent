@@ -92,6 +92,7 @@
       <element element="Single"/>
       <element element="Burst"/>
      </FireModes>
+     <WeaponRecoil x="-5" y="10"/>
     </properties>
     <extensions />
     <children />

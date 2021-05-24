@@ -89,6 +89,8 @@ void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
 			const float rotationLimitsMinPitch = -0.84f;
 			const float rotationLimitsMaxPitch = 1.5f;
 
+			m_mouseDeltaRotation = m_mouseDeltaSmoothingFilter.Push(m_mouseDeltaRotation).Get();
+
 			Ang3 playerYPR = CCamera::CreateAnglesYPR(Matrix33(m_pEntity->GetLocalTM()));
 			playerYPR.y = CLAMP(playerYPR.y + m_mouseDeltaRotation.y * rotationSpeed, rotationLimitsMinPitch, rotationLimitsMaxPitch);
 			playerYPR.x += m_currentViewMode == EViewMode::Spectator ? m_mouseDeltaRotation.x * rotationSpeed : 0.0f;

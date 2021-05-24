@@ -63,7 +63,7 @@
     </children>
    </element>
    <element elementType="ComponentInstance" guid="3e5b7a6d-0204-4b0a-a3ae-96dbec0dc140" name="Character" accessor="Public" typeGUID="e733d7ae-ae23-404a-841e-24718780eee7">
-    <properties MoveSpeed="3" RunMultiplier="2" EffectorJointName="armature" AimJointName="mixamorig:spine"/>
+    <properties MoveSpeed="2" RunMultiplier="2" EffectorJointName="armature" AimJointName="mixamorig:spine"/>
     <extensions />
     <children />
    </element>

@@ -95,13 +95,15 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 
 void CCharacterComponent::UpdateMovement(float travelSpeed, float travelAngle)
 {
+	
 	Vec3 velocity(travelAngle, travelSpeed, 0.0f);
 	velocity.Normalize();
 	velocity.z = 0.0f;
 
 	const float runMultiplier = m_isRunning && travelSpeed > 0 ? m_runMultiplier : 1.0f;
+	const float backWalk = travelSpeed < 0 ? 0.75f : 1.0f;
 
-	m_pCharController->SetVelocity(m_pEntity->GetWorldRotation() * velocity * m_moveSpeed * runMultiplier);
+	m_pCharController->SetVelocity(m_pEntity->GetWorldRotation() * velocity * m_moveSpeed * runMultiplier * backWalk);
 }
 
 void CCharacterComponent::UpdateRotation(const Quat& rotation)

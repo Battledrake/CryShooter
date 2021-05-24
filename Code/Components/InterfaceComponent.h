@@ -10,9 +10,6 @@ public:
 	CInterfaceComponent() = default;
 	virtual ~CInterfaceComponent() = default;
 
-	virtual Cry::Entity::EventFlags GetEventMask() const override;
-	virtual void ProcessEvent(const SEntityEvent& event) override;
-
 	static void ReflectType(Schematyc::CTypeDesc<CInterfaceComponent>& desc)
 	{
 		desc.SetGUID("{7F8BBB39-46D3-4D32-9868-918C22638962}"_cry_guid);
@@ -40,6 +37,10 @@ public:
 		};
 		return false;
 	}
+
+protected:
+	virtual Cry::Entity::EventFlags GetEventMask() const override;
+	virtual void ProcessEvent(const SEntityEvent& event) override;
 
 private:
 	std::unordered_map<const char*, IInterfaceBase*> m_interfaceMap;
