@@ -107,8 +107,15 @@
      </scale>
     </transform>
     <properties Networked="true">
-     <Physics Mass="80" Radius="0.44999999" Height="0.935" Capsule="true" GroundContactEps="0.0040000002" SendCollisionSignal="false"/>
+     <Physics Mass="80" Radius="0.44999999" Height="0.935" Capsule="false" GroundContactEps="0.0040000002" SendCollisionSignal="false"/>
      <Movement AirControl="0" AirResistance="0.2" Inertia="8" InertiaAcc="8" MaxClimb="0.87266463" MaxJump="0.87266463" MinSlide="1.2217305" MinFall="1.3962634" MaxGroundVelocity="16"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="b0974349-f584-49c6-9ac3-d5135ebe6926" name="Body Damage" accessor="Public" typeGUID="e30cb5b2-6e59-406c-9d97-e84d0d08eaef">
+    <properties>
+     <PartArray />
     </properties>
     <extensions />
     <children />

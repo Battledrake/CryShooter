@@ -1,5 +1,5 @@
 <ObjectLayer>
- <Layer Name="Main" FullName="Main" GUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Hidden="0" Frozen="0" Expanded="0" Type="0" Exportable="1" ExportLayerPak="1" DefaultLoaded="0" HavePhysics="1" IsDefaultColor="1" Color="4671303" Timestamp="1621885858">
+ <Layer Name="Main" FullName="Main" GUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Hidden="0" Frozen="0" Expanded="0" Type="0" Exportable="1" ExportLayerPak="1" DefaultLoaded="0" HavePhysics="1" IsDefaultColor="1" Color="4671303" Timestamp="1621887239">
   <LayerObjects>
    <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="4ccb90a3-1dbb-4500-99bf-25286ff6daf7" Name="Designer Box3" Pos="80,66,32" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="%engine%/EngineAssets/Materials/material_default" MinSpec="0" RndFlags="1073741832" StaticObjFlags="0" ViewDistRatio="100">
     <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
@@ -85,6 +85,12 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="b54fd980-bb7e-a0b8-f109-2ba90cdd1cd1" Name="entities::weapons::se_secondrifle-1" Pos="69.590279,56.604847,33.079227" Rotate="0.97878492,0,-0.20489042,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::weapons::se_secondrifle" ClassGUID="6f90b658-f2ba-4934-9a59-f6fce7b83321" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="283e277a-14ef-8ce8-77e7-1555cb1a7c7f" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="207e1114-30de-355a-569a-3d78c1040b5f" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="6ddaa2f0-dca8-6d33-6031-30bf04da0342" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -514,6 +520,12 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="ddcbac0d-6fb6-f489-83aa-ae65dc8ee216" Name="entities::weapons::assault_rifle-1" Pos="66.251053,56.361847,33.080868" Rotate="0.0043179472,0.27102187,-0.025485048,0.96222609" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::weapons::assault_rifle" ClassGUID="3e17a106-7d40-4de5-8ca2-f36f22c57244" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="ff3f6ba9-e4f9-a134-f5e0-78c2835e52ee" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="d95fd0ce-bd6d-92f3-87f1-a6d96700caeb" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="30cca74e-ea47-5439-1490-a0ce4489dcaf" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -655,8 +667,58 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="90fdbde1-155a-302c-d64d-0537987c5f77" Name="entities::characters::playercharacter-1" Pos="69.051941,54.907272,32.016178" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::characters::playercharacter" ClassGUID="06efa1d9-bcdd-4db4-8dfa-a3b0750af412" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="fc3d4a65-3ff9-8771-631b-146b94eaaac0" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="02ec5352-91c3-cf17-c1b0-97a90342709a" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="8a2ceab6-4999-0e6d-920c-9e8b607e5939" Name="" UserAdded="false">
       <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="e30cb5b2-6e59-406c-9d97-e84d0d08eaef" TypeName="CBodyDamageComponent" GUID="8f4332c7-031a-2e07-6669-1ad36317e377" Name="" UserAdded="true">
+      <properties>
+       <PartArray>
+        <element jointname="mixamorig:head" damagemultiplier="5"/>
+       </PartArray>
+      </properties>
+     </Component>
+    </Components>
+    <SchematycProperties CryXmlVersion="2">
+     <components>
+      <element key="316486f3-fb3e-495f-a799-2106bcdbbaa4">
+       <value overridePolicy="Default"/>
+      </element>
+      <element key="ca8ef4ac-5658-4a4a-be5b-7e72e04634a6">
+       <value overridePolicy="Override">
+        <properties Networked="true">
+         <Physics Mass="80" Radius="0.44999999" Height="0.935" Capsule="false" GroundContactEps="0.0040000002" SendCollisionSignal="false"/>
+         <Movement AirControl="1" AirResistance="0.2" Inertia="8" InertiaAcc="8" MaxClimb="0.87266463" MaxJump="0.87266463" MinSlide="1.2217305" MinFall="1.3962634" MaxGroundVelocity="16"/>
+        </properties>
+       </value>
+      </element>
+      <element key="3e5b7a6d-0204-4b0a-a3ae-96dbec0dc140">
+       <value overridePolicy="Default"/>
+      </element>
+     </components>
+     <variables />
+    </SchematycProperties>
+   </Object>
+   <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="a989c570-773d-945e-f589-02f7d4c2d35c" Name="entities::characters::playercharacter-2" Pos="72.321274,62.63855,32.016178" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::characters::playercharacter" ClassGUID="06efa1d9-bcdd-4db4-8dfa-a3b0750af412" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="6edf44c9-049a-2b22-eb92-9ffa2c7ac866" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="9f2a9bc6-e893-a19f-0a4c-fd6f4c803264" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="e30cb5b2-6e59-406c-9d97-e84d0d08eaef" TypeName="CBodyDamageComponent" GUID="525d7560-7093-a93d-d1b2-42dced9509cf" Name="" UserAdded="true">
+      <properties>
+       <PartArray>
+        <element jointname="mixamorig:head" damagemultiplier="10"/>
+       </PartArray>
+      </properties>
      </Component>
     </Components>
     <SchematycProperties CryXmlVersion="2">

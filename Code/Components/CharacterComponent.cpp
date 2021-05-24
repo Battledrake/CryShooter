@@ -264,8 +264,9 @@ void CCharacterComponent::HandleWeaponFired()
 
 	Vec3 ownerOrigin = m_pOwner->GetWorldPos();
 	Vec3 charOrigin = m_pEntity->GetWorldPos() + Vec3(0.0f, 0.0f, 1.5f);
-	Vec3 ownerDir = m_pOwner->GetForwardDir();
-	Vec3 charDir = charMatrix.GetColumn1();
+	float distance = 100.0f;
+	Vec3 ownerDir = m_pOwner->GetForwardDir() * distance;
+	Vec3 charDir = charMatrix.GetColumn1() * distance;
 	const unsigned int rayFlags = rwi_stop_at_pierceable | rwi_colltype_any;
 	ray_hit ownerHitInfo;
 	ray_hit charHitInfo;
@@ -276,11 +277,11 @@ void CCharacterComponent::HandleWeaponFired()
 	SEntitySpawnParams projectileParams;
 	projectileParams.pClass = gEnv->pEntitySystem->GetClassRegistry()->FindClass(m_pActiveWeapon->GetProjectileClass());
 
-	if (gEnv->pPhysicalWorld->RayWorldIntersection(ownerOrigin, ownerDir * 1000.0f, ent_all, rayFlags, &ownerHitInfo, 1, m_pOwner->GetPhysicalEntity()))
+	if (gEnv->pPhysicalWorld->RayWorldIntersection(ownerOrigin, ownerDir, ent_all, rayFlags, &ownerHitInfo, 1, m_pOwner->GetPhysicalEntity()))
 	{
-		charDir = (ownerHitInfo.pt - charOrigin).normalized();
+		charDir = ownerHitInfo.pt - charOrigin;
 	}
-	if (gEnv->pPhysicalWorld->RayWorldIntersection(charOrigin, charDir * 1000.0f, ent_all, rayFlags, &charHitInfo, 1, m_pEntity->GetPhysicalEntity()))
+	if (gEnv->pPhysicalWorld->RayWorldIntersection(charOrigin, charDir, ent_all, rayFlags, &charHitInfo, 1, m_pEntity->GetPhysicalEntity()))
 	{
 		CCharacterComponent* pCharComp = nullptr;
 		if (IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(charHitInfo.pCollider))

@@ -46,8 +46,10 @@ void CProjectileComponent::ProcessEvent(const SEntityEvent& event)
 	switch (event.event)
 	{
 		case Cry::Entity::EEvent::PhysicsCollision:
+			CryLogAlways("Hit Something!");
 			if (EventPhysCollision* pPhys = reinterpret_cast<EventPhysCollision*>(event.nParam[0]))
 			{
+				CryLogAlways("HitId: %i", pPhys->partid[1]);
 				if (IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(pPhys->pEntity[1]))
 				{
 					if (CInterfaceComponent* pInterfaceComp = pEntity->GetComponent<CInterfaceComponent>())
