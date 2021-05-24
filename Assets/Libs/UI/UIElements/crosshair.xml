@@ -1,0 +1,12 @@
+<UIElements name="HUD">
+	<UIElement name="Crosshair" render_lockless="1">
+		<GFx file="Crosshair.gfx" layer="0">
+			<Constraints>
+				<Align mode="dynamic" valign="center" halign="center" scale="1" max="0"/>
+			</Constraints>
+		</GFx>
+		<functions>
+			<function name="Fire" funcname="Fire"/>
+		</functions>
+	</UIElement>
+</UIElements>

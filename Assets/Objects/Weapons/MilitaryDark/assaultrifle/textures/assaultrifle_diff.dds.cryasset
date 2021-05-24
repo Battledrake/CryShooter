@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="9774b7fc-67f8-46ad-d82b-dddc169f7d45" source="assaultrifle_diff.tif">
+ <Files>
+  <File path="assaultrifle_diff.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">2048</Detail>
+  <Detail name="height">2048</Detail>
+  <Detail name="mipCount">10</Detail>
+ </Details>
+</AssetMetadata>

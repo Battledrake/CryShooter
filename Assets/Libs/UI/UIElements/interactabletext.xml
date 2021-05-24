@@ -1,0 +1,14 @@
+<UIElements name="HUD">
+	<UIElement name="InteractableText" render_lockless="1">
+		<GFx file="InteractableText.gfx" layer="0">
+			<Constraints>
+				<Align mode="dynamic" valign="center" halign="center" scale="1" max="0"/>
+			</Constraints>
+		</GFx>
+		<functions>
+			<function name="UpdateText" funcname="updateIText" desc="Updates interactable text">
+				<param name="newText" desc="Interactable text value" type="String"/>
+				</function>
+		</functions>
+	</UIElement>
+</UIElements>

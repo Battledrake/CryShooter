@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Character" guid="fe955b5c-595c-d690-b391-70948782f289">
+ <Files>
+  <File path="AssaultRifle.cdf"/>
+ </Files>
+ <Details />
+ <Dependencies>
+  <Path>Objects/Weapons/MilitaryDark/AssaultRifle/AssaultRifle.chr</Path>
+  <Path>Objects/Weapons/MilitaryDark/AssaultRifle/AssaultRifle_Assault_Rifle_B.skin</Path>
+ </Dependencies>
+</AssetMetadata>

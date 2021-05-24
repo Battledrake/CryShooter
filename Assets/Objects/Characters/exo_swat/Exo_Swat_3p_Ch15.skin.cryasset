@@ -1,0 +1,15 @@
+<AssetMetadata version="0" type="SkinnedMesh" guid="46ad37a0-bade-1333-880d-d75fa1ca36a0" source="Exo_Swat_3p.fbx">
+ <Files>
+  <File path="Exo_Swat_3p_Ch15.skin"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">3</Detail>
+  <Detail name="triangleCount">46301</Detail>
+  <Detail name="vertexCount">31765</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+  <Detail name="bonesCount">54</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">Materials/m_exo_swat.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

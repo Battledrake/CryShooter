@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="c4594746-b810-e8a7-503f-cabac2bce918">
+ <Files>
+  <File path="WeaponHud_IC.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">2048</Detail>
+  <Detail name="height">1024</Detail>
+  <Detail name="mipCount">1</Detail>
+ </Details>
+</AssetMetadata>

@@ -1,0 +1,60 @@
+<CrySchematyc CryXmlVersion="2" version="105" guid="e0b75c59-54f8-4d47-8d98-b845e43e45b7" scope="">
+ <root elementType="Class" guid="6f90b658-f2ba-4934-9a59-f6fce7b83321" name="se_secondrifle">
+  <userDocumentation author="battl" description=""/>
+  <extensions />
+  <children>
+   <element elementType="Constructor" guid="66ea8ae8-a33b-477d-95e0-902e801e9b2c" name="ConstructionGraph">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="3793948d-dca9-43d0-a168-1b7fa03f2df7" typeGUID="12bdfa06-ba95-4e48-bb2d-bb48a7080abc">
+        <value guid="3793948d-dca9-43d0-a168-1b7fa03f2df7">
+         <pos x="0" y="0"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="SignalReceiver" guid="1678130e-c56f-493c-91aa-3c9def43b3c1" name="SignalGraph" type="Universal" signalGUID="">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="9c4400b4-200e-413c-8ddb-85770012d523" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="9c4400b4-200e-413c-8ddb-85770012d523" objectGUID="">
+         <pos x="0" y="100"/>
+         <signalId domain="Env" guid="52ad5add-7781-429b-b4a9-0cb6c905e353"/>
+        </value>
+       </element>
+       <element key="f4994320-2eff-480a-a414-90da46f98c3b" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="f4994320-2eff-480a-a414-90da46f98c3b" objectGUID="">
+         <pos x="0" y="200"/>
+         <signalId domain="Env" guid="b2561caa-0753-458b-a91f-e8e38b0f0cdf"/>
+        </value>
+       </element>
+       <element key="f74735d7-9875-49d3-872c-f53ce8d40254" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="f74735d7-9875-49d3-872c-f53ce8d40254" objectGUID="">
+         <pos x="0" y="0"/>
+         <signalId domain="Env" guid="a9279137-7c66-491d-b9a0-8752c24c8979"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="Base" guid="7bc01ad1-b72d-4220-b952-bd1038b4e183" name="Base [assault_rifle]">
+    <classId domain="Script" guid="3e17a106-7d40-4de5-8ca2-f36f22c57244"/>
+    <extensions />
+    <children />
+   </element>
+  </children>
+ </root>
+</CrySchematyc>

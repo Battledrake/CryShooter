@@ -1,0 +1,36 @@
+<SurfaceTypes>
+
+ <SurfaceType name="mat_concrete">
+  <Physics friction="1" elasticity="0.2" pierceability="3" sound_obstruction="0.5" />
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_default">
+  <Physics sound_obstruction="0.5" />
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_water">
+  <Physics sound_obstruction="0.5" />
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_canopy">
+  <Physics sound_obstruction="0.5" />
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_bullet">
+  <Physics friction="0.1" />
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_metal">
+  <Physics sound_obstruction="0.5" />
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_body_head"/>
+ <SurfaceType name="mat_body_torso"/>
+ <SurfaceType name="mat_body_upperarm"/>
+ <SurfaceType name="mat_body_lowerarm"/>
+ <SurfaceType name="mat_body_hand"/>
+ <SurfaceType name="mat_body_upperleg"/>
+ <SurfaceType name="mat_body_lowerleg"/>
+ <SurfaceType name="mat_body_foot"/>
+ 
+</SurfaceTypes>

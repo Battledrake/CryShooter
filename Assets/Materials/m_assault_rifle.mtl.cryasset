@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Material" guid="68352c76-7fab-0617-c095-1dc2e5f88ab9" timestamp="1621415201">
+ <Files>
+  <File path="m_assault_rifle.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">0</Detail>
+  <Detail name="textureCount">3</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/assaultrifle/textures/assaultrifle_diff.dds</Path>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/assaultrifle/textures/assaultrifle_norm.dds</Path>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/assaultrifle/textures/assaultrifle_masks.dds</Path>
+ </Dependencies>
+</AssetMetadata>

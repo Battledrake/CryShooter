@@ -1,0 +1,17 @@
+<ControllerDef>
+ <Tags filename="Animations/Mannequin/ADB/CharacterTags.xml"/>
+ <Fragments filename="Animations/Mannequin/ADB/CharacterFragmentIds.xml"/>
+ <FragmentDefs>
+  <Jump scopes="FirstPerson+ThirdPerson"/>
+  <Locomotion scopes="FirstPerson+ThirdPerson"/>
+  <Fire scopes="FirstPerson+ThirdPerson"/>
+ </FragmentDefs>
+ <ScopeContextDefs>
+  <FirstPersonCharacter />
+  <ThirdPersonCharacter />
+ </ScopeContextDefs>
+ <ScopeDefs>
+  <FirstPerson layer="0" numLayers="3" context="FirstPersonCharacter"/>
+  <ThirdPerson layer="0" numLayers="3" context="ThirdPersonCharacter"/>
+ </ScopeDefs>
+</ControllerDef>

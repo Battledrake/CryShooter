@@ -1,0 +1,12 @@
+<AssetMetadata version="0" type="Character" guid="c993d8b9-f9ff-fabb-43e8-9a4d7222fb78">
+ <Files>
+  <File path="Exo_Swat_3p.cdf"/>
+ </Files>
+ <Details />
+ <Dependencies>
+  <Path>Objects/Characters/exo_swat/Exo_Swat_3p.chr</Path>
+  <Path>Materials/m_exo_swat.mtl</Path>
+  <Path>Objects/Characters/exo_swat/Exo_Swat_3p_Ch15.skin</Path>
+  <Path>Materials/m_exo_swat.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

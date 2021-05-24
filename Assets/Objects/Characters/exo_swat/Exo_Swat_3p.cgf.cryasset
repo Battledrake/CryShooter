@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Mesh" guid="6d8d677b-b6ad-2e53-bca6-1c0e8bc4648c" source="Exo_Swat_3p.fbx">
+ <Files>
+  <File path="Exo_Swat_3p.cgf"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">3</Detail>
+  <Detail name="triangleCount">46301</Detail>
+  <Detail name="vertexCount">31765</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">Materials/m_exo_swat.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

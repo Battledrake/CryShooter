@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Mesh" guid="a9be233f-c484-28b1-d713-23ed05311041">
+ <Files>
+  <File path="skelProxy.chr.cgf"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">1</Detail>
+  <Detail name="triangleCount">0</Detail>
+  <Detail name="vertexCount">0</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">objects/characters/samplecharacter/motusbodymat.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

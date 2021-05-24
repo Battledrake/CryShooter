@@ -1,0 +1,103 @@
+<CrySchematyc CryXmlVersion="2" version="105" guid="cc9e5e88-b71c-4240-8e4a-65dac1594e69" scope="">
+ <root elementType="Class" guid="8dff3e22-408a-43d1-9010-ea7179ba4fc4" name="projectile">
+  <userDocumentation author="battl" description=""/>
+  <extensions />
+  <children>
+   <element elementType="Constructor" guid="6f98c3ce-68a7-498c-9eb7-0ceb45b07ae2" name="ConstructionGraph">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="5b9daad4-f498-4be8-9438-8ee38aad2260" typeGUID="12bdfa06-ba95-4e48-bb2d-bb48a7080abc">
+        <value guid="5b9daad4-f498-4be8-9438-8ee38aad2260">
+         <pos x="0" y="0"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="SignalReceiver" guid="7ec26403-fd63-46b3-a6cd-10d67adcba0d" name="SignalGraph" type="Universal" signalGUID="">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="c99acb25-69d3-43b8-a0e8-f444eff89f40" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="c99acb25-69d3-43b8-a0e8-f444eff89f40" objectGUID="">
+         <pos x="0" y="100"/>
+         <signalId domain="Env" guid="52ad5add-7781-429b-b4a9-0cb6c905e353"/>
+        </value>
+       </element>
+       <element key="da37ed2f-a3ed-48e2-a6b5-0bed965cdc59" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="da37ed2f-a3ed-48e2-a6b5-0bed965cdc59" objectGUID="">
+         <pos x="0" y="200"/>
+         <signalId domain="Env" guid="b2561caa-0753-458b-a91f-e8e38b0f0cdf"/>
+        </value>
+       </element>
+       <element key="6baac5c5-f1e3-4cae-b479-e0488821f5a2" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="6baac5c5-f1e3-4cae-b479-e0488821f5a2" objectGUID="">
+         <pos x="0" y="0"/>
+         <signalId domain="Env" guid="a9279137-7c66-491d-b9a0-8752c24c8979"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="Base" guid="681f4d1c-d5bf-4c22-9381-deb972abfa03" name="Base [Entity]">
+    <classId domain="Env" guid="be845278-0dd2-409f-b8be-97895607c256"/>
+    <envClassProperties icon="%EDITOR%/objecticons/schematyc.bmp" bHideInEditor="false" bTriggerAreas="true" bCreatePerClient="false"/>
+    <extensions />
+    <children>
+     <element elementType="ComponentInstance" guid="41a4be74-93f9-4633-8519-a4093476f4f1" name="Entity" accessor="Private" typeGUID="e88093df-904f-4c52-af38-911e26777cdc">
+      <properties />
+      <extensions />
+      <children />
+     </element>
+    </children>
+   </element>
+   <element elementType="ComponentInstance" guid="aedc391b-cd7d-4741-9f10-0521e0528203" name="PhysParticle" accessor="Public" typeGUID="45db74c2-18a3-460d-bc78-541555ce7424">
+    <properties Mass="0.2" Size="0.050000001" Thickness="0.050000001" Thrust="0" Lift="0" Gravity="1" WGravity="0.80000001" AirResistance="1" WaterResistance="1" MinBounceVel="1.5" MinVel="0.02" Awake="true" Networked="true" SendCollisionSignal="true" Traceable="true" SingleContact="true" ConstantRot="false" NoRoll="false" NoSpin="false" NoPath="false" NoSelfColl="false" NoImpulse="false" SurfaceType="default">
+     <Normal x="0" y="0" z="0.99999994"/>
+     <RollAxis x="0" y="0" z="0.99999994"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="6a927c93-c124-42d5-a9d2-fbee00a690fe" name="Mesh" accessor="Public" typeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29">
+    <transform>
+     <translation>
+      <position>
+       <element element="0"/>
+       <element element="0"/>
+       <element element="0"/>
+      </position>
+     </translation>
+     <rotation x="0" y="-0" z="0"/>
+     <scale>
+      <element element="1"/>
+      <element element="1"/>
+      <element element="1"/>
+     </scale>
+    </transform>
+    <properties Type="RenderAndCollider" FilePath="%ENGINE%/EngineAssets/Objects/primitive_sphere.cgf" Material="Materials/bullet.mtl">
+     <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
+     <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="0.2"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="582c8645-586e-4232-8d88-561117f16423" name="ProjectileComponent" accessor="Public" typeGUID="4687b241-f3c7-421c-a98b-6b87448aaab5">
+    <properties MoveSpeed="500"/>
+    <extensions />
+    <children />
+   </element>
+  </children>
+ </root>
+</CrySchematyc>

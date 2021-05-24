@@ -1,0 +1,19 @@
+<AssetMetadata version="0" type="Material" guid="cd4a4737-79be-2207-a22e-3941b0864fea" timestamp="1620331327">
+ <Files>
+  <File path="m_exo_swat.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">3</Detail>
+  <Detail name="textureCount">8</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">%ENGINE%/EngineAssets/Textures/white.dds</Path>
+  <Path usageCount="1">%ENGINE%/EngineAssets/Textures/white_ddn.dds</Path>
+  <Path usageCount="1">Objects/Characters/exo_swat/Exo_Swat_Tex.fbm/ch15_1002_diffuse.dds</Path>
+  <Path usageCount="1">Objects/Characters/exo_swat/Exo_Swat_Tex.fbm/ch15_1002_normal.dds</Path>
+  <Path usageCount="1">Objects/Characters/exo_swat/Exo_Swat_Tex.fbm/ch15_1002_specular.dds</Path>
+  <Path usageCount="1">Objects/Characters/exo_swat/Exo_Swat_Tex.fbm/ch15_1001_diffuse.dds</Path>
+  <Path usageCount="1">Objects/Characters/exo_swat/Exo_Swat_Tex.fbm/ch15_1001_normal.dds</Path>
+  <Path usageCount="1">Objects/Characters/exo_swat/Exo_Swat_Tex.fbm/ch15_1001_specular.dds</Path>
+ </Dependencies>
+</AssetMetadata>

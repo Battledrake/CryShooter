@@ -1,0 +1,12 @@
+<AssetMetadata version="0" type="Material" guid="9eaf56b4-f4fb-5958-fded-4421a85bc38a" timestamp="1621434226">
+ <Files>
+  <File path="m_floor.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">0</Detail>
+  <Detail name="textureCount">1</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">%engine%/engineassets/textures/hex_grad.dds</Path>
+ </Dependencies>
+</AssetMetadata>

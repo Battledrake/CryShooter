@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="18c4383f-0fa7-0518-be2e-10d3f0efe9a1">
+ <Files>
+  <File path="Pistol.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">256</Detail>
+  <Detail name="height">64</Detail>
+  <Detail name="mipCount">1</Detail>
+ </Details>
+</AssetMetadata>

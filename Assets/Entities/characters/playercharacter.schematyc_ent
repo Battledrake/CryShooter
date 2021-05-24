@@ -1,0 +1,118 @@
+<CrySchematyc CryXmlVersion="2" version="105" guid="e5a9ed22-5df9-49d3-95f2-22f0c1511f9e" scope="">
+ <root elementType="Class" guid="06efa1d9-bcdd-4db4-8dfa-a3b0750af412" name="se_character">
+  <userDocumentation author="battl" description=""/>
+  <extensions />
+  <children>
+   <element elementType="Constructor" guid="b36a1d45-57f4-478d-adec-4fbceba59f4e" name="ConstructionGraph">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="0f1a89d3-fec4-418b-a471-d05abf681e8d" typeGUID="12bdfa06-ba95-4e48-bb2d-bb48a7080abc">
+        <value guid="0f1a89d3-fec4-418b-a471-d05abf681e8d">
+         <pos x="0" y="0"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="SignalReceiver" guid="65a9dae0-e5a4-4301-9afb-233eaa6c1ac0" name="SignalGraph" type="Universal" signalGUID="">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="0a3f21df-afc9-4368-9c82-a5c2812296b2" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="0a3f21df-afc9-4368-9c82-a5c2812296b2" objectGUID="">
+         <pos x="0" y="200"/>
+         <signalId domain="Env" guid="b2561caa-0753-458b-a91f-e8e38b0f0cdf"/>
+        </value>
+       </element>
+       <element key="9c5ac2d7-c8bf-4482-8b69-b9fbe369e83d" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="9c5ac2d7-c8bf-4482-8b69-b9fbe369e83d" objectGUID="">
+         <pos x="0" y="100"/>
+         <signalId domain="Env" guid="52ad5add-7781-429b-b4a9-0cb6c905e353"/>
+        </value>
+       </element>
+       <element key="3fc08601-688d-448d-a1f1-9658930e3736" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="3fc08601-688d-448d-a1f1-9658930e3736" objectGUID="">
+         <pos x="0" y="0"/>
+         <signalId domain="Env" guid="a9279137-7c66-491d-b9a0-8752c24c8979"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="Base" guid="edf1174d-e2d9-4ba7-a799-85f3c593af0d" name="Base [Entity]">
+    <classId domain="Env" guid="be845278-0dd2-409f-b8be-97895607c256"/>
+    <envClassProperties icon="%EDITOR%/objecticons/schematyc.bmp" bHideInEditor="false" bTriggerAreas="true" bCreatePerClient="false"/>
+    <extensions />
+    <children>
+     <element elementType="ComponentInstance" guid="9ac88d4d-f219-4423-a203-f28a2b0400a5" name="Entity" accessor="Private" typeGUID="e88093df-904f-4c52-af38-911e26777cdc">
+      <properties />
+      <extensions />
+      <children />
+     </element>
+    </children>
+   </element>
+   <element elementType="ComponentInstance" guid="3e5b7a6d-0204-4b0a-a3ae-96dbec0dc140" name="Character" accessor="Public" typeGUID="e733d7ae-ae23-404a-841e-24718780eee7">
+    <properties MoveSpeed="3" RunMultiplier="2" EffectorJointName="armature" AimJointName="mixamorig:spine"/>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="316486f3-fb3e-495f-a799-2106bcdbbaa4" name="Advanced Animations" accessor="Public" typeGUID="3cd5ddc5-ee15-437f-a997-79c2391537fe">
+    <transform>
+     <translation>
+      <position>
+       <element element="0"/>
+       <element element="0"/>
+       <element element="0"/>
+      </position>
+     </translation>
+     <rotation x="0" y="-0" z="0"/>
+     <scale>
+      <element element="1"/>
+      <element element="1"/>
+      <element element="1"/>
+     </scale>
+    </transform>
+    <properties Type="RenderAndCollider" Character="Objects/Characters/exo_swat/Exo_Swat_3p.cdf" Material="Materials/m_exo_swat.mtl" DatabasePath="Animations/Mannequin/ADB/Character.adb" ControllerDefPath="Animations/Mannequin/ADB/CharacterControllerDefinition.xml" DefaultScope="ThirdPersonCharacter" DefaultFragment="Locomotion" AnimDriven="true" GroundAlign="true">
+     <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
+     <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="ca8ef4ac-5658-4a4a-be5b-7e72e04634a6" name="Character Controller" accessor="Public" typeGUID="98183f31-a685-43cd-92a9-815274f0a81c">
+    <transform>
+     <translation>
+      <position>
+       <element element="0"/>
+       <element element="0"/>
+       <element element="0"/>
+      </position>
+     </translation>
+     <rotation x="0" y="-0" z="0"/>
+     <scale>
+      <element element="1"/>
+      <element element="1"/>
+      <element element="1"/>
+     </scale>
+    </transform>
+    <properties Networked="true">
+     <Physics Mass="80" Radius="0.44999999" Height="0.935" Capsule="true" GroundContactEps="0.0040000002" SendCollisionSignal="false"/>
+     <Movement AirControl="0" AirResistance="0.2" Inertia="8" InertiaAcc="8" MaxClimb="0.87266463" MaxJump="0.87266463" MinSlide="1.2217305" MinFall="1.3962634" MaxGroundVelocity="16"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+  </children>
+ </root>
+</CrySchematyc>

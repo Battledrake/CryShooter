@@ -1,0 +1,31 @@
+<ParaGroup>
+ <Dimensions>
+  <Param Name="MoveSpeed" Min="0" Max="7.0000005" Cells="9"/>
+  <Param Name="TravelAngle" Min="-3.1400001" Max="3.1400001" Cells="5"/>
+ </Dimensions>
+ <ExampleList>
+  <Example SetPara0="0" SetPara1="-3.1400001" AName="unarmed_idle"/>
+  <Example SetPara1="-1.540001" AName="unarmed_idle"/>
+  <Example AName="unarmed_idle"/>
+  <Example SetPara1="1.6000003" AName="unarmed_idle"/>
+  <Example SetPara1="3.1400001" AName="unarmed_idle"/>
+  <Example SetPara0="3.4999995" SetPara1="-3.0999992" AName="unarmed_walk_bwd" PlaybackScale="2"/>
+  <Example SetPara0="2.5999999" SetPara1="-1.5000001" AName="unarmed_strafe_right"/>
+  <Example SetPara0="1.7000002" AName="unarmed_walk_fwd"/>
+  <Example SetPara0="2.599999" SetPara1="1.5000001" AName="unarmed_strafe_left"/>
+  <Example SetPara0="3.5000002" SetPara1="3.1999998" AName="unarmed_walk_bwd" PlaybackScale="2"/>
+  <Example SetPara0="6.0999985" SetPara1="-1.5000005" AName="unarmed_run_strafe_right"/>
+  <Example SetPara0="7.0000005" AName="unarmed_run_fwd"/>
+  <Example SetPara0="5.9999986" SetPara1="1.6000001" AName="unarmed_run_strafe_left"/>
+ </ExampleList>
+ <Blendable>
+  <Face p0="0" p1="5" p2="6" p3="1"/>
+  <Face p0="1" p1="6" p2="7" p3="2"/>
+  <Face p0="2" p1="7" p2="8" p3="3"/>
+  <Face p0="3" p1="8" p2="9" p3="4"/>
+  <Face p0="5" p1="10" p2="6"/>
+  <Face p0="6" p1="10" p2="11" p3="7"/>
+  <Face p0="7" p1="11" p2="12" p3="8"/>
+  <Face p0="8" p1="12" p2="9"/>
+ </Blendable>
+</ParaGroup>

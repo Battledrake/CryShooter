@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="bac8f010-6717-985b-6f34-4ea1873d4083" source="assaultrifle_masks.tif">
+ <Files>
+  <File path="assaultrifle_masks.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">2048</Detail>
+  <Detail name="height">2048</Detail>
+  <Detail name="mipCount">10</Detail>
+ </Details>
+</AssetMetadata>

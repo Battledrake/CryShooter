@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Mesh" guid="c897b144-43b2-5726-6772-049219a1fdb8" source="AssaultRifle.FBX">
+ <Files>
+  <File path="AssaultRifle.cgf"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">3</Detail>
+  <Detail name="triangleCount">6224</Detail>
+  <Detail name="vertexCount">5389</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">Materials/m_assault_rifle.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

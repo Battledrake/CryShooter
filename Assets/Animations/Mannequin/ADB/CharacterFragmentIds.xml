@@ -1,0 +1,7 @@
+<TagDefinition version="2">
+ <Tags>
+  <Tag name="Jump" subTagDef="Animations/Mannequin/ADB/CharacterTags.xml"/>
+  <Tag name="Locomotion" subTagDef="Animations/Mannequin/ADB/CharacterTags.xml"/>
+  <Tag name="Fire" subTagDef="Animations/Mannequin/ADB/CharacterTags.xml"/>
+ </Tags>
+</TagDefinition>

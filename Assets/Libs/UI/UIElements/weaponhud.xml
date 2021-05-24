@@ -1,0 +1,33 @@
+<UIElements name="HUD">
+	<UIElement name="WeaponHud" render_lockless="1">
+		<GFx file="WeaponHud.gfx" layer="0">
+			<Constraints>
+				<Align mode="dynamic" valign="center" halign="center" scale="1" max="0"/>
+			</Constraints>
+		</GFx>
+		<functions>
+			<function name="SetupWeapon" funcname="setupWeapon">
+				<param name="weapon" type="string"/>
+				<param name="fireMode" type="string"/>
+				<param name="clipCount" type="int"/>
+				<param name="clipSize" type="int"/>
+				<param name="totalAmmo" type="int"/>
+			</function>
+			<function name="Fire" funcname="fire">
+				<param name="clipCount" type="int"/>
+			</function>
+			<function name="Reload" funcname="reload">
+				<param name="clipCount" type="int"/>
+			</function>
+			<function name="SetWeapon" funcname="setWeapon">
+				<param name="weapon" type="string"/>
+			</function>
+			<function name="SetTotalAmmo" funcname="setTotalAmmo">
+				<param name="totalAmmo" type="int"/>
+			</function>
+			<function name="SetFireMode" funcname="setFireMode">
+				<param name="fireMode" type="string"/>
+			</function>
+		</functions>
+	</UIElement>
+</UIElements>

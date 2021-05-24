@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="b44806d1-175d-0f64-71ec-08babc1723eb">
+ <Files>
+  <File path="Rifle.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">256</Detail>
+  <Detail name="height">64</Detail>
+  <Detail name="mipCount">1</Detail>
+ </Details>
+</AssetMetadata>

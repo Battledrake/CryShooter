@@ -1,0 +1,15 @@
+<AssetMetadata version="0" type="SkinnedMesh" guid="8d155bd7-7b9a-e9c0-8ccb-44b782d3376e" source="AssaultRifle.FBX">
+ <Files>
+  <File path="AssaultRifle_Assault_Rifle_B.skin"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">3</Detail>
+  <Detail name="triangleCount">6224</Detail>
+  <Detail name="vertexCount">5389</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+  <Detail name="bonesCount">6</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">Materials/m_assault_rifle.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="240c2468-d749-08ae-6092-3a24bce9aae9" source="ch15_1002_specular.tif">
+ <Files>
+  <File path="ch15_1002_specular.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">4096</Detail>
+  <Detail name="height">4096</Detail>
+  <Detail name="mipCount">11</Detail>
+ </Details>
+</AssetMetadata>
