@@ -64,25 +64,27 @@ void CGamePlugin::OnSystemEvent(ESystemEvent event, UINT_PTR wparam, UINT_PTR lp
 			charParams.pClass = gEnv->pEntitySystem->GetClassRegistry()->FindClass("schematyc::entities::characters::playercharacter");
 			charParams.sName = "PlayerCharacter";
 
-			if (IEntity* pCharacter = gEnv->pEntitySystem->SpawnEntity(charParams))
+			if (IEntity* pCharacterEntity = gEnv->pEntitySystem->SpawnEntity(charParams))
 			{
+				CCharacterComponent* pCharacterComponent = pCharacterEntity->GetComponent<CCharacterComponent>();
+
 				SEntitySpawnParams playerParams;
 				playerParams.pClass = gEnv->pEntitySystem->GetClassRegistry()->GetDefaultClass();
 				playerParams.id = LOCAL_PLAYER_ENTITY_ID;
 				playerParams.nFlags |= ENTITY_FLAG_LOCAL_PLAYER;
 				playerParams.sName = "Drake";
 
-				if (IEntity* pPlayer = gEnv->pEntitySystem->SpawnEntity(playerParams))
+				if (IEntity* pPlayerEntity = gEnv->pEntitySystem->SpawnEntity(playerParams))
 				{
-					CTempPlayerComponent* playerComp = pPlayer->GetOrCreateComponent<CTempPlayerComponent>();
- 					pCharacter->AttachChild(pPlayer);
-					// 					Vec3 m_camPos_3p(0.5f, -1.5f, 0.26f);
- 					pPlayer->SetLocalTM(Matrix34::Create(Vec3(1.0f), IDENTITY, Vec3(0.5f, -1.5f, 1.75f)));
-					playerComp->SetCharacter(pCharacter->GetComponent<CCharacterComponent>());
-					pCharacter->GetComponent<CCharacterComponent>()->SetOwner(pPlayer);
+					pCharacterComponent->SetOwner(pPlayerEntity);
+
+					CTempPlayerComponent* pPlayerComponent = pPlayerEntity->GetOrCreateComponent<CTempPlayerComponent>();
+					pPlayerComponent->SetCharacter(pCharacterComponent);
+ 					pCharacterEntity->AttachChild(pPlayerEntity);
+					pPlayerComponent->SetPosOnAttach();
 
 					const Matrix34 spawnTransform = CSpawnPointComponent::GetFirstSpawnPointTransform();
- 					pCharacter->SetWorldTM(spawnTransform);
+ 					pCharacterEntity->SetWorldTM(spawnTransform);
 				}
 			}
 		}

@@ -65,7 +65,6 @@ void CPlayerComponent::Initialize()
 	// Load the character and Mannequin data from file
 	m_pAnimationComponent->LoadFromDisk();
 
-	//TODO: move this into networking code when I get to it.
 // 	if (!IsLocalClient())
 // 	{
 // 		if (IAttachmentManager* pAttachMgr = m_pAnimationComponent->GetCharacter()->GetIAttachmentManager())
@@ -407,7 +406,6 @@ void CPlayerComponent::UpdateLookDirectionRequest(float frameTime)
 	ypr.x += m_mouseDeltaRotation.x * rotationSpeed;
 
 	// Pitch
-	// TODO: Perform soft clamp here instead of hard wall, should reduce rot speed in this direction when close to limit.
  	ypr.y = CLAMP(ypr.y + m_mouseDeltaRotation.y * rotationSpeed, rotationLimitsMinPitch, rotationLimitsMaxPitch);
 
 	// Roll (skip)
@@ -443,14 +441,11 @@ void CPlayerComponent::UpdateCamera(float frameTime)
 	const float rotationLimitsMinPitch = -0.84f;
 	const float rotationLimitsMaxPitch = 1.5f;
 
-	// TODO: Perform soft clamp here instead of hard wall, should reduce rot speed in this direction when close to limit.
 	ypr.y = CLAMP(ypr.y + m_mouseDeltaRotation.y * m_rotationSpeed, rotationLimitsMinPitch, rotationLimitsMaxPitch);
-	// Skip roll
 	ypr.z = 0;
 
 	m_lookOrientation = Quat(CCamera::CreateOrientationYPR(ypr));
 
-	// Reset every frame
 	m_mouseDeltaRotation = ZERO;
 
 	// Ignore z-axis rotation, that's set by CPlayerAnimations

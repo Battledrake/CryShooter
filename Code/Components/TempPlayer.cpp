@@ -27,10 +27,12 @@ void CTempPlayerComponent::Initialize()
 	m_mouseDeltaRotation = ZERO;
 
 	m_pCameraComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CCameraComponent>();
+	m_pCameraComponent->SetNearPlane(0.01f);
 	m_pAudioListenerComponent = m_pEntity->GetOrCreateComponent<Cry::Audio::DefaultComponents::CListenerComponent>();
 	m_pInputComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CInputComponent>();
 
-	m_pCameraComponent->SetNearPlane(0.01f);
+	m_currentViewMode = EViewMode::ThirdPerson;
+	m_viewBeforeSpectate = m_currentViewMode;
 
 	RegisterInputs();
 
@@ -42,6 +44,7 @@ Cry::Entity::EventFlags CTempPlayerComponent::GetEventMask() const
 	return
 		Cry::Entity::EEvent::GameplayStarted |
 		Cry::Entity::EEvent::Update |
+		Cry::Entity::EEvent::PhysicsCollision |
 		Cry::Entity::EEvent::Reset;
 }
 
@@ -51,7 +54,6 @@ void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
 	{
 		case Cry::Entity::EEvent::GameplayStarted:
 		{
-			//TODO:This has to be placed here because the component gets a reference to the character.
 			m_pUIComponent = m_pEntity->GetOrCreateComponent<CUIComponent>();
 
 			m_lookOrientation = IDENTITY;
@@ -60,9 +62,6 @@ void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
 		case Cry::Entity::EEvent::Update:
 		{
 			const float frameTime = event.fParam[0];
-
-			const float spectatorSpeed = 20.5f;
-			Vec3 velocity = ZERO;
 
 			float travelSpeed = 0;
 			float travelAngle = 0;
@@ -99,13 +98,9 @@ void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
 			Quat camOrientation = Quat(CCamera::CreateOrientationYPR(playerYPR));
 			m_pEntity->SetRotation(camOrientation);
 
-			if (m_currentViewMode == EViewMode::Spectator)
+			if (!m_pCharacter || m_currentViewMode == EViewMode::Spectator)
 			{
-				velocity = Vec3(travelAngle, travelSpeed, 0).normalized();
-				velocity.z = 0;
-				Matrix34 transformation = m_pEntity->GetWorldTM();
-				transformation.AddTranslation(transformation.TransformVector(velocity * spectatorSpeed * frameTime));
-				m_pEntity->SetWorldTM(transformation);
+				FreeMovement(travelSpeed, travelAngle, frameTime);
 			}
 
 			if (m_pCharacter && m_currentViewMode != EViewMode::Spectator)
@@ -116,6 +111,26 @@ void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
 			m_mouseDeltaRotation = ZERO;
 
 			CheckInteractables();
+
+			Vec3 origin = m_pEntity->GetWorldPos();
+			Vec3 dir = ((m_pCharacter->GetEntity()->GetWorldPos() + Vec3(0.0f, 0.0f, 1.75f)) - origin).normalized();
+			const unsigned int rayFlags = rwi_stop_at_pierceable | rwi_colltype_any;
+			ray_hit hitInfo;
+			if (gEnv->pPhysicalWorld->RayWorldIntersection(origin, dir, ent_all, rayFlags, &hitInfo, 1, m_pEntity->GetPhysicalEntity()))
+			{
+				if (IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(hitInfo.pCollider))
+				{
+					if (m_pCharacter->GetEntity() != pEntity)
+					{
+						CryLogAlways("We start here");
+					}
+				}
+			}
+		}
+		break;
+		case Cry::Entity::EEvent::PhysicsCollision:
+		{
+			CryLogAlways("Triggered");
 		}
 		break;
 		case Cry::Entity::EEvent::Reset:
@@ -123,6 +138,17 @@ void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
 		}
 		break;
 	}
+}
+
+void CTempPlayerComponent::FreeMovement(float travelSpeed, float travelAngle, float frameTime)
+{
+	const float spectatorSpeed = 20.5f;
+
+	Vec3 velocity = Vec3(travelAngle, travelSpeed, 0).normalized();
+	velocity.z = 0;
+	Matrix34 transformation = m_pEntity->GetWorldTM();
+	transformation.AddTranslation(transformation.TransformVector(velocity * spectatorSpeed * frameTime));
+	m_pEntity->SetWorldTM(transformation);
 }
 
 void CTempPlayerComponent::UpdateCharacter(float travelSpeed, float travelAngle, float rotationSpeed, float frameTime)
@@ -139,6 +165,13 @@ void CTempPlayerComponent::UpdateCharacter(float travelSpeed, float travelAngle,
 
 	const QuatT& entityOrientation = m_pCharacter->GetAnimComp()->GetCharacter()->GetISkeletonPose()->GetAbsJointByID(m_attachJointId);
 	m_pEntity->SetPos(LERP(m_pEntity->GetPos(), entityOrientation.t + m_activePos, 5.0f * frameTime));
+}
+
+void CTempPlayerComponent::SetPosOnAttach()
+{
+	const QuatT& entityOrientation = m_pCharacter->GetAnimComp()->GetCharacter()->GetISkeletonPose()->GetAbsJointByID(m_attachJointId);
+	m_pEntity->SetLocalTM(Matrix34::Create(Vec3(1.0f), IDENTITY, entityOrientation.t + m_activePos));
+	m_currentViewMode = m_viewBeforeSpectate;
 }
 
 void CTempPlayerComponent::SetCharacter(CCharacterComponent* character)
@@ -330,14 +363,14 @@ void CTempPlayerComponent::RegisterInputs()
 			if (m_pCharacter)
 			{
 				m_pCharacter->GetEntity()->AttachChild(m_pEntity);
-				m_pEntity->SetLocalTM(Matrix34::Create(Vec3(1.0f), IDENTITY, Vec3(0.5f, -1.5f, 1.75f)));
-				m_currentViewMode = EViewMode::ThirdPerson;
+				SetPosOnAttach();
 			}
 		}
 		else
 		{
 			if (m_pCharacter)
 				m_pEntity->DetachThis();
+			m_viewBeforeSpectate = m_currentViewMode;
 			m_currentViewMode = EViewMode::Spectator;
 		}
 	});

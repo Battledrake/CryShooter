@@ -9,14 +9,14 @@
   <Example AName="unarmed_idle"/>
   <Example SetPara1="1.6000003" AName="unarmed_idle"/>
   <Example SetPara1="3.1400001" AName="unarmed_idle"/>
-  <Example SetPara0="1.5" SetPara1="-3.0999992" AName="unarmed_walk_bwd" PlaybackScale="1.2"/>
-  <Example SetPara0="1.5" SetPara1="-1.5000001" AName="unarmed_strafe_right" PlaybackScale="1.1"/>
+  <Example SetPara0="2.5" SetPara1="-3" AName="unarmed_walk_bwd" PlaybackScale="3"/>
+  <Example SetPara0="1.5" SetPara1="-1.4999998" AName="unarmed_strafe_right" PlaybackScale="1.1"/>
   <Example SetPara0="1.5" AName="unarmed_walk_fwd"/>
-  <Example SetPara0="1.5" SetPara1="1.5000001" AName="unarmed_strafe_left" PlaybackScale="1.1"/>
-  <Example SetPara0="1.5" SetPara1="3.1999998" AName="unarmed_walk_bwd" PlaybackScale="1.2"/>
-  <Example SetPara0="4" SetPara1="-1.5000005" AName="unarmed_run_strafe_right"/>
+  <Example SetPara0="1.5" SetPara1="1.5" AName="unarmed_strafe_left" PlaybackScale="1.1"/>
+  <Example SetPara0="2.5" SetPara1="3" AName="unarmed_walk_bwd" PlaybackScale="3"/>
+  <Example SetPara0="4" SetPara1="-1.5" AName="unarmed_run_strafe_right"/>
   <Example SetPara0="5" AName="unarmed_run_fwd"/>
-  <Example SetPara0="4" SetPara1="1.6000001" AName="unarmed_run_strafe_left"/>
+  <Example SetPara0="4" SetPara1="1.5" AName="unarmed_run_strafe_left"/>
  </ExampleList>
  <Blendable>
   <Face p0="0" p1="5" p2="6" p3="1"/>

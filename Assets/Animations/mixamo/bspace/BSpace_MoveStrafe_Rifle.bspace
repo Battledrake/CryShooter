@@ -1,6 +1,6 @@
 <ParaGroup>
  <Dimensions>
-  <Param Name="MoveSpeed" Min="0" Max="5" Cells="9"/>
+  <Param Name="MoveSpeed" Min="0" Max="7" Cells="9"/>
   <Param Name="TravelAngle" Min="-3.1400001" Max="3.1400001" Cells="5"/>
  </Dimensions>
  <ExampleList>
@@ -9,14 +9,14 @@
   <Example AName="rifle_aim_idle"/>
   <Example SetPara1="1.6000003" AName="rifle_aim_idle"/>
   <Example SetPara1="3.1400001" AName="rifle_aim_idle"/>
-  <Example SetPara0="1.5" SetPara1="-3" AName="rifle_aim_walk_bwd" PlaybackScale="1.2"/>
-  <Example SetPara0="1.5" SetPara1="-1.5000001" AName="rifle_aim_strafe_right" PlaybackScale="1.2"/>
-  <Example SetPara0="1.5" AName="rifle_aim_walk_fwd"/>
-  <Example SetPara0="1.5" SetPara1="1.5" AName="rifle_aim_strafe_left" PlaybackScale="1.2"/>
-  <Example SetPara0="1.5" SetPara1="3" AName="rifle_aim_walk_bwd" PlaybackScale="1.2"/>
-  <Example SetPara0="4" SetPara1="-1.5000005" AName="rifle_run_strafe_right"/>
-  <Example SetPara0="5" AName="rifle_chest_run_fwd"/>
-  <Example SetPara0="4" SetPara1="1.5" AName="rifle_run_strafe_left"/>
+  <Example SetPara0="1.9000007" SetPara1="-3" AName="rifle_aim_walk_bwd"/>
+  <Example SetPara0="2.3999999" SetPara1="-1.4999999" AName="rifle_aim_strafe_right"/>
+  <Example SetPara0="3" AName="rifle_aim_walk_fwd" PlaybackScale="1.5"/>
+  <Example SetPara0="2.3999996" SetPara1="1.6000001" AName="rifle_aim_strafe_left" PlaybackScale="1.2"/>
+  <Example SetPara0="1.9000002" SetPara1="3" AName="rifle_aim_walk_bwd"/>
+  <Example SetPara0="5.5" SetPara1="-1.5" AName="rifle_run_strafe_right"/>
+  <Example SetPara0="7" AName="rifle_chest_run_fwd"/>
+  <Example SetPara0="5.5" SetPara1="1.5" AName="rifle_run_strafe_left"/>
  </ExampleList>
  <Blendable>
   <Face p0="0" p1="5" p2="6" p3="1"/>

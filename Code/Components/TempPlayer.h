@@ -105,6 +105,8 @@ public:
 	inline Vec3 GetThirdPersonPosition() const { return m_thirdPersonPos; }
 
 	void AddRecoilEffect(Vec2 recoil) { m_mouseDeltaRotation += recoil; }
+	void FreeMovement(float travelSpeed, float travelAngle, float frameTime);
+	void SetPosOnAttach();
 	void SetCharacter(CCharacterComponent* character);
 	void CheckInteractables();
 
@@ -141,6 +143,7 @@ private:
 	Quat m_lookOrientation;
 
 	EViewMode m_currentViewMode;
+	EViewMode m_viewBeforeSpectate;
 	Vec3 m_activePos;
 	Vec3 m_firstPersonPos = Vec3(-0.1f, 0.0f, 0.1f);
 	Vec3 m_thirdPersonPos = Vec3(0.5f, -1.5f, 0.26f);
