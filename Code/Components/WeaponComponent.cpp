@@ -99,7 +99,7 @@ void CWeaponComponent::ProcessFire(bool isPressed)
 			{
 				if (!m_isBursting && m_burstTimer <= 0)
 					BeginBurst();
-				else if(m_burstTimer > 0)
+				else if (m_burstTimer > 0)
 					m_burstQueued = true;
 			}
 		}
@@ -165,6 +165,18 @@ EFireMode CWeaponComponent::SwitchFireModes()
 
 void CWeaponComponent::Observe(CCharacterComponent* pObserver, SObjectData& data)
 {
+	if (pObserver)
+	{
+		std::vector<CWeaponComponent*> m_charWeapons = pObserver->GetCharacterWeapons();
+		for (int i = 0; i < m_charWeapons.size(); i++)
+		{
+			if (strcmp(m_weaponName.c_str(), m_charWeapons[i]->GetWeaponName()) == 0)
+			{
+				data.objectBonus = "Ammo";
+				break;
+			}
+		}
+	}
 	data.objectKeyword = "Take";
 	data.objectName = m_weaponName.c_str();
 }

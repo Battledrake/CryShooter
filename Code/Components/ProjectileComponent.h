@@ -8,6 +8,8 @@ public:
 	CProjectileComponent() = default;
 	virtual ~CProjectileComponent() = default;
 
+	void SetCollisionType(const ECollisionType type);
+
 	static void ReflectType(Schematyc::CTypeDesc<CProjectileComponent>& desc)
 	{
 		desc.SetGUID("{4687B241-F3C7-421C-A98B-6B87448AAAB5}"_cry_guid);

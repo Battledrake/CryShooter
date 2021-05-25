@@ -15,7 +15,7 @@
   <Example SetPara0="3" SetPara1="2" AName="pistol_strafe_left"/>
   <Example SetPara0="1.9000002" SetPara1="3" AName="pistol_walk_bwd"/>
   <Example SetPara0="5.5" SetPara1="-1.5" AName="unarmed_run_strafe_right"/>
-  <Example SetPara0="7" AName="unarmed_run_fwd"/>
+  <Example SetPara0="6" AName="unarmed_run_fwd"/>
   <Example SetPara0="5.5" SetPara1="1.5" AName="unarmed_run_strafe_left"/>
  </ExampleList>
  <Blendable>

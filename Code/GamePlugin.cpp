@@ -80,11 +80,11 @@ void CGamePlugin::OnSystemEvent(ESystemEvent event, UINT_PTR wparam, UINT_PTR lp
 
 					CTempPlayerComponent* pPlayerComponent = pPlayerEntity->GetOrCreateComponent<CTempPlayerComponent>();
 					pPlayerComponent->SetCharacter(pCharacterComponent);
- 					pCharacterEntity->AttachChild(pPlayerEntity);
+					pCharacterEntity->AttachChild(pPlayerEntity);
 					pPlayerComponent->SetPosOnAttach();
 
 					const Matrix34 spawnTransform = CSpawnPointComponent::GetFirstSpawnPointTransform();
- 					pCharacterEntity->SetWorldTM(spawnTransform);
+					pCharacterEntity->SetWorldTM(spawnTransform);
 				}
 			}
 		}

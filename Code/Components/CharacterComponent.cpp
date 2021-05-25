@@ -10,6 +10,7 @@
 #include "Helpers/Conversions.h"
 #include "BodyDamageComponent.h"
 #include "WeaponComponent.h"
+#include "ProjectileComponent.h"
 #include "TempPlayer.h"
 
 
@@ -31,7 +32,6 @@ void CCharacterComponent::Initialize()
 {
 	m_pAnimComp = m_pEntity->GetComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
 	m_pCharController = m_pEntity->GetComponent<Cry::DefaultComponents::CCharacterControllerComponent>();
-	m_pCharController->GetMovementParameters().m_airControlRatio = 1.0f;
 	m_pInterfaceComp = m_pEntity->GetOrCreateComponent<CInterfaceComponent>();
 	m_pBodyDamageComp = m_pEntity->GetComponent<CBodyDamageComponent>();
 
@@ -41,7 +41,6 @@ void CCharacterComponent::Initialize()
 Cry::Entity::EventFlags CCharacterComponent::GetEventMask() const
 {
 	return
-		Cry::Entity::EEvent::Initialize |
 		Cry::Entity::EEvent::GameplayStarted |
 		Cry::Entity::EEvent::Update |
 		Cry::Entity::EEvent::Reset;
@@ -51,15 +50,12 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 {
 	switch (event.event)
 	{
-		case Cry::Entity::EEvent::Initialize:
-		{
-		}
-		break;
 		case Cry::Entity::EEvent::GameplayStarted:
 		{
 			m_pInterfaceComp->AddInterface<ITakeDamage>(this);
 
 			SetIKJoints();
+			SetCollisionParams();
 		}
 		break;
 		case Cry::Entity::EEvent::Update:
@@ -85,7 +81,9 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 				m_pActiveWeapon->GetEntity()->EnablePhysics(true);
 				m_pActiveWeapon = nullptr;
 			}
-			m_totalAmmo = 50;
+			//TODO: Perhaps cap? Anything over 1000 breaks UI
+			m_ammoMap["AssaultRifle"] = 500;
+			m_ammoMap["Pistola"] = 500;
 
 			m_pAnimComp->ResetCharacter();
 		}
@@ -93,37 +91,36 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 	}
 }
 
-void CCharacterComponent::UpdateMovement(float travelSpeed, float travelAngle)
+void CCharacterComponent::AddAmmo(string weaponName, int amount)
 {
-
-	Vec3 velocity(travelAngle, travelSpeed, 0.0f);
-	velocity.Normalize();
-	velocity.z = 0.0f;
-
-	const float runMultiplier = m_isRunning && travelSpeed > 0 ? m_runMultiplier : 1.0f;
-	const float backWalk = travelSpeed < 0 ? 0.75f : 1.0f;
-
-	m_pCharController->SetVelocity(m_pEntity->GetWorldRotation() * velocity * m_moveSpeed * runMultiplier * backWalk);
-}
-
-void CCharacterComponent::UpdateRotation(const Quat& rotation)
-{
-	m_pEntity->SetRotation(rotation);
-}
-
-void CCharacterComponent::UpdateLookOrientation(const Vec3& lookDirection)
-{
-
-	if (ISkeletonAnim* pSkelAnim = m_pAnimComp->GetCharacter()->GetISkeletonAnim())
+	m_ammoMap[weaponName] += amount;
+	if (strcmp(m_pActiveWeapon->GetWeaponName(), weaponName) == 0)
 	{
-		Quat localRot = !m_pEntity->GetWorldRotation();
-		//TODO: This code works for players, but will fail with AI. WHY AM I NOT USING LOOKDIRECTION! EUGH, I knew I would need it, why I no utilize?!?.
-		Vec3 camDirection = m_pEntity->GetChild(0)->GetWorldPos() + m_pEntity->GetChild(0)->GetForwardDir() * 10.0f;
-		Vec3 entPos = m_pEntity->GetPos() + Vec3(0.0f, 0.0f, 1.5f);
-		Vec3 finalDirection = camDirection - entPos;
-		m_ikTorsoAim->SetTargetDirection(localRot * finalDirection);
-		m_ikTorsoAim->SetBlendWeight(.6f);
-		pSkelAnim->PushPoseModifier(0, m_ikTorsoAim);
+		m_ammoAddedEvent.Invoke(m_ammoMap[weaponName]);
+	}
+}
+
+void CCharacterComponent::ChangeCharacter(const Schematyc::CharacterFileName charFile, const Schematyc::CSharedString context)
+{
+	if (m_pActiveWeapon)
+	{
+		m_pActiveWeapon->DisableFiring();
+		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
+	}
+
+
+	m_pAnimComp->SetCharacterFile(charFile.value);
+	if (context.length() > 0)
+		m_pAnimComp->ActivateContext(context);
+
+	SetIKJoints();
+	SetCollisionParams();
+
+	m_pAnimComp->QueueFragment("Locomotion");
+
+	if (m_pActiveWeapon)
+	{
+		AttachWeapon();
 	}
 }
 
@@ -166,7 +163,7 @@ void CCharacterComponent::ProcessReload()
 		const int clipCapacity = m_pActiveWeapon->GetClipCapacity();
 		const int clipCount = m_pActiveWeapon->GetClipCount();
 		const int clipSpace = clipCapacity - clipCount;
-		const int freeAmmo = m_totalAmmo - clipCount;
+		const int freeAmmo = m_ammoMap[m_pActiveWeapon->GetWeaponName()] - clipCount;
 		const int fill = freeAmmo - clipSpace >= 0 ? clipSpace : freeAmmo;
 		m_pActiveWeapon->ReloadClip(fill);
 
@@ -205,13 +202,42 @@ void CCharacterComponent::SwitchFireMode()
 
 void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 {
+	for (int i = 0; i < m_weapons.size(); i++)
+	{
+		if (strcmp(m_weapons[i]->GetWeaponName(), weapon->GetWeaponName()) == 0)
+		{
+			AddAmmo(weapon->GetWeaponName(), weapon->GetClipCount());
+			gEnv->pEntitySystem->RemoveEntity(weapon->GetEntityId());
+			return;
+		}
+	}
+	//EquipType Primary/Secondary/Both
+	switch (weapon->GetEquipType())
+	{
+		case EEquipType::Primary:
+		{
+			m_weapons.push_back(weapon);
+		}
+		break;
+		case EEquipType::Secondary:
+		{
+			m_weapons.push_back(weapon);
+		}
+		break;
+		case EEquipType::Both:
+		{
+
+		}
+		break;
+	}
+
 	if (m_pActiveWeapon)
 	{
 		m_pActiveWeapon->DisableFiring();
 
 		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
 
-		m_totalAmmo -= m_pActiveWeapon->GetClipCount();
+		m_ammoMap[m_pActiveWeapon->GetWeaponName()] -= m_pActiveWeapon->GetClipCount();
 
 		m_pActiveWeapon->GetEntity()->EnablePhysics(true);
 
@@ -227,15 +253,14 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 		m_pActiveWeapon = nullptr;
 	}
 
-
 	weapon->GetEntity()->EnablePhysics(false);
 	m_pActiveWeapon = weapon;
 	AttachWeapon();
 
-	m_totalAmmo += m_pActiveWeapon->GetClipCount();
+	m_ammoMap[m_pActiveWeapon->GetWeaponName()] += m_pActiveWeapon->GetClipCount();
 
 	m_equipEvent.Invoke(m_pActiveWeapon->GetIconName(), EnumToString(m_pActiveWeapon->GetFireMode()),
-		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(), m_totalAmmo);
+		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(), m_ammoMap[m_pActiveWeapon->GetWeaponName()]);
 
 	m_pActiveWeapon->m_fireEvent.RegisterListener(std::bind(&CCharacterComponent::HandleWeaponFired, this));
 	m_pActiveWeapon->m_recoilEvent.RegisterListener([this](Vec2 recoil)
@@ -250,12 +275,6 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 
 void CCharacterComponent::HandleWeaponFired()
 {
-	//TODO: Shoot two raycasts. One from owner, one from character.
-	//If both hit, shoot projectile from owner.
-	//If char hits wall, shoot from char
-	//If char hits another char, shoot from owner
-	//If both miss, shoot from owner.
-	//If owner miss, char hits, shoot from char
 	int aimJoint = m_pAnimComp->GetCharacter()->GetIDefaultSkeleton().GetJointIDByName(m_aimJointName.c_str());
 	const QuatT& jointQuat = m_pAnimComp->GetCharacter()->GetISkeletonPose()->GetAbsJointByID(aimJoint);
 	Matrix34 charMatrix = m_pEntity->GetWorldTM();
@@ -263,23 +282,21 @@ void CCharacterComponent::HandleWeaponFired()
 	charMatrix.SetRotation33(Matrix33(m_pOwner->GetWorldRotation()));
 
 	Vec3 ownerOrigin = m_pOwner->GetWorldPos();
-	Vec3 charOrigin = m_pEntity->GetWorldPos() + Vec3(0.0f, 0.0f, 1.5f);
-	float distance = 100.0f;
+	Vec3 charOrigin = m_pEntity->GetWorldPos() + Vec3(0.0f, 0.0f, 1.6f);
+	const float distance = 100.0f;
 	Vec3 ownerDir = m_pOwner->GetForwardDir() * distance;
 	Vec3 charDir = charMatrix.GetColumn1() * distance;
 	const unsigned int rayFlags = rwi_stop_at_pierceable | rwi_colltype_any;
 	ray_hit ownerHitInfo;
 	ray_hit charHitInfo;
 
-	// 	bool ownerHit;
-	// 	bool charHit;
-
 	SEntitySpawnParams projectileParams;
 	projectileParams.pClass = gEnv->pEntitySystem->GetClassRegistry()->FindClass(m_pActiveWeapon->GetProjectileClass());
+	projectileParams.vPosition = ownerOrigin;
 
 	if (gEnv->pPhysicalWorld->RayWorldIntersection(ownerOrigin, ownerDir, ent_all, rayFlags, &ownerHitInfo, 1, m_pOwner->GetPhysicalEntity()))
 	{
-		charDir = ownerHitInfo.pt - charOrigin;
+		charDir = (ownerHitInfo.pt - charOrigin).normalized() * distance;
 	}
 	if (gEnv->pPhysicalWorld->RayWorldIntersection(charOrigin, charDir, ent_all, rayFlags, &charHitInfo, 1, m_pEntity->GetPhysicalEntity()))
 	{
@@ -292,42 +309,52 @@ void CCharacterComponent::HandleWeaponFired()
 		{
 			projectileParams.vPosition = charOrigin;
 		}
-		else
-		{
-			projectileParams.vPosition = ownerOrigin;
-		}
 	}
 
 	projectileParams.qRotation = m_pOwner->GetWorldRotation();
 	const float bulletScale = 0.05f;
 	projectileParams.vScale = Vec3(bulletScale);
-	gEnv->pEntitySystem->SpawnEntity(projectileParams);
-
-
-	m_totalAmmo--;
-	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount(), m_totalAmmo);
-}
-
-void CCharacterComponent::ChangeCharacter(const Schematyc::CharacterFileName charFile, const Schematyc::CSharedString context)
-{
-	if (m_pActiveWeapon)
+	if (IEntity* pProjectileEntity = gEnv->pEntitySystem->SpawnEntity(projectileParams))
 	{
-		m_pActiveWeapon->DisableFiring();
-		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
+		if (CProjectileComponent* pProjectileComp = pProjectileEntity->GetComponent<CProjectileComponent>())
+			pProjectileComp->SetCollisionType(m_collisionType);
 	}
 
+	m_ammoMap[m_pActiveWeapon->GetWeaponName()]--;
+	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount(), m_ammoMap[m_pActiveWeapon->GetWeaponName()]);
+}
 
-	m_pAnimComp->SetCharacterFile(charFile.value);
-	if (context.length() > 0)
-		m_pAnimComp->ActivateContext(context);
+void CCharacterComponent::UpdateMovement(float travelSpeed, float travelAngle)
+{
 
-	SetIKJoints();
+	Vec3 velocity(travelAngle, travelSpeed, 0.0f);
+	velocity.Normalize();
+	velocity.z = 0.0f;
 
-	m_pAnimComp->QueueFragment("Locomotion");
+	const float runMultiplier = m_isRunning && travelSpeed > 0 ? m_runMultiplier : 1.0f;
+	const float backWalk = travelSpeed < 0 ? 0.75f : 1.0f;
 
-	if (m_pActiveWeapon)
+	m_pCharController->SetVelocity(m_pEntity->GetWorldRotation() * velocity * m_moveSpeed * runMultiplier * backWalk);
+}
+
+void CCharacterComponent::UpdateRotation(const Quat& rotation)
+{
+	m_pEntity->SetRotation(rotation);
+}
+
+void CCharacterComponent::UpdateLookOrientation(const Vec3& lookDirection)
+{
+
+	if (ISkeletonAnim* pSkelAnim = m_pAnimComp->GetCharacter()->GetISkeletonAnim())
 	{
-		AttachWeapon();
+		Quat localRot = !m_pEntity->GetWorldRotation();
+		//TODO: This code works for players, but will fail with AI. WHY AM I NOT USING LOOKDIRECTION! EUGH, I knew I would need it, why I no utilize?!?.
+		Vec3 camDirection = m_pEntity->GetChild(0)->GetWorldPos() + m_pEntity->GetChild(0)->GetForwardDir() * 10.0f;
+		Vec3 entPos = m_pEntity->GetPos() + Vec3(0.0f, 0.0f, 1.5f);
+		Vec3 finalDirection = camDirection - entPos;
+		m_ikTorsoAim->SetTargetDirection(localRot * finalDirection);
+		m_ikTorsoAim->SetBlendWeight(.6f);
+		pSkelAnim->PushPoseModifier(0, m_ikTorsoAim);
 	}
 }
 
@@ -356,6 +383,17 @@ void CCharacterComponent::SetIKJoints()
 	int effectorJointId = m_pAnimComp->GetCharacter()->GetIDefaultSkeleton().GetJointIDByName(m_effectorJointName.c_str());
 	int aimJointId = m_pAnimComp->GetCharacter()->GetIDefaultSkeleton().GetJointIDByName(m_aimJointName.c_str());
 	m_ikTorsoAim->SetJoints(effectorJointId, aimJointId);
+}
+
+//This has to be set everytime we switch from first and third person, since their physical entities are different.
+//Could separate the entity, since that only needs to be set once, but i'd prefer not to have two places with similar code.
+void CCharacterComponent::SetCollisionParams()
+{
+	pe_params_collision_class params;
+	params.collisionClassOR.type = static_cast<uint32>(m_collisionType);
+	params.collisionClassOR.ignore = static_cast<uint32>(m_collisionType);
+	m_pEntity->GetPhysicalEntity()->SetParams(&params);
+	m_pAnimComp->GetCharacter()->GetPhysEntity()->SetParams(&params);
 }
 
 void CCharacterComponent::PassDamage(float amount, int partId)

@@ -79,8 +79,8 @@ public:
 	//IInteractable
 	virtual void Observe(CCharacterComponent* pObserver, SObjectData& data) override;
 	virtual void Interact(CCharacterComponent* pInteractor) override;
-	//~IInteractable
 
+	//~IInteractable
 	string GetWeaponName() const { return m_weaponName.c_str(); }
 	string GetIconName() const { return m_iconName.c_str(); }
 	string GetProjectileClass() const { return m_projectileClass.value; }

@@ -63,32 +63,9 @@
     </children>
    </element>
    <element elementType="ComponentInstance" guid="aedc391b-cd7d-4741-9f10-0521e0528203" name="PhysParticle" accessor="Public" typeGUID="45db74c2-18a3-460d-bc78-541555ce7424">
-    <properties Mass="0.2" Size="0.050000001" Thickness="0.050000001" Thrust="0" Lift="0" Gravity="1" WGravity="0.80000001" AirResistance="1" WaterResistance="1" MinBounceVel="1.5" MinVel="0.02" Awake="true" Networked="true" SendCollisionSignal="true" Traceable="true" SingleContact="true" ConstantRot="true" NoRoll="false" NoSpin="false" NoPath="false" NoSelfColl="false" NoImpulse="true" SurfaceType="default">
+    <properties Mass="0.001" Size="0.050000001" Thickness="0.050000001" Thrust="0" Lift="0" Gravity="1" WGravity="0.80000001" AirResistance="1" WaterResistance="1" MinBounceVel="1.5" MinVel="0.02" Awake="true" Networked="true" SendCollisionSignal="true" Traceable="true" SingleContact="true" ConstantRot="true" NoRoll="false" NoSpin="false" NoPath="false" NoSelfColl="true" NoImpulse="true" SurfaceType="bullet">
      <Normal x="0" y="0" z="0.99999994"/>
      <RollAxis x="0" y="0" z="0.99999994"/>
-    </properties>
-    <extensions />
-    <children />
-   </element>
-   <element elementType="ComponentInstance" guid="6a927c93-c124-42d5-a9d2-fbee00a690fe" name="Mesh" accessor="Public" typeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29">
-    <transform>
-     <translation>
-      <position>
-       <element element="0"/>
-       <element element="0"/>
-       <element element="0"/>
-      </position>
-     </translation>
-     <rotation x="0" y="-0" z="0"/>
-     <scale>
-      <element element="1"/>
-      <element element="1"/>
-      <element element="1"/>
-     </scale>
-    </transform>
-    <properties Type="RenderAndCollider" FilePath="%ENGINE%/EngineAssets/Objects/primitive_sphere.cgf" Material="Materials/bullet.mtl">
-     <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
-     <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="0.2"/>
     </properties>
     <extensions />
     <children />

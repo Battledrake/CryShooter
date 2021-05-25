@@ -14,8 +14,6 @@ namespace
 		Schematyc::CEnvRegistrationScope scope = registrar.Scope(IEntity::GetEntityScopeGUID());
 		{
 			Schematyc::CEnvRegistrationScope componentScope = scope.Register(SCHEMATYC_MAKE_ENV_COMPONENT(CProjectileComponent));
-			{
-			}
 		}
 	}
 	CRY_STATIC_AUTO_REGISTER_FUNCTION(&RegisterProjectileComponent)
@@ -25,12 +23,10 @@ void CProjectileComponent::Initialize()
 {
 	m_pParticle = m_pEntity->GetComponent<Cry::DefaultComponents::CPhysParticleComponent>();
 
-	if (auto* pPhysics = GetEntity()->GetPhysics())
+	if (IPhysicalEntity* pPhysics = GetEntity()->GetPhysicalEntity())
 	{
 		pe_action_impulse impulseAction;
-
 		impulseAction.impulse = GetEntity()->GetWorldRotation().GetColumn1() * m_moveSpeed;
-
 		pPhysics->Action(&impulseAction);
 	}
 }
@@ -46,10 +42,8 @@ void CProjectileComponent::ProcessEvent(const SEntityEvent& event)
 	switch (event.event)
 	{
 		case Cry::Entity::EEvent::PhysicsCollision:
-			CryLogAlways("Hit Something!");
 			if (EventPhysCollision* pPhys = reinterpret_cast<EventPhysCollision*>(event.nParam[0]))
 			{
-				CryLogAlways("HitId: %i", pPhys->partid[1]);
 				if (IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(pPhys->pEntity[1]))
 				{
 					if (CInterfaceComponent* pInterfaceComp = pEntity->GetComponent<CInterfaceComponent>())
@@ -61,7 +55,15 @@ void CProjectileComponent::ProcessEvent(const SEntityEvent& event)
 					}
 				}
 			}
-			gEnv->pEntitySystem->RemoveEntity(GetEntityId());
+ 			gEnv->pEntitySystem->RemoveEntity(GetEntityId());
 			break;
 	}
+}
+
+void CProjectileComponent::SetCollisionType(const ECollisionType type)
+{
+	pe_params_collision_class params;
+	params.collisionClassOR.type = static_cast<uint32>(type);
+	params.collisionClassOR.ignore = static_cast<uint32>(type);
+	m_pEntity->GetPhysicalEntity()->SetParams(&params);
 }

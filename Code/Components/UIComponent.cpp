@@ -87,6 +87,11 @@ void CUIComponent::RegisterUIEvents(CCharacterComponent* pCharacter)
 		m_pWeaponUI->CallFunction("SetFireMode", SUIArguments::Create(fireMode));
 	});
 
+	pCharacter->m_ammoAddedEvent.RegisterListener([this](const int totalAmmo)
+	{
+		m_pWeaponUI->CallFunction("SetTotalAmmo", SUIArguments::Create(totalAmmo));
+	});
+
 	m_pPlayer->m_interactEvent.RegisterListener([this](const SObjectData& objData, const bool isShowing)
 	{
 		if (isShowing)

@@ -3,32 +3,6 @@
 #include <CryEntitySystem/IEntitySystem.h>
 #include <CryRenderer/IRenderAuxGeom.h>
 
-//  struct IInterfaceTester : public ICryUnknown
-//  {
-//  	virtual void PrintTestMessage() = 0;
-//  
-//  	CRYINTERFACE_DECLARE_GUID(IInterfaceTester, "{1BDB8F1F-79E9-4965-A0F2-71EE47BF2B6E}"_cry_guid);
-//  };
-
-struct SBodyDamageMultiplier
-{
-	static void ReflectType(Schematyc::CTypeDesc<SBodyDamageMultiplier>& desc)
-	{
-		desc.SetGUID("{882B0F2C-6A0D-4CBF-9A20-CC50ACD37E21}"_cry_guid);
-		desc.AddMember(&SBodyDamageMultiplier::m_bodyPart, 'part', "BodyPart", "Body Part Name", "Which joint is being checked", "");
-		desc.AddMember(&SBodyDamageMultiplier::m_damageMultiplier, 'dam', "Damage", "Damage Multiplier", "Determines damage amount on body part", 1.0f);
-	}
-
-	inline bool Serialize(Serialization::IArchive& archive);
-
-	inline bool operator==(const SBodyDamageMultiplier& rhs) const { return 0 == memcmp(this, &rhs, sizeof(rhs)); }
-	inline bool operator!=(const SBodyDamageMultiplier& rhs) const { return !(*this == rhs); }
-
-	Schematyc::CSharedString m_bodyPart;
-	float m_damageMultiplier;
-
-};
-
 class CDebugComponent final :
 	public IEntityComponent,
 	public IEntityComponentPreviewer
@@ -38,6 +12,7 @@ public:
 	virtual ~CDebugComponent() = default;
 
 	virtual void Initialize() override;
+	virtual ComponentEventPriority GetEventPriority() const override;
 	virtual Cry::Entity::EventFlags GetEventMask() const override;
 	virtual void ProcessEvent(const SEntityEvent& event) override;
 
@@ -64,12 +39,12 @@ public:
 		desc.SetDescription("Component used to quickly test and debug component related things");
 		desc.SetComponentFlags({ IEntityComponent::EFlags::Transform, IEntityComponent::EFlags::Socket, IEntityComponent::EFlags::Attach });
 
-		desc.AddMember(&CDebugComponent::m_damageParts, 'bdmp', "DamageParts", "Body Damage Parts", "Set up each body part and the modified damage when hit", Schematyc::CArray<SBodyDamageMultiplier>());
+		desc.AddMember(&CDebugComponent::m_collisionType, 'col', "CollisionType", "Collision Type", "Determines collision type", ECollisionType::Enemy);
+
 	}
 
 private:
-	Schematyc::CArray<SBodyDamageMultiplier> m_damageParts;
-	std::vector<int> m_activeJointIds;
+	ECollisionType m_collisionType;
 	
 	float m_sphereRadius = 0.5f;
 	float m_lineThickness = 1.0f;

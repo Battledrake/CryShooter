@@ -1,110 +1,66 @@
-<AssetMetadata version="0" type="Level" guid="8691fc6a-9e2b-f5b4-3613-d6ba72915511" source="" timestamp="1621887239">
+<AssetMetadata version="0" type="Level" guid="8691fc6a-9e2b-f5b4-3613-d6ba72915511" source="" timestamp="1621936914">
  <Files>
   <File path="example/example.level"/>
  </Files>
  <Dependencies>
   <Path>%editor%/objects/envcube.cgf</Path>
-  <Path>%editor%/objects/envcube.mtl</Path>
+  <Path>%engine%/config/defaultscripts/compressionpolicy.xml</Path>
   <Path>%engine%/engineassets/icons/averagememoryusage.dds</Path>
   <Path>%engine%/engineassets/icons/highmemoryusage.dds</Path>
   <Path>%engine%/engineassets/icons/livepreview.dds</Path>
   <Path>%engine%/engineassets/icons/lowmemoryusage.dds</Path>
-  <Path>%engine%/engineassets/materials/fog/fogvolumebox.mtl</Path>
-  <Path>%engine%/engineassets/materials/fog/fogvolumeellipsoid.mtl</Path>
-  <Path>%engine%/engineassets/materials/fog/oceaninto.mtl</Path>
-  <Path>%engine%/engineassets/materials/fog/oceanintolowspec.mtl</Path>
-  <Path>%engine%/engineassets/materials/fog/oceanoutof.mtl</Path>
-  <Path>%engine%/engineassets/materials/fog/oceanoutoflowspec.mtl</Path>
   <Path>%engine%/engineassets/materials/material_default.mtl</Path>
-  <Path>%engine%/engineassets/materials/material_terrain_default.mtl</Path>
-  <Path>%engine%/engineassets/materials/water/wateroceanbottom.mtl</Path>
   <Path>%engine%/engineassets/objects/primitive_cube.cgf</Path>
-  <Path>%engine%/engineassets/objects/primitive_sphere.cgf</Path>
-  <Path>%engine%/engineassets/texturemsg/defaultnouvs.dds</Path>
   <Path>%engine%/engineassets/texturemsg/defaultsolids.mtl</Path>
-  <Path>%engine%/engineassets/textures/skys/night/half_moon.dds</Path>
   <Path>%engine%/engineassets/textures/white.dds</Path>
-  <Path>animations/mannequin/adb/charactercontrollerdefinition.xml</Path>
-  <Path>animations/mannequin/adb/characterfragmentids.xml</Path>
-  <Path>animations/mannequin/adb/charactertags.xml</Path>
   <Path>animations/mixamo/pistol/pistol_aim_idle.caf</Path>
-  <Path>animations/mixamo/pistol/pistol_run_fwd.caf</Path>
-  <Path>animations/mixamo/pistol/pistol_sprint_fwd.caf</Path>
   <Path>animations/mixamo/pistol/pistol_strafe_left.caf</Path>
   <Path>animations/mixamo/pistol/pistol_strafe_right.caf</Path>
   <Path>animations/mixamo/pistol/pistol_walk_bwd.caf</Path>
   <Path>animations/mixamo/pistol/pistol_walk_fwd.caf</Path>
-  <Path>animations/mixamo/rifle/rifle_aim_fire.caf</Path>
   <Path>animations/mixamo/rifle/rifle_aim_idle.caf</Path>
   <Path>animations/mixamo/rifle/rifle_aim_strafe_left.caf</Path>
   <Path>animations/mixamo/rifle/rifle_aim_strafe_right.caf</Path>
   <Path>animations/mixamo/rifle/rifle_aim_walk_bwd.caf</Path>
   <Path>animations/mixamo/rifle/rifle_aim_walk_fwd.caf</Path>
   <Path>animations/mixamo/rifle/rifle_chest_run_fwd.caf</Path>
-  <Path>animations/mixamo/rifle/rifle_fire_heavy.caf</Path>
   <Path>animations/mixamo/rifle/rifle_run_strafe_left.caf</Path>
   <Path>animations/mixamo/rifle/rifle_run_strafe_right.caf</Path>
-  <Path>animations/mixamo/rifle/rifle_sprint_fwd.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_idle.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_jump_begin.caf</Path>
-  <Path>animations/mixamo/unarmed/unarmed_jump_end.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_jump_loop.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_run_fwd.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_run_strafe_left.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_run_strafe_right.caf</Path>
-  <Path>animations/mixamo/unarmed/unarmed_sprint_fwd.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_strafe_left.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_strafe_right.caf</Path>
-  <Path>animations/mixamo/unarmed/unarmed_turn_left.caf</Path>
-  <Path>animations/mixamo/unarmed/unarmed_turn_right.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_walk_bwd.caf</Path>
   <Path>animations/mixamo/unarmed/unarmed_walk_fwd.caf</Path>
-  <Path>editor/resourcecache/objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1001_diffuse.dds</Path>
-  <Path>editor/resourcecache/objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1001_normal.dds</Path>
-  <Path>editor/resourcecache/objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1001_specular.dds</Path>
-  <Path>editor/resourcecache/objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1002_diffuse.dds</Path>
-  <Path>editor/resourcecache/objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1002_normal.dds</Path>
-  <Path>editor/resourcecache/objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1002_specular.dds</Path>
-  <Path>editor/resourcecache/objects/weapons/militarydark/assaultrifle/textures/assaultrifle_diff.dds</Path>
-  <Path>editor/resourcecache/objects/weapons/militarydark/assaultrifle/textures/assaultrifle_masks.dds</Path>
-  <Path>editor/resourcecache/objects/weapons/militarydark/assaultrifle/textures/assaultrifle_norm.dds</Path>
-  <Path>editor/resourcecache/objects/weapons/militarydark/pistol/textures/pistol_diff.dds</Path>
-  <Path>editor/resourcecache/objects/weapons/militarydark/pistol/textures/pistol_masks.dds</Path>
-  <Path>editor/resourcecache/objects/weapons/militarydark/pistol/textures/pistol_norm.dds</Path>
-  <Path>engineassets/materials/water/ocean_default.mtl</Path>
+  <Path>animations/motusanims/rifleanims/rifleaim_idle_3p.caf</Path>
   <Path usageCount="1">libs/environmentpresets/example.env</Path>
   <Path>libs/ui/pistol.dds</Path>
-  <Path>materials/bullet.mtl</Path>
-  <Path>materials/m_assault_rifle.mtl</Path>
-  <Path>materials/m_exo_swat.mtl</Path>
+  <Path>libs/ui/rifle.dds</Path>
   <Path>materials/m_floor.mtl</Path>
   <Path>objects/characters/exo_swat/exo_swat_3p.cdf</Path>
-  <Path>objects/characters/exo_swat/exo_swat_3p.chr</Path>
   <Path>objects/characters/exo_swat/exo_swat_3p.chr.cgf</Path>
   <Path>objects/characters/exo_swat/exo_swat_3p_ch15.skin</Path>
-  <Path>objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1001_diffuse.dds</Path>
-  <Path>objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1001_normal.dds</Path>
-  <Path>objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1001_specular.dds</Path>
-  <Path>objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1002_diffuse.dds</Path>
-  <Path>objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1002_normal.dds</Path>
-  <Path>objects/characters/exo_swat/exo_swat_tex.fbm/ch15_1002_specular.dds</Path>
+  <Path>objects/characters/samplecharacter/mcg_diff.dds</Path>
+  <Path>objects/characters/samplecharacter/mcg_spec.dds</Path>
+  <Path>objects/characters/samplecharacter/motusbody.skin</Path>
+  <Path>objects/characters/samplecharacter/skelproxy.chr</Path>
+  <Path>objects/characters/samplecharacter/skelproxy.chr.cgf</Path>
+  <Path>objects/characters/samplecharacter/thirdperson.cdf</Path>
   <Path>objects/weapons/militarydark/assaultrifle/assaultrifle.cdf</Path>
-  <Path>objects/weapons/militarydark/assaultrifle/assaultrifle.chr</Path>
   <Path>objects/weapons/militarydark/assaultrifle/assaultrifle.chr.cgf</Path>
   <Path>objects/weapons/militarydark/assaultrifle/assaultrifle_assault_rifle_b.skin</Path>
-  <Path>objects/weapons/militarydark/assaultrifle/assaultrifle_unreal_take.caf</Path>
   <Path>objects/weapons/militarydark/assaultrifle/textures/assaultrifle_diff.dds</Path>
   <Path>objects/weapons/militarydark/assaultrifle/textures/assaultrifle_masks.dds</Path>
   <Path>objects/weapons/militarydark/assaultrifle/textures/assaultrifle_norm.dds</Path>
   <Path>objects/weapons/militarydark/pistol/pistol.cdf</Path>
   <Path>objects/weapons/militarydark/pistol/pistol.chr</Path>
   <Path>objects/weapons/militarydark/pistol/pistol_pistols_b.skin</Path>
-  <Path>objects/weapons/militarydark/pistol/pistol_unreal_take.caf</Path>
-  <Path>objects/weapons/militarydark/pistol/textures/pistol_diff.dds</Path>
-  <Path>objects/weapons/militarydark/pistol/textures/pistol_masks.dds</Path>
-  <Path>objects/weapons/militarydark/pistol/textures/pistol_norm.dds</Path>
+  <Path>objects/weapons/sampleweapon/defaultweapon.cgf</Path>
   <Path>scripts/ai/factions.xml</Path>
-  <Path>textures/cubemaps/example/environmentprobe1_cm.dds</Path>
-  <Path>textures/cubemaps/example/environmentprobe1_cm_diff.dds</Path>
+  <Path>scripts/network/compressionpolicy.xml</Path>
  </Dependencies>
 </AssetMetadata>
