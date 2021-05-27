@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="80df8ad4-dcee-f4bf-b0d0-e220e016c257" source="pickup_norm.tif">
+ <Files>
+  <File path="pickup_norm.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">2048</Detail>
+  <Detail name="height">2048</Detail>
+  <Detail name="mipCount">10</Detail>
+ </Details>
+</AssetMetadata>

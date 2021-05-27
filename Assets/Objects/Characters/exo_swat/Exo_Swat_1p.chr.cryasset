@@ -1,6 +1,6 @@
-<AssetMetadata version="0" type="Skeleton" guid="b581344d-7b2d-d806-e254-ce6fcfe96bf1" source="Exo_Swat_1p.fbx" timestamp="1620210782">
+<AssetMetadata version="0" type="Skeleton" guid="0eb59b34-40d0-4354-8984-e530a5e69a71" source="Exo_Swat_1p.fbx" timestamp="1622123549">
  <Files>
   <File path="Exo_Swat_1p.chr"/>
+  <File path="Exo_Swat_1p.chrparams"/>
  </Files>
- <Details />
 </AssetMetadata>

@@ -8,10 +8,10 @@
 #include <Animation/PoseModifier/IKTorsoAim.h>
 
 #include "Helpers/Conversions.h"
-#include "BodyDamageComponent.h"
-#include "WeaponComponent.h"
-#include "ProjectileComponent.h"
-#include "TempPlayer.h"
+#include "Components/BodyDamageComponent.h"
+#include "Components/WeaponComponent.h"
+#include "Components/ProjectileComponent.h"
+#include "Components/TempPlayer.h"
 
 
 namespace
@@ -82,21 +82,25 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 				m_pActiveWeapon = nullptr;
 			}
 			//TODO: Perhaps cap? Anything over 1000 breaks UI
-			m_ammoMap["AssaultRifle"] = 500;
-			m_ammoMap["Pistola"] = 500;
+			m_ammoMap[EWeaponType::Rifle] = 500;
+			m_ammoMap[EWeaponType::Pistol] = 500;
 
 			m_pAnimComp->ResetCharacter();
+			m_pAnimComp->QueueFragment("Locomotion");
 		}
 		break;
 	}
 }
 
-void CCharacterComponent::AddAmmo(string weaponName, int amount)
+void CCharacterComponent::AddAmmo(EWeaponType weaponType, int amount)
 {
-	m_ammoMap[weaponName] += amount;
-	if (strcmp(m_pActiveWeapon->GetWeaponName(), weaponName) == 0)
+	m_ammoMap[weaponType] += amount;
+	if (m_pActiveWeapon)
 	{
-		m_ammoAddedEvent.Invoke(m_ammoMap[weaponName]);
+		if (m_pActiveWeapon->GetWeaponType() == weaponType)
+		{
+			m_ammoAddedEvent.Invoke(m_ammoMap[weaponType]);
+		}
 	}
 }
 
@@ -163,7 +167,7 @@ void CCharacterComponent::ProcessReload()
 		const int clipCapacity = m_pActiveWeapon->GetClipCapacity();
 		const int clipCount = m_pActiveWeapon->GetClipCount();
 		const int clipSpace = clipCapacity - clipCount;
-		const int freeAmmo = m_ammoMap[m_pActiveWeapon->GetWeaponName()] - clipCount;
+		const int freeAmmo = m_ammoMap[m_pActiveWeapon->GetWeaponType()] - clipCount;
 		const int fill = freeAmmo - clipSpace >= 0 ? clipSpace : freeAmmo;
 		m_pActiveWeapon->ReloadClip(fill);
 
@@ -206,8 +210,8 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 	{
 		if (strcmp(m_weapons[i]->GetWeaponName(), weapon->GetWeaponName()) == 0)
 		{
-			AddAmmo(weapon->GetWeaponName(), weapon->GetClipCount());
-			gEnv->pEntitySystem->RemoveEntity(weapon->GetEntityId());
+			AddAmmo(weapon->GetWeaponType(), weapon->GetClipCount());
+			weapon->GetEntity()->Hide(true);
 			return;
 		}
 	}
@@ -237,7 +241,7 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 
 		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
 
-		m_ammoMap[m_pActiveWeapon->GetWeaponName()] -= m_pActiveWeapon->GetClipCount();
+		m_ammoMap[m_pActiveWeapon->GetWeaponType()] -= m_pActiveWeapon->GetClipCount();
 
 		m_pActiveWeapon->GetEntity()->EnablePhysics(true);
 
@@ -257,10 +261,10 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 	m_pActiveWeapon = weapon;
 	AttachWeapon();
 
-	m_ammoMap[m_pActiveWeapon->GetWeaponName()] += m_pActiveWeapon->GetClipCount();
+	m_ammoMap[m_pActiveWeapon->GetWeaponType()] += m_pActiveWeapon->GetClipCount();
 
 	m_equipEvent.Invoke(m_pActiveWeapon->GetIconName(), EnumToString(m_pActiveWeapon->GetFireMode()),
-		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(), m_ammoMap[m_pActiveWeapon->GetWeaponName()]);
+		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(), m_ammoMap[m_pActiveWeapon->GetWeaponType()]);
 
 	m_pActiveWeapon->m_fireEvent.RegisterListener(std::bind(&CCharacterComponent::HandleWeaponFired, this));
 	m_pActiveWeapon->m_recoilEvent.RegisterListener([this](Vec2 recoil)
@@ -317,16 +321,15 @@ void CCharacterComponent::HandleWeaponFired()
 	if (IEntity* pProjectileEntity = gEnv->pEntitySystem->SpawnEntity(projectileParams))
 	{
 		if (CProjectileComponent* pProjectileComp = pProjectileEntity->GetComponent<CProjectileComponent>())
-			pProjectileComp->SetCollisionType(m_collisionType);
+			pProjectileComp->InitializeProjectile(this);
 	}
 
-	m_ammoMap[m_pActiveWeapon->GetWeaponName()]--;
-	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount(), m_ammoMap[m_pActiveWeapon->GetWeaponName()]);
+	m_ammoMap[m_pActiveWeapon->GetWeaponType()]--;
+	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount(), m_ammoMap[m_pActiveWeapon->GetWeaponType()]);
 }
 
 void CCharacterComponent::UpdateMovement(float travelSpeed, float travelAngle)
 {
-
 	Vec3 velocity(travelAngle, travelSpeed, 0.0f);
 	velocity.Normalize();
 	velocity.z = 0.0f;
@@ -348,12 +351,8 @@ void CCharacterComponent::UpdateLookOrientation(const Vec3& lookDirection)
 	if (ISkeletonAnim* pSkelAnim = m_pAnimComp->GetCharacter()->GetISkeletonAnim())
 	{
 		Quat localRot = !m_pEntity->GetWorldRotation();
-		//TODO: This code works for players, but will fail with AI. WHY AM I NOT USING LOOKDIRECTION! EUGH, I knew I would need it, why I no utilize?!?.
-		Vec3 camDirection = m_pEntity->GetChild(0)->GetWorldPos() + m_pEntity->GetChild(0)->GetForwardDir() * 10.0f;
-		Vec3 entPos = m_pEntity->GetPos() + Vec3(0.0f, 0.0f, 1.5f);
-		Vec3 finalDirection = camDirection - entPos;
-		m_ikTorsoAim->SetTargetDirection(localRot * finalDirection);
-		m_ikTorsoAim->SetBlendWeight(.6f);
+		m_ikTorsoAim->SetTargetDirection(localRot * lookDirection);
+		m_ikTorsoAim->SetBlendWeight(1.0f);
 		pSkelAnim->PushPoseModifier(0, m_ikTorsoAim);
 	}
 }

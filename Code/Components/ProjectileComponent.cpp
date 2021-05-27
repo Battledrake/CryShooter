@@ -19,16 +19,24 @@ namespace
 	CRY_STATIC_AUTO_REGISTER_FUNCTION(&RegisterProjectileComponent)
 }
 
-void CProjectileComponent::Initialize()
+void CProjectileComponent::InitializeProjectile(CCharacterComponent* pOwner)
 {
-	m_pParticle = m_pEntity->GetComponent<Cry::DefaultComponents::CPhysParticleComponent>();
+	m_pOwner = pOwner;
 
-	if (IPhysicalEntity* pPhysics = GetEntity()->GetPhysicalEntity())
-	{
-		pe_action_impulse impulseAction;
-		impulseAction.impulse = GetEntity()->GetWorldRotation().GetColumn1() * m_moveSpeed;
-		pPhysics->Action(&impulseAction);
-	}
+	pe_params_particle particle;
+	particle.collTypes = ent_all;
+	particle.mass = 0.0f;
+	particle.flags = particle_no_impulse | pef_log_collisions;
+	particle.heading = m_pEntity->GetWorldRotation().GetColumn1();
+	particle.velocity = m_moveSpeed;
+	particle.pColliderToIgnore = pOwner->GetAnimComp()->GetCharacter()->GetPhysEntity();
+
+	SEntityPhysicalizeParams entityParams;
+	entityParams.type = PE_PARTICLE;
+	entityParams.mass = particle.mass;
+	entityParams.pParticle = &particle;
+	entityParams.nSlot = -1;
+	m_pEntity->Physicalize(entityParams);
 }
 
 Cry::Entity::EventFlags CProjectileComponent::GetEventMask() const
@@ -46,6 +54,7 @@ void CProjectileComponent::ProcessEvent(const SEntityEvent& event)
 			{
 				if (IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(pPhys->pEntity[1]))
 				{
+					CryLogAlways("EntId: %i", pEntity->GetId());
 					if (CInterfaceComponent* pInterfaceComp = pEntity->GetComponent<CInterfaceComponent>())
 					{
 						if (ITakeDamage* pDamageInterface = pInterfaceComp->GetInterface<ITakeDamage>())
@@ -55,15 +64,7 @@ void CProjectileComponent::ProcessEvent(const SEntityEvent& event)
 					}
 				}
 			}
- 			gEnv->pEntitySystem->RemoveEntity(GetEntityId());
+			gEnv->pEntitySystem->RemoveEntity(GetEntityId());
 			break;
 	}
-}
-
-void CProjectileComponent::SetCollisionType(const ECollisionType type)
-{
-	pe_params_collision_class params;
-	params.collisionClassOR.type = static_cast<uint32>(type);
-	params.collisionClassOR.ignore = static_cast<uint32>(type);
-	m_pEntity->GetPhysicalEntity()->SetParams(&params);
 }

@@ -4,11 +4,7 @@
 #include <DefaultComponents/Geometry/AnimatedMeshComponent.h>
 
 #include "Interfaces/IInteractable.h"
-//
-// 			if (CWeaponComponent* pWep = pHitEnt->GetComponent<CWeaponComponent>())
-// 			{
-// 				m_pCharacter->EquipWeapon(pWep);
-// 			}
+#include "Events/SimpleEvent.h"
 
 enum class EFireMode : uint8
 {
@@ -61,8 +57,7 @@ static void ReflectType(Schematyc::CTypeDesc<EEquipType>& desc)
 	desc.AddConstant(EEquipType::Both, "Both", "Both");
 }
 
-
-class InterfaceComponent;
+class CInterfaceComponent;
 
 class CWeaponComponent final : public IEntityComponent,
 	public IInteractable
@@ -79,8 +74,8 @@ public:
 	//IInteractable
 	virtual void Observe(CCharacterComponent* pObserver, SObjectData& data) override;
 	virtual void Interact(CCharacterComponent* pInteractor) override;
-
 	//~IInteractable
+
 	string GetWeaponName() const { return m_weaponName.c_str(); }
 	string GetIconName() const { return m_iconName.c_str(); }
 	string GetProjectileClass() const { return m_projectileClass.value; }
@@ -145,7 +140,7 @@ private:
 	float m_burstDelay = 0.5f;
 
 	float m_fireTimer = 0.0f;
-	float m_burstTimer = 0;;
+	float m_burstTimer = 0;
 	int m_clipCount = 0;
 	int m_clipCapacity = 30;
 

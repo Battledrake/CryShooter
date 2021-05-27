@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Material" guid="85d18f47-5011-380a-2bf2-eea520ccde67" source="" timestamp="1622131966">
+ <Files>
+  <File path="m_ammopickup.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">0</Detail>
+  <Detail name="textureCount">3</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/pistol/textures/pistol_diff.dds</Path>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/pistol/textures/pistol_norm.dds</Path>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/pistol/textures/pistol_masks.dds</Path>
+ </Dependencies>
+</AssetMetadata>

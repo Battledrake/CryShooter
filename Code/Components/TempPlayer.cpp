@@ -80,7 +80,7 @@ void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
 			}
 
 			const float rotationSpeed = 0.002f;
-			const float rotationLimitsMinPitch = -0.84f;
+			const float rotationLimitsMinPitch = m_currentViewMode == EViewMode::ThirdPerson ? -0.8f : -1.3f;
 			const float rotationLimitsMaxPitch = 1.5f;
 
 			m_mouseDeltaRotation = m_mouseDeltaSmoothingFilter.Push(m_mouseDeltaRotation).Get();
@@ -136,10 +136,20 @@ void CTempPlayerComponent::UpdateCharacter(float travelSpeed, float travelAngle,
 
 	m_pCharacter->UpdateRotation(m_lookOrientation);
 	m_pCharacter->UpdateMovement(travelSpeed, travelAngle);
-	m_pCharacter->UpdateLookOrientation(m_pEntity->GetForwardDir());
+	m_pCharacter->UpdateLookOrientation(GetDirectionForIK());
 
 	const QuatT& entityOrientation = m_pCharacter->GetAnimComp()->GetCharacter()->GetISkeletonPose()->GetAbsJointByID(m_attachJointId);
 	m_pEntity->SetPos(LERP(m_pEntity->GetPos(), entityOrientation.t + m_activePos, 5.0f * frameTime));
+}
+
+Vec3 CTempPlayerComponent::GetDirectionForIK()
+{
+	Vec3 finalLookDirection = m_pEntity->GetForwardDir();
+	if (m_currentViewMode == EViewMode::ThirdPerson)
+	{
+		finalLookDirection *= 2.0f; //We move the position out a bit to make 3rd person follow better
+	}
+	return finalLookDirection;
 }
 
 void CTempPlayerComponent::SetPosOnAttach()

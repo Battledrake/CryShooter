@@ -37,8 +37,6 @@ public:
 
 	void CalculateDamage(float damage, int jointId);
 
-	// Reflect type to set a unique identifier for this component
-	// and provide additional information to expose it in the sandbox
 	static void ReflectType(Schematyc::CTypeDesc<CBodyDamageComponent>& desc)
 	{
 		desc.SetGUID("{E30CB5B2-6E59-406C-9D97-E84D0D08EAEF}"_cry_guid);

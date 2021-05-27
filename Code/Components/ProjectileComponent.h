@@ -1,14 +1,15 @@
 #pragma once
 
 #include <CryEntitySystem/IEntitySystem.h>
-#include <DefaultComponents/Physics/ParticleComponent.h>
 
 class CProjectileComponent final : public IEntityComponent {
 public:
 	CProjectileComponent() = default;
 	virtual ~CProjectileComponent() = default;
 
-	void SetCollisionType(const ECollisionType type);
+	CCharacterComponent* GetProjectileOwner() const { return m_pOwner; }
+
+	void InitializeProjectile(CCharacterComponent* pOwner);
 
 	static void ReflectType(Schematyc::CTypeDesc<CProjectileComponent>& desc)
 	{
@@ -20,12 +21,10 @@ public:
 		desc.AddMember(&CProjectileComponent::m_moveSpeed, 'move', "MoveSpeed", "Move Speed", "Determines speed of projectile", 1000.0f);
 	}
 protected:
-	virtual void Initialize() override;
 	virtual Cry::Entity::EventFlags GetEventMask() const override;
 	virtual void ProcessEvent(const SEntityEvent& event) override;
 
 private:
-	Cry::DefaultComponents::CPhysParticleComponent* m_pParticle;
-
+	CCharacterComponent* m_pOwner;
 	float m_moveSpeed;
 };

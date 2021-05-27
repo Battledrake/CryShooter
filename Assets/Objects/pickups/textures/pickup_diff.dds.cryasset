@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="e6fca61a-a639-f1db-8779-a29ef5ebdcb1" source="pickup_diff.tif">
+ <Files>
+  <File path="pickup_diff.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">2048</Detail>
+  <Detail name="height">2048</Detail>
+  <Detail name="mipCount">10</Detail>
+ </Details>
+</AssetMetadata>

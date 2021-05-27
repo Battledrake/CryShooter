@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Mesh" guid="45e34b5c-7769-a8e2-2c78-fddcad852414" source="AssaultRifle_Pickup.FBX">
+ <Files>
+  <File path="AssaultRifle_Pickup.cgf"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">3</Detail>
+  <Detail name="triangleCount">1736</Detail>
+  <Detail name="vertexCount">1480</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">materials/m_ammopickup.mtl</Path>
+ </Dependencies>
+</AssetMetadata>
