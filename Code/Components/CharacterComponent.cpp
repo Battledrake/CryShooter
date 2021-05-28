@@ -7,11 +7,12 @@
 #include <CryExtension/CryCreateClassInstance.h>
 #include <Animation/PoseModifier/IKTorsoAim.h>
 
-#include "Helpers/Conversions.h"
+#include "Components/TempPlayer.h"
 #include "Components/BodyDamageComponent.h"
+#include "Components/EquipmentComponent.h"
 #include "Components/WeaponComponent.h"
 #include "Components/ProjectileComponent.h"
-#include "Components/TempPlayer.h"
+#include "Helpers/Conversions.h"
 
 
 namespace
@@ -30,10 +31,11 @@ namespace
 
 void CCharacterComponent::Initialize()
 {
-	m_pAnimComp = m_pEntity->GetComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
-	m_pCharController = m_pEntity->GetComponent<Cry::DefaultComponents::CCharacterControllerComponent>();
+	m_pAnimComp = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
+	m_pCharController = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CCharacterControllerComponent>();
+	m_pEquipmentComp = m_pEntity->GetOrCreateComponent<CEquipmentComponent>();
 	m_pInterfaceComp = m_pEntity->GetOrCreateComponent<CInterfaceComponent>();
-	m_pBodyDamageComp = m_pEntity->GetComponent<CBodyDamageComponent>();
+	m_pBodyDamageComp = m_pEntity->GetOrCreateComponent<CBodyDamageComponent>();
 
 	CryCreateClassInstanceForInterface(cryiidof<IAnimationPoseModifierTorsoAim>(), m_ikTorsoAim);
 }
@@ -81,9 +83,6 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 				m_pActiveWeapon->GetEntity()->EnablePhysics(true);
 				m_pActiveWeapon = nullptr;
 			}
-			//TODO: Perhaps cap? Anything over 1000 breaks UI
-			m_ammoMap[EWeaponType::Rifle] = 500;
-			m_ammoMap[EWeaponType::Pistol] = 500;
 
 			m_pAnimComp->ResetCharacter();
 			m_pAnimComp->QueueFragment("Locomotion");
@@ -92,14 +91,14 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 	}
 }
 
-void CCharacterComponent::AddAmmo(EWeaponType weaponType, int amount)
+void CCharacterComponent::AddAmmo(string weaponName, int amount)
 {
-	m_ammoMap[weaponType] += amount;
 	if (m_pActiveWeapon)
 	{
-		if (m_pActiveWeapon->GetWeaponType() == weaponType)
+		if (strcmp(m_pActiveWeapon->GetEquipmentName(), weaponName) == 0)
 		{
-			m_ammoAddedEvent.Invoke(m_ammoMap[weaponType]);
+			m_pActiveWeapon->GiveAmmo(amount);
+ 			m_ammoAddedEvent.Invoke(m_pActiveWeapon->GetAmmoCount());
 		}
 	}
 }
@@ -164,12 +163,8 @@ void CCharacterComponent::ProcessReload()
 	{
 		m_pActiveWeapon->DisableFiring();
 
-		const int clipCapacity = m_pActiveWeapon->GetClipCapacity();
-		const int clipCount = m_pActiveWeapon->GetClipCount();
-		const int clipSpace = clipCapacity - clipCount;
-		const int freeAmmo = m_ammoMap[m_pActiveWeapon->GetWeaponType()] - clipCount;
-		const int fill = freeAmmo - clipSpace >= 0 ? clipSpace : freeAmmo;
-		m_pActiveWeapon->ReloadClip(fill);
+		//TODO: Mebbe reload animation and have this called on animevent.
+ 		m_pActiveWeapon->Reload();
 
 		m_reloadEvent.Invoke(m_pActiveWeapon->GetClipCount());
 	}
@@ -206,42 +201,11 @@ void CCharacterComponent::SwitchFireMode()
 
 void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 {
-	for (int i = 0; i < m_weapons.size(); i++)
-	{
-		if (strcmp(m_weapons[i]->GetWeaponName(), weapon->GetWeaponName()) == 0)
-		{
-			AddAmmo(weapon->GetWeaponType(), weapon->GetClipCount());
-			weapon->GetEntity()->Hide(true);
-			return;
-		}
-	}
-	//EquipType Primary/Secondary/Both
-	switch (weapon->GetEquipType())
-	{
-		case EEquipType::Primary:
-		{
-			m_weapons.push_back(weapon);
-		}
-		break;
-		case EEquipType::Secondary:
-		{
-			m_weapons.push_back(weapon);
-		}
-		break;
-		case EEquipType::Both:
-		{
-
-		}
-		break;
-	}
-
 	if (m_pActiveWeapon)
 	{
 		m_pActiveWeapon->DisableFiring();
 
 		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
-
-		m_ammoMap[m_pActiveWeapon->GetWeaponType()] -= m_pActiveWeapon->GetClipCount();
 
 		m_pActiveWeapon->GetEntity()->EnablePhysics(true);
 
@@ -261,10 +225,9 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 	m_pActiveWeapon = weapon;
 	AttachWeapon();
 
-	m_ammoMap[m_pActiveWeapon->GetWeaponType()] += m_pActiveWeapon->GetClipCount();
 
-	m_equipEvent.Invoke(m_pActiveWeapon->GetIconName(), EnumToString(m_pActiveWeapon->GetFireMode()),
-		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(), m_ammoMap[m_pActiveWeapon->GetWeaponType()]);
+ 	m_equipEvent.Invoke(m_pActiveWeapon->GetIconName(), EnumToString(m_pActiveWeapon->GetFireMode()),
+ 		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(), m_pActiveWeapon->GetAmmoCount());
 
 	m_pActiveWeapon->m_fireEvent.RegisterListener(std::bind(&CCharacterComponent::HandleWeaponFired, this));
 	m_pActiveWeapon->m_recoilEvent.RegisterListener([this](Vec2 recoil)
@@ -275,6 +238,8 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 
 	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), true);
 	m_pAnimComp->QueueFragment("Locomotion");
+
+	m_pEquipmentComp->AddEquipment(m_pActiveWeapon);
 }
 
 void CCharacterComponent::HandleWeaponFired()
@@ -324,8 +289,7 @@ void CCharacterComponent::HandleWeaponFired()
 			pProjectileComp->InitializeProjectile(this);
 	}
 
-	m_ammoMap[m_pActiveWeapon->GetWeaponType()]--;
-	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount(), m_ammoMap[m_pActiveWeapon->GetWeaponType()]);
+ 	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetAmmoCount());
 }
 
 void CCharacterComponent::UpdateMovement(float travelSpeed, float travelAngle)

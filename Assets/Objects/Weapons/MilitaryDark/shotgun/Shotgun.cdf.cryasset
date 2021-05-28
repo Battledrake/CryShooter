@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Character" guid="d350ae1c-2fa1-330a-45e2-099d3cf3c318">
+ <Files>
+  <File path="Shotgun.cdf"/>
+ </Files>
+ <Details />
+ <Dependencies>
+  <Path>Objects/Weapons/MilitaryDark/shotgun/Shotgun.chr</Path>
+  <Path>Objects/Weapons/MilitaryDark/shotgun/Shotgun_Shotgun_B.skin</Path>
+ </Dependencies>
+</AssetMetadata>

@@ -1,7 +1,7 @@
 #pragma once
 
 //Simple event supports a single listener, used mostly for UI events
-template<typename Signature, typename...Args>
+template<typename...Args>
 class SimpleEvent
 {
 public:
@@ -11,7 +11,7 @@ public:
 			m_function(args...);
 	}
 
-	void RegisterListener(std::function<Signature(Args...)> function)
+	void RegisterListener(std::function<void(Args...)> function)
 	{
 		m_function = std::move(function);
 	}
@@ -22,5 +22,5 @@ public:
 	}
 
 private:
-	std::function<Signature(Args...)> m_function;
+	std::function<void(Args...)> m_function;
 };

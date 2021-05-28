@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Mesh" guid="79be6a06-723e-a7f9-0648-354b9ff5e832" source="Shotgun.FBX">
+ <Files>
+  <File path="Shotgun.cgf"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">3</Detail>
+  <Detail name="triangleCount">4414</Detail>
+  <Detail name="vertexCount">4177</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">materials/m_shotgun.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

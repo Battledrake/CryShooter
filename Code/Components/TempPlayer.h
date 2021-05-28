@@ -97,8 +97,8 @@
  	virtual ~CTempPlayerComponent() = default;
  
  	//Events
- 	SimpleEvent<void> m_fireEvent;
- 	SimpleEvent<void, const SObjectData&, bool> m_interactEvent;
+ 	SimpleEvent<> m_fireEvent;
+ 	SimpleEvent<const SObjectData&, bool> m_interactEvent;
  	//~Events
  
  	inline CCharacterComponent* GetCharacter() { return m_pCharacter; }

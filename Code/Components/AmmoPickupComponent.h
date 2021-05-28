@@ -26,7 +26,7 @@ public:
 		desc.SetEditorCategory("Custom");
 		desc.SetLabel("AmmoPickup");
 		desc.SetDescription("Ammo Pickup!");
-		desc.AddMember(&CAmmoPickupComponent::m_weaponType, 'wep', "WeaponType", "Weapon Type", "Determines the type of weapon the ammo is for", EWeaponType::Rifle);
+		desc.AddMember(&CAmmoPickupComponent::m_weaponName, 'name', "WeaponName", "Weapon Name", "Determines the weapon the ammo is for", "AssaultRifle");
 		desc.AddMember(&CAmmoPickupComponent::m_ammoAmount, 'amt', "AmmoAmount", "Ammo Amount", "Determines amount of ammo to give on pickup", 25);
 	}
 
@@ -37,8 +37,8 @@ protected:
 
 private:
 	Cry::DefaultComponents::CStaticMeshComponent* m_pMesh;
-
 	CInterfaceComponent* m_pInterfaceComponent;
-	EWeaponType m_weaponType;
+
+	Schematyc::CSharedString m_weaponName;
 	int m_ammoAmount;
 };

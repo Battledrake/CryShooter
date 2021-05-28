@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Material" guid="c0181390-c25a-be75-1314-68ccb053ac36" source="" timestamp="1622215957">
+ <Files>
+  <File path="m_shotgun.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">0</Detail>
+  <Detail name="textureCount">3</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/shotgun/textures/shotgun_diff.dds</Path>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/shotgun/textures/shotgun_norm.dds</Path>
+  <Path usageCount="1">Objects/Weapons/MilitaryDark/shotgun/textures/shotgun_masks.dds</Path>
+ </Dependencies>
+</AssetMetadata>

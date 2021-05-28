@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="b3fb301e-6b0c-e589-9541-df18af8f641f" source="shotgun_diff.tif">
+ <Files>
+  <File path="shotgun_diff.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">2048</Detail>
+  <Detail name="height">2048</Detail>
+  <Detail name="mipCount">10</Detail>
+ </Details>
+</AssetMetadata>

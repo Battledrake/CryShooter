@@ -22,6 +22,7 @@ namespace
 
 void CAmmoPickupComponent::Initialize()
 {
+	m_pMesh = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CStaticMeshComponent>();
 	m_pInterfaceComponent = m_pEntity->GetOrCreateComponent<CInterfaceComponent>();
 }
 
@@ -45,12 +46,12 @@ void CAmmoPickupComponent::ProcessEvent(const SEntityEvent& event)
 void CAmmoPickupComponent::Observe(CCharacterComponent* pObserver, SObjectData& objectData)
 {
 	objectData.objectKeyword = "Grab";
-	objectData.objectName = EnumToString(m_weaponType);
+	objectData.objectName = m_weaponName.c_str();
 	objectData.objectBonus = "Ammo";
 }
 
 void CAmmoPickupComponent::Interact(CCharacterComponent* pInteractor)
 {
-	pInteractor->AddAmmo(m_weaponType, m_ammoAmount);
+	pInteractor->AddAmmo(m_weaponName.c_str(), m_ammoAmount);
 	m_pEntity->Hide(true);
 }

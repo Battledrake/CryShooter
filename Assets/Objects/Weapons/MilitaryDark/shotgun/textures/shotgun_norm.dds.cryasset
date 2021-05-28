@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="68eb0689-cbe0-2a9e-676d-e51deb6934c9" source="shotgun_norm.tif">
+ <Files>
+  <File path="shotgun_norm.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">2048</Detail>
+  <Detail name="height">2048</Detail>
+  <Detail name="mipCount">10</Detail>
+ </Details>
+</AssetMetadata>

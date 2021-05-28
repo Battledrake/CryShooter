@@ -4,6 +4,7 @@
 #include <DefaultComponents/Geometry/AnimatedMeshComponent.h>
 
 #include "Interfaces/IInteractable.h"
+#include "Interfaces/IEquippable.h"
 #include "Events/SimpleEvent.h"
 
 enum class EFireMode : uint8
@@ -17,13 +18,6 @@ enum class EWeaponType : uint8
 {
 	Rifle,
 	Pistol
-};
-
-enum class EEquipType : uint8
-{
-	Primary,
-	Secondary,
-	Both
 };
 
 static void ReflectType(Schematyc::CTypeDesc<EFireMode>& desc)
@@ -46,29 +40,18 @@ static void ReflectType(Schematyc::CTypeDesc<EWeaponType>& desc)
 	desc.AddConstant(EWeaponType::Pistol, "Pistol", "Pistol");
 }
 
-static void ReflectType(Schematyc::CTypeDesc<EEquipType>& desc)
-{
-	desc.SetGUID("{D5F09339-E774-405E-85D6-8A93873B2502}"_cry_guid);
-	desc.SetLabel("Animation Type");
-	desc.SetDescription("Determines which equipment slot weapon belongs to");
-	desc.SetDefaultValue(EEquipType::Primary);
-	desc.AddConstant(EEquipType::Primary, "Primary", "Primary");
-	desc.AddConstant(EEquipType::Secondary, "Secondary", "Secondary");
-	desc.AddConstant(EEquipType::Both, "Both", "Both");
-}
-
 class CInterfaceComponent;
 
 class CWeaponComponent final : public IEntityComponent,
-	public IInteractable
+	public IInteractable, public IEquippable
 {
 public:
 	CWeaponComponent() = default;
 	virtual ~CWeaponComponent() = default;
 
 	//Events
-	SimpleEvent<void> m_fireEvent;
-	SimpleEvent<void, Vec2> m_recoilEvent;
+	SimpleEvent<> m_fireEvent;
+	SimpleEvent<Vec2> m_recoilEvent;
 	//~Events
 
 	//IInteractable
@@ -76,18 +59,25 @@ public:
 	virtual void Interact(CCharacterComponent* pInteractor) override;
 	//~IInteractable
 
-	string GetWeaponName() const { return m_weaponName.c_str(); }
+	//IEquippable
+	virtual const char* GetEquipmentName() const override { return m_weaponName.c_str(); }
+	virtual EEquipmentType GetEquipmentType() const override { return m_equipType; }
+	//~IEquippable
+
 	string GetIconName() const { return m_iconName.c_str(); }
 	string GetProjectileClass() const { return m_projectileClass.value; }
 	EFireMode GetFireMode() const { return m_currentFireMode; }
 	EWeaponType GetWeaponType() const { return m_weaponType; }
-	EEquipType GetEquipType() const { return m_equipType; }
+	EEquipmentType GetEquipType() const { return m_equipType; }
 	int GetClipCapacity() const { return m_clipCapacity; }
 	int GetClipCount() const { return m_clipCount; }
+	int GetAmmoCount() const { return m_ammoCount; }
+	int GetMaxAmmo() const { return m_maxAmmo; }
 
 	void DisableFiring() { ProcessFire(false); m_isBursting = false; m_burstQueued = false; }
+	void GiveAmmo(int amount) { m_ammoCount += amount; }
 	void ProcessFire(bool isPressed);
-	void ReloadClip(int amount) { m_clipCount += amount; }
+	void Reload();
 	EFireMode SwitchFireModes();
 
 	// Reflect type to set a unique identifier for this component
@@ -102,13 +92,15 @@ public:
 		desc.AddMember(&CWeaponComponent::m_iconName, 'icon', "IconName", "Icon Name", "Name of icon to load for Hud", "");
 		desc.AddMember(&CWeaponComponent::m_projectileClass, 'proj', "ProjectileClass", "Projectile Class", "Entity class to spawn on fire", "");
 		desc.AddMember(&CWeaponComponent::m_weaponType, 'type', "WeaponType", "Weapon Type", "Determines animation tag and attach slot", EWeaponType::Rifle);
-		desc.AddMember(&CWeaponComponent::m_equipType, 'anim', "EquipmentType", "Equipment Type", "Determines which equip slot to use", EEquipType::Primary);
+		desc.AddMember(&CWeaponComponent::m_equipType, 'anim', "EquipmentType", "Equipment Type", "Determines which equip slot to use", EEquipmentType::PrimaryWeapon);
 		desc.AddMember(&CWeaponComponent::m_fireModes, 'mode', "FireModes", "Weapon Fire Modes", "Determines the firing modes the weapon supports", Schematyc::CArray<EFireMode>());
 		desc.AddMember(&CWeaponComponent::m_fireRate, 'rate', "FireRate", "Weapon Fire Rate", "Rate per minute", 500);
 		desc.AddMember(&CWeaponComponent::m_wepRecoil, 'coil', "WeaponRecoil", "Weapon Recoil", "Sets the recoil", Vec2(-2.0f, 5.0f));
 		desc.AddMember(&CWeaponComponent::m_shotsInBurst, 'brst', "Burst", "Shots in Burst", "Number of shots fired per burst", 3);
 		desc.AddMember(&CWeaponComponent::m_burstDelay, 'dlay', "BurstDelay", "Burst Delay", "Determines the length of time before firing another burst", 0.5f);
 		desc.AddMember(&CWeaponComponent::m_clipCapacity, 'clip', "ClipCapacity", "Clip Capacity", "Amount of bullets held by clip", 30);
+		desc.AddMember(&CWeaponComponent::m_ammoCount, 'ammo', "AmmoCount", "Ammo Count", "Total ammo held for this weapon", 0);
+		desc.AddMember(&CWeaponComponent::m_maxAmmo, 'max', "MaxAmmo", "Max Ammo", "Maximum amount of ammo weapon can have", 300);
 	}
 
 protected:
@@ -143,8 +135,10 @@ private:
 	float m_burstTimer = 0;
 	int m_clipCount = 0;
 	int m_clipCapacity = 30;
+	int m_ammoCount;
+	int m_maxAmmo;
 
 	EWeaponType m_weaponType;
-	EEquipType m_equipType;
+	EEquipmentType m_equipType;
 	EFireMode m_currentFireMode;
 };

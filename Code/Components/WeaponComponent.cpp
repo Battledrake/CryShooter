@@ -45,6 +45,7 @@
  		case Cry::Entity::EEvent::GameplayStarted:
  		{
  			m_pInterfaceComponent->AddInterface<IInteractable>(this);
+            m_pInterfaceComponent->AddInterface<IEquippable>(this);
  		}
  		break;
  		case Cry::Entity::EEvent::Update:
@@ -136,6 +137,7 @@
  		}
  
  		m_clipCount--;
+        m_ammoCount--;
  		m_fireTimer = 1 / ((float)m_fireRate / rateAdjuster);
  		m_fireEvent.Invoke();
  		m_recoilEvent.Invoke(m_wepRecoil);
@@ -145,6 +147,14 @@
  		m_isBursting = false;
  		m_isAutoing = false;
  	}
+ }
+
+ void CWeaponComponent::Reload()
+ {
+	 const int clipSpace = m_clipCapacity - m_clipCount;
+	 const int freeAmmo = m_ammoCount - m_clipCount;
+	 const int fill = freeAmmo - clipSpace >= 0 ? clipSpace : freeAmmo;
+     m_clipCount += fill;
  }
  
  EFireMode CWeaponComponent::SwitchFireModes()
@@ -163,18 +173,16 @@
  
  void CWeaponComponent::Observe(CCharacterComponent* pObserver, SObjectData& data)
  {
- 	if (pObserver)
- 	{
- 		std::vector<CWeaponComponent*> m_charWeapons = pObserver->GetCharacterWeapons();
- 		for (int i = 0; i < m_charWeapons.size(); i++)
- 		{
- 			if (strcmp(m_weaponName.c_str(), m_charWeapons[i]->GetWeaponName()) == 0)
- 			{
- 				data.objectBonus = "Ammo";
- 				break;
- 			}
- 		}
- 	}
+	 if (pObserver)
+	 {
+         if (CEquipmentComponent* pEquipComp = pObserver->GetEntity()->GetComponent<CEquipmentComponent>())
+         {
+             if (pEquipComp->CheckIfHasEquipment(this))
+             {
+                 data.objectBonus = "Ammo";
+             }
+         }
+	 }
  	data.objectKeyword = "Take";
  	data.objectName = m_weaponName.c_str();
  }

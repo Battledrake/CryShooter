@@ -86,7 +86,7 @@
     <children />
    </element>
    <element elementType="ComponentInstance" guid="2af72c77-e3bd-4cc9-8f6e-84e1ce401236" name="WeaponComponent" accessor="Public" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
-    <properties WeaponName="AssaultRifle" IconName="Rifle" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Rifle" EquipmentType="Primary" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="25">
+    <properties WeaponName="AssaultRifle" IconName="Rifle" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Rifle" EquipmentType="PrimaryWeapon" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="25" AmmoCount="250" MaxAmmo="300">
      <FireModes>
       <element element="Auto"/>
       <element element="Single"/>
