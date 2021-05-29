@@ -40,17 +40,18 @@ public:
 
 	//Events
 	SimpleEvent<string, string, int, int, int> m_equipEvent;
-	SimpleEvent<int, int> m_wepFiredEvent;
+	SimpleEvent<int> m_wepFiredEvent;
 	SimpleEvent<int> m_reloadEvent;
 	SimpleEvent<string> m_switchFireModeEvent;
-	SimpleEvent<int> m_ammoAddedEvent;
+	SimpleEvent<int> m_ammoChangedEvent;
 	//~Events
 
 	Cry::DefaultComponents::CAdvancedAnimationComponent* GetAnimComp() { return m_pAnimComp; }
+	CEquipmentComponent* GetEquipmentComponent() { return m_pEquipmentComp; }
 
 	void AddAmmo(string weaponName, int amount);
 	void ChangeCharacter(const Schematyc::CharacterFileName charFile, const Schematyc::CSharedString context = "");
-	void EquipWeapon(CWeaponComponent* weapon);
+	void SetActiveWeapon(CWeaponComponent* pWeapon);
 	void ProcessFire(bool isPressed);
 	void ProcessJump();
 	void ProcessReload();
@@ -104,7 +105,7 @@ private:
 	Schematyc::CSharedString m_aimJointName = "mixamorig:spine";
 	std::shared_ptr<CIKTorsoAim> m_ikTorsoAim;
 
-	CWeaponComponent* m_pActiveWeapon;
+	CWeaponComponent* m_pActiveWeapon = nullptr;
 
 	float m_moveSpeed = 3.0f;
 	float m_runMultiplier = 2.0f;

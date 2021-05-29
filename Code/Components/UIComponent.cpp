@@ -70,10 +70,9 @@
  		m_pWeaponUI->SetVisible(true);
  	});
  
- 	pCharacter->m_wepFiredEvent.RegisterListener([this](const int clipCount, const int totalAmmo)
+ 	pCharacter->m_wepFiredEvent.RegisterListener([this](const int clipCount)
  	{
  		m_pWeaponUI->CallFunction("Fire", SUIArguments::Create(clipCount));
- 		m_pWeaponUI->CallFunction("SetTotalAmmo", SUIArguments::Create(totalAmmo));
  		m_pCrosshairUI->CallFunction("Fire");
  	});
  
@@ -87,7 +86,7 @@
  		m_pWeaponUI->CallFunction("SetFireMode", SUIArguments::Create(fireMode));
  	});
  
- 	pCharacter->m_ammoAddedEvent.RegisterListener([this](const int totalAmmo)
+ 	pCharacter->m_ammoChangedEvent.RegisterListener([this](const int totalAmmo)
  	{
  		m_pWeaponUI->CallFunction("SetTotalAmmo", SUIArguments::Create(totalAmmo));
  	});

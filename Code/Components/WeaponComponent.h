@@ -20,6 +20,13 @@ enum class EWeaponType : uint8
 	Pistol
 };
 
+enum class EWeaponSlot : uint8
+{
+	Primary,
+	Secondary,
+	Both
+};
+
 static void ReflectType(Schematyc::CTypeDesc<EFireMode>& desc)
 {
 	desc.SetGUID("{ED416955-0939-436F-A50F-4AC7033BEC10}"_cry_guid);
@@ -38,6 +45,17 @@ static void ReflectType(Schematyc::CTypeDesc<EWeaponType>& desc)
 	desc.SetDefaultValue(EWeaponType::Rifle);
 	desc.AddConstant(EWeaponType::Rifle, "Rifle", "Rifle");
 	desc.AddConstant(EWeaponType::Pistol, "Pistol", "Pistol");
+}
+
+static void ReflectType(Schematyc::CTypeDesc<EWeaponSlot>& desc)
+{
+	desc.SetGUID("{C7719231-03CC-4EAF-8E35-9C9CCFA520C5}"_cry_guid);
+	desc.SetLabel("Weapon Slot");
+	desc.SetDescription("Determines which Weapon slot this weapon belongs to");
+	desc.SetDefaultValue(EWeaponSlot::Primary);
+	desc.AddConstant(EWeaponSlot::Primary, "Primary", "Primary");
+	desc.AddConstant(EWeaponSlot::Secondary, "Secondary", "Secondary");
+	desc.AddConstant(EWeaponSlot::Both, "Both", "Both");
 }
 
 class CInterfaceComponent;
@@ -60,7 +78,7 @@ public:
 	//~IInteractable
 
 	//IEquippable
-	virtual const char* GetEquipmentName() const override { return m_weaponName.c_str(); }
+	virtual string GetEquipmentName() const override { return m_weaponName.c_str(); }
 	virtual EEquipmentType GetEquipmentType() const override { return m_equipType; }
 	//~IEquippable
 
@@ -69,15 +87,14 @@ public:
 	EFireMode GetFireMode() const { return m_currentFireMode; }
 	EWeaponType GetWeaponType() const { return m_weaponType; }
 	EEquipmentType GetEquipType() const { return m_equipType; }
+	EWeaponSlot GetWeaponSlot() const { return m_weaponSlot; }
 	int GetClipCapacity() const { return m_clipCapacity; }
 	int GetClipCount() const { return m_clipCount; }
-	int GetAmmoCount() const { return m_ammoCount; }
 	int GetMaxAmmo() const { return m_maxAmmo; }
 
 	void DisableFiring() { ProcessFire(false); m_isBursting = false; m_burstQueued = false; }
-	void GiveAmmo(int amount) { m_ammoCount += amount; }
 	void ProcessFire(bool isPressed);
-	void Reload();
+	void Reload(int amount);
 	EFireMode SwitchFireModes();
 
 	// Reflect type to set a unique identifier for this component
@@ -92,14 +109,13 @@ public:
 		desc.AddMember(&CWeaponComponent::m_iconName, 'icon', "IconName", "Icon Name", "Name of icon to load for Hud", "");
 		desc.AddMember(&CWeaponComponent::m_projectileClass, 'proj', "ProjectileClass", "Projectile Class", "Entity class to spawn on fire", "");
 		desc.AddMember(&CWeaponComponent::m_weaponType, 'type', "WeaponType", "Weapon Type", "Determines animation tag and attach slot", EWeaponType::Rifle);
-		desc.AddMember(&CWeaponComponent::m_equipType, 'anim', "EquipmentType", "Equipment Type", "Determines which equip slot to use", EEquipmentType::PrimaryWeapon);
+		desc.AddMember(&CWeaponComponent::m_weaponSlot, 'slot', "WeaponSlot", "Weapon Slot", "Determines which weapon slot this weapon can belong to", EWeaponSlot::Primary);
 		desc.AddMember(&CWeaponComponent::m_fireModes, 'mode', "FireModes", "Weapon Fire Modes", "Determines the firing modes the weapon supports", Schematyc::CArray<EFireMode>());
 		desc.AddMember(&CWeaponComponent::m_fireRate, 'rate', "FireRate", "Weapon Fire Rate", "Rate per minute", 500);
 		desc.AddMember(&CWeaponComponent::m_wepRecoil, 'coil', "WeaponRecoil", "Weapon Recoil", "Sets the recoil", Vec2(-2.0f, 5.0f));
 		desc.AddMember(&CWeaponComponent::m_shotsInBurst, 'brst', "Burst", "Shots in Burst", "Number of shots fired per burst", 3);
 		desc.AddMember(&CWeaponComponent::m_burstDelay, 'dlay', "BurstDelay", "Burst Delay", "Determines the length of time before firing another burst", 0.5f);
 		desc.AddMember(&CWeaponComponent::m_clipCapacity, 'clip', "ClipCapacity", "Clip Capacity", "Amount of bullets held by clip", 30);
-		desc.AddMember(&CWeaponComponent::m_ammoCount, 'ammo', "AmmoCount", "Ammo Count", "Total ammo held for this weapon", 0);
 		desc.AddMember(&CWeaponComponent::m_maxAmmo, 'max', "MaxAmmo", "Max Ammo", "Maximum amount of ammo weapon can have", 300);
 	}
 
@@ -135,10 +151,10 @@ private:
 	float m_burstTimer = 0;
 	int m_clipCount = 0;
 	int m_clipCapacity = 30;
-	int m_ammoCount;
 	int m_maxAmmo;
 
 	EWeaponType m_weaponType;
-	EEquipmentType m_equipType;
+	EEquipmentType m_equipType = EEquipmentType::Weapon;
+	EWeaponSlot m_weaponSlot;
 	EFireMode m_currentFireMode;
 };

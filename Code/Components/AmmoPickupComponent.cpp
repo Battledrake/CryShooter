@@ -52,6 +52,6 @@ void CAmmoPickupComponent::Observe(CCharacterComponent* pObserver, SObjectData& 
 
 void CAmmoPickupComponent::Interact(CCharacterComponent* pInteractor)
 {
-	pInteractor->AddAmmo(m_weaponName.c_str(), m_ammoAmount);
+// 	pInteractor->AddAmmo(m_weaponName.c_str(), m_ammoAmount);
 	m_pEntity->Hide(true);
 }

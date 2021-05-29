@@ -91,17 +91,17 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 	}
 }
 
-void CCharacterComponent::AddAmmo(string weaponName, int amount)
-{
-	if (m_pActiveWeapon)
-	{
-		if (strcmp(m_pActiveWeapon->GetEquipmentName(), weaponName) == 0)
-		{
-			m_pActiveWeapon->GiveAmmo(amount);
- 			m_ammoAddedEvent.Invoke(m_pActiveWeapon->GetAmmoCount());
-		}
-	}
-}
+// void CCharacterComponent::AddAmmo(string weaponName, int amount)
+// {
+// 	if (m_pActiveWeapon)
+// 	{
+// 		if (strcmp(m_pActiveWeapon->GetEquipmentName(), weaponName) == 0)
+// 		{
+// 			m_pActiveWeapon->GiveAmmo(amount);
+//  			m_ammoAddedEvent.Invoke(m_pActiveWeapon->GetAmmoCount());
+// 		}
+// 	}
+// }
 
 void CCharacterComponent::ChangeCharacter(const Schematyc::CharacterFileName charFile, const Schematyc::CSharedString context)
 {
@@ -163,10 +163,16 @@ void CCharacterComponent::ProcessReload()
 	{
 		m_pActiveWeapon->DisableFiring();
 
+		const int clipSpace = m_pActiveWeapon->GetClipCapacity() - m_pActiveWeapon->GetClipCount();
+// 		int reservedAmmo = m_pEquipmentComp->GetAmmoReserve(m_pActiveWeapon->GetEquipmentName());
+// 		const int fill = reservedAmmo - clipSpace >= 0 ? clipSpace : reservedAmmo;
+
+		int newClip = m_pEquipmentComp->RemoveAmmo(m_pActiveWeapon, clipSpace);
 		//TODO: Mebbe reload animation and have this called on animevent.
- 		m_pActiveWeapon->Reload();
+ 		m_pActiveWeapon->Reload(newClip);
 
 		m_reloadEvent.Invoke(m_pActiveWeapon->GetClipCount());
+		m_ammoChangedEvent.Invoke(m_pEquipmentComp->GetAmmoReserve(m_pActiveWeapon->GetEquipmentName()));
 	}
 }
 
@@ -199,35 +205,22 @@ void CCharacterComponent::SwitchFireMode()
 	m_switchFireModeEvent.Invoke(EnumToString(fireMode));
 }
 
-void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
+void CCharacterComponent::SetActiveWeapon(CWeaponComponent* pWeapon)
 {
-	if (m_pActiveWeapon)
-	{
-		m_pActiveWeapon->DisableFiring();
-
-		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
-
-		m_pActiveWeapon->GetEntity()->EnablePhysics(true);
-
-		pe_action_impulse impulseAction;
-		const float initialVelocity = 50.0f;
-		impulseAction.impulse = m_pEntity->GetForwardDir() * initialVelocity;
-		impulseAction.angImpulse = Vec3(initialVelocity, 0, 0);
-		m_pActiveWeapon->GetEntity()->GetPhysicalEntity()->Action(&impulseAction);
-
-		m_pActiveWeapon->m_fireEvent.RemoveListener();
-		m_pActiveWeapon->m_recoilEvent.RemoveListener();
-		m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), false);
-		m_pActiveWeapon = nullptr;
-	}
-
-	weapon->GetEntity()->EnablePhysics(false);
-	m_pActiveWeapon = weapon;
+ 	if (m_pActiveWeapon)
+ 	{
+ 		m_pAnimComp->SetTag(EnumToString(pWeapon->GetWeaponType()), false);
+ 		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
+ 		m_pActiveWeapon->m_fireEvent.RemoveListener();
+ 		m_pActiveWeapon->m_recoilEvent.RemoveListener();
+ 	}
+	m_pActiveWeapon = pWeapon;
+	m_pActiveWeapon->GetEntity()->EnablePhysics(false);
 	AttachWeapon();
 
-
  	m_equipEvent.Invoke(m_pActiveWeapon->GetIconName(), EnumToString(m_pActiveWeapon->GetFireMode()),
- 		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(), m_pActiveWeapon->GetAmmoCount());
+ 		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(),
+		m_pEquipmentComp->GetAmmoReserve(m_pActiveWeapon->GetEquipmentName()));
 
 	m_pActiveWeapon->m_fireEvent.RegisterListener(std::bind(&CCharacterComponent::HandleWeaponFired, this));
 	m_pActiveWeapon->m_recoilEvent.RegisterListener([this](Vec2 recoil)
@@ -238,8 +231,6 @@ void CCharacterComponent::EquipWeapon(CWeaponComponent* weapon)
 
 	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), true);
 	m_pAnimComp->QueueFragment("Locomotion");
-
-	m_pEquipmentComp->AddEquipment(m_pActiveWeapon);
 }
 
 void CCharacterComponent::HandleWeaponFired()
@@ -289,7 +280,7 @@ void CCharacterComponent::HandleWeaponFired()
 			pProjectileComp->InitializeProjectile(this);
 	}
 
- 	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetAmmoCount());
+ 	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount());
 }
 
 void CCharacterComponent::UpdateMovement(float travelSpeed, float travelAngle)
@@ -321,6 +312,14 @@ void CCharacterComponent::UpdateLookOrientation(const Vec3& lookDirection)
 	}
 }
 
+void CCharacterComponent::ClearAttachBinding(const char* szName)
+{
+	if (IAttachment* pAttach = m_pAnimComp->GetCharacter()->GetIAttachmentManager()->GetInterfaceByName(szName))
+	{
+		pAttach->ClearBinding();
+	}
+}
+
 void CCharacterComponent::AttachWeapon()
 {
 	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), true);
@@ -330,14 +329,6 @@ void CCharacterComponent::AttachWeapon()
 		CEntityAttachment* pWepAttach = new CEntityAttachment();
 		pWepAttach->SetEntityId(m_pActiveWeapon->GetEntityId());
 		pAttach->AddBinding(pWepAttach);
-	}
-}
-
-void CCharacterComponent::ClearAttachBinding(const char* szName)
-{
-	if (IAttachment* pAttach = m_pAnimComp->GetCharacter()->GetIAttachmentManager()->GetInterfaceByName(szName))
-	{
-		pAttach->ClearBinding();
 	}
 }
 
