@@ -148,9 +148,21 @@ void CWeaponComponent::Fire()
 	}
 }
 
-void CWeaponComponent::Reload(int amount)
+void CWeaponComponent::AddAmmo(int amount)
 {
-	m_clipCount += amount;
+	m_ammoCount += amount;
+	if (m_ammoCount > m_maxAmmo)
+		m_ammoCount = m_maxAmmo;
+	m_ammoChangedEvent.Invoke(m_ammoCount);
+}
+
+void CWeaponComponent::Reload()
+{
+	const int clipSpace = m_clipCapacity - m_clipCount;
+	const int fill = m_ammoCount - clipSpace >= 0 ? clipSpace : m_ammoCount;
+	m_clipCount += fill;
+	m_ammoCount -= fill;
+	m_ammoChangedEvent.Invoke(m_ammoCount);
 }
 
 EFireMode CWeaponComponent::SwitchFireModes()
@@ -176,9 +188,9 @@ void CWeaponComponent::Observe(CCharacterComponent* pObserver, SObjectData& data
 	{
 		if (CEquipmentComponent* pEquipComp = pObserver->GetEntity()->GetComponent<CEquipmentComponent>())
 		{
-			if (pEquipComp->CheckIfHasEquipment(this))
+			if (pEquipComp->HasWeapon(m_weaponName.c_str()))
 			{
-				if (pEquipComp->CheckIfAmmoFull(this))
+				if (pEquipComp->IsAmmoFull(m_weaponName.c_str()))
 				{
 					data.objectKeyword = "Full";
 					data.objectName = "";

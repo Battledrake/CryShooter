@@ -6,6 +6,7 @@
 #include <CryCore/StaticInstanceList.h>
 
 #include "Components/CharacterComponent.h"
+#include "Components/EquipmentComponent.h"
 #include "Helpers/Conversions.h"
 
 namespace
@@ -45,13 +46,26 @@ void CAmmoPickupComponent::ProcessEvent(const SEntityEvent& event)
 
 void CAmmoPickupComponent::Observe(CCharacterComponent* pObserver, SObjectData& objectData)
 {
-	objectData.objectKeyword = "Grab";
-	objectData.objectName = m_weaponName.c_str();
-	objectData.objectBonus = "Ammo";
+	if (pObserver->GetEquipmentComponent()->HasWeapon(m_weaponName.c_str()))
+	{
+		objectData.objectKeyword = "Grab";
+		objectData.objectName = m_weaponName.c_str();
+		objectData.objectBonus = "Ammo";
+		if (pObserver->GetEquipmentComponent()->IsAmmoFull(m_weaponName.c_str()))
+		{
+			objectData.objectKeyword = "Full";
+		}
+	}
 }
 
 void CAmmoPickupComponent::Interact(CCharacterComponent* pInteractor)
 {
-// 	pInteractor->AddAmmo(m_weaponName.c_str(), m_ammoAmount);
-	m_pEntity->Hide(true);
+	if (pInteractor->GetEquipmentComponent()->HasWeapon(m_weaponName.c_str()))
+	{
+		if (!pInteractor->GetEquipmentComponent()->IsAmmoFull(m_weaponName.c_str()))
+		{
+			if (pInteractor->GetEquipmentComponent()->TryAddAmmo(m_weaponName.c_str(), m_ammoAmount))
+				m_pEntity->Hide(true);
+		}
+	}
 }

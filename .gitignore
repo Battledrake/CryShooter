@@ -10,3 +10,7 @@ bin/
 Editor/
 
 user(1)/
+
+editor.log
+
+error.log

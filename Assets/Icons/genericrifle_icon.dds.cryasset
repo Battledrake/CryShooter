@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="c8355eb7-7e0b-b442-ab25-58b8996ff60d" source="genericrifle_icon.tif">
+ <Files>
+  <File path="genericrifle_icon.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">194</Detail>
+  <Detail name="height">64</Detail>
+  <Detail name="mipCount">1</Detail>
+ </Details>
+</AssetMetadata>

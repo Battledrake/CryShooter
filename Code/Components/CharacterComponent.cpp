@@ -163,16 +163,10 @@ void CCharacterComponent::ProcessReload()
 	{
 		m_pActiveWeapon->DisableFiring();
 
-		const int clipSpace = m_pActiveWeapon->GetClipCapacity() - m_pActiveWeapon->GetClipCount();
-// 		int reservedAmmo = m_pEquipmentComp->GetAmmoReserve(m_pActiveWeapon->GetEquipmentName());
-// 		const int fill = reservedAmmo - clipSpace >= 0 ? clipSpace : reservedAmmo;
-
-		int newClip = m_pEquipmentComp->RemoveAmmo(m_pActiveWeapon, clipSpace);
 		//TODO: Mebbe reload animation and have this called on animevent.
- 		m_pActiveWeapon->Reload(newClip);
+		m_pActiveWeapon->Reload();
 
 		m_reloadEvent.Invoke(m_pActiveWeapon->GetClipCount());
-		m_ammoChangedEvent.Invoke(m_pEquipmentComp->GetAmmoReserve(m_pActiveWeapon->GetEquipmentName()));
 	}
 }
 
@@ -207,20 +201,21 @@ void CCharacterComponent::SwitchFireMode()
 
 void CCharacterComponent::SetActiveWeapon(CWeaponComponent* pWeapon)
 {
- 	if (m_pActiveWeapon)
- 	{
- 		m_pAnimComp->SetTag(EnumToString(pWeapon->GetWeaponType()), false);
- 		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
- 		m_pActiveWeapon->m_fireEvent.RemoveListener();
- 		m_pActiveWeapon->m_recoilEvent.RemoveListener();
- 	}
+	if (m_pActiveWeapon)
+	{
+		m_pAnimComp->SetTag(EnumToString(pWeapon->GetWeaponType()), false);
+		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
+		m_pActiveWeapon->m_fireEvent.RemoveListener();
+		m_pActiveWeapon->m_recoilEvent.RemoveListener();
+		m_pActiveWeapon->m_ammoChangedEvent.RemoveListener();
+	}
 	m_pActiveWeapon = pWeapon;
 	m_pActiveWeapon->GetEntity()->EnablePhysics(false);
 	AttachWeapon();
 
- 	m_equipEvent.Invoke(m_pActiveWeapon->GetIconName(), EnumToString(m_pActiveWeapon->GetFireMode()),
- 		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(),
-		m_pEquipmentComp->GetAmmoReserve(m_pActiveWeapon->GetEquipmentName()));
+	m_equipEvent.Invoke(m_pActiveWeapon->GetIconPath(), EnumToString(m_pActiveWeapon->GetFireMode()),
+		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(),
+		m_pActiveWeapon->GetAmmoCount());
 
 	m_pActiveWeapon->m_fireEvent.RegisterListener(std::bind(&CCharacterComponent::HandleWeaponFired, this));
 	m_pActiveWeapon->m_recoilEvent.RegisterListener([this](Vec2 recoil)
@@ -228,6 +223,7 @@ void CCharacterComponent::SetActiveWeapon(CWeaponComponent* pWeapon)
 		if (CTempPlayerComponent* pPlayer = m_pOwner->GetComponent<CTempPlayerComponent>())
 			pPlayer->AddRecoilEffect(recoil);
 	});
+	m_pActiveWeapon->m_ammoChangedEvent.RegisterListener([this](int ammoCount) { m_ammoChangedEvent.Invoke(ammoCount); });
 
 	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), true);
 	m_pAnimComp->QueueFragment("Locomotion");
@@ -280,7 +276,7 @@ void CCharacterComponent::HandleWeaponFired()
 			pProjectileComp->InitializeProjectile(this);
 	}
 
- 	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount());
+	m_wepFiredEvent.Invoke(m_pActiveWeapon->GetClipCount());
 }
 
 void CCharacterComponent::UpdateMovement(float travelSpeed, float travelAngle)

@@ -24,16 +24,11 @@ void CEquipmentComponent::Initialize()
 	m_pCharacterComp = m_pEntity->GetComponent<CCharacterComponent>();
 
 	m_activeWeaponIndex = 0;
-
-	m_ammoReserve["AssaultRifle"] = 300;
-	m_ammoReserve["Pistola"] = 250;
-	m_ammoReserve["Shotgun"] = 250;
 }
 
 void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 {
-	CryLogAlways("WeaponArray: %i", m_weapons.capacity());
-	if (CheckIfHasEquipment(pEquipment))
+	if (HasEquipment(pEquipment))
 	{
 		switch (pEquipment->GetEquipmentType())
 		{
@@ -41,10 +36,10 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 			{
 				if (CWeaponComponent* pWeapon = static_cast<CWeaponComponent*>(pEquipment))
 				{
-					if (CheckIfAmmoFull(pWeapon))
+					if (IsAmmoFull(pWeapon->GetEquipmentName()))
 						return;
 
-					AddAmmo(pWeapon->GetEquipmentName(), pWeapon->GetClipCount());
+					TryAddAmmo(pWeapon->GetEquipmentName(), pWeapon->GetClipCount());
 					pWeapon->GetEntity()->Hide(true);
 					return;
 				}
@@ -60,22 +55,6 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 		{
 			if (CWeaponComponent* pWeapon = static_cast<CWeaponComponent*>(pEquipment))
 			{
-				// 				if (m_weapons.empty())
-				// 				{
-				// 					m_pCharacterComp->SetActiveWeapon(pWeapon);
-				// 					if (pWeapon->GetWeaponSlot() == EWeaponSlot::Primary || pWeapon->GetWeaponSlot() == EWeaponSlot::Both)
-				// 					{
-				// 						m_activeWeaponIndex = 0;
-				// 					}
-				// 					else
-				// 					{
-				// 						m_activeWeaponIndex = 1;
-				// 					}
-				// 					m_weapons[m_activeWeaponIndex] = pWeapon;
-				// 					m_equipmentSlots[(int)EEquipmentType::Weapon] = pWeapon;
-				// 					return;
-				// 				}
-								//Here we're checking if new weapon is the same slot type as the active weapon.
 				if ((int)pWeapon->GetWeaponSlot() == m_activeWeaponIndex || pWeapon->GetWeaponSlot() == EWeaponSlot::Both)
 				{
 					m_pCharacterComp->SetActiveWeapon(pWeapon);
@@ -124,7 +103,7 @@ void CEquipmentComponent::ThrowWeapon(CWeaponComponent* pWeapon)
 	pWeapon->GetEntity()->GetPhysicalEntity()->Action(&impulseAction);
 }
 
-bool CEquipmentComponent::CheckIfHasEquipment(const IEquippable* pEquippable) const
+bool CEquipmentComponent::HasEquipment(const IEquippable* pEquippable) const
 {
 	switch (pEquippable->GetEquipmentType())
 	{
@@ -143,23 +122,54 @@ bool CEquipmentComponent::CheckIfHasEquipment(const IEquippable* pEquippable) co
 	return false;
 }
 
-bool CEquipmentComponent::CheckIfAmmoFull(const CWeaponComponent* pWeapon) const
+bool CEquipmentComponent::HasWeapon(const string weaponName) const
 {
-	return m_ammoReserve.at(pWeapon->GetEquipmentName()) >= pWeapon->GetMaxAmmo();
+	for (int i = 0; i < m_weapons.capacity(); ++i)
+	{
+		if (m_weapons.at(i))
+		{
+			if (strcmp(m_weapons.at(i)->GetEquipmentName(), weaponName) == 0)
+			{
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
-void CEquipmentComponent::AddAmmo(string equipmentName, int amount)
+bool CEquipmentComponent::IsAmmoFull(const string weaponName) const
 {
-	int& ammoReserve = m_ammoReserve.at(equipmentName);
-	ammoReserve += amount;
+	bool isFull = false;
+	for (int i = 0; i < m_weapons.capacity(); ++i)
+	{
+		if (m_weapons[i])
+		{
+			if (strcmp(m_weapons[i]->GetEquipmentName(), weaponName) == 0)
+			{
+				isFull = m_weapons[i]->GetAmmoCount() >= m_weapons[i]->GetMaxAmmo();
+			}
+		}
+	}
+	return isFull;
 }
 
-int CEquipmentComponent::RemoveAmmo(const IEquippable* pEquippable, int desiredAmount)
+bool CEquipmentComponent::TryAddAmmo(string weaponName, int amount)
 {
-	int& ammoReserve = m_ammoReserve.at(pEquippable->GetEquipmentName());
-	int amountToGive = ammoReserve - desiredAmount >= 0 ? desiredAmount : ammoReserve;
-	ammoReserve -= amountToGive;
-	return amountToGive;
+	for (int i = 0; i < m_weapons.capacity(); ++i)
+	{
+		if (m_weapons.at(i))
+		{
+			if (strcmp(m_weapons.at(i)->GetEquipmentName(), weaponName) == 0)
+			{
+				if (m_weapons.at(i)->GetAmmoCount() < m_weapons.at(i)->GetMaxAmmo())
+				{
+					m_weapons.at(i)->AddAmmo(amount);
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 }
 
 Cry::Entity::EventFlags CEquipmentComponent::GetEventMask() const
@@ -175,7 +185,6 @@ void CEquipmentComponent::ProcessEvent(const SEntityEvent& event)
 		{
 			m_equipmentSlots.clear();
 			m_weapons.clear();
-			m_ammoReserve.clear();
 
 			Initialize();
 		}

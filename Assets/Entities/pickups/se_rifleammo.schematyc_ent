@@ -63,7 +63,7 @@
     </children>
    </element>
    <element elementType="ComponentInstance" guid="83272f4f-fe0f-473f-b6fe-018223904d27" name="AmmoPickup" accessor="Public" typeGUID="5bdb3d82-2757-4210-8d7a-289172469e76">
-    <properties WeaponType="Rifle" AmmoAmount="25"/>
+    <properties WeaponName="GenericRifle" AmmoAmount="25"/>
     <extensions />
     <children />
    </element>

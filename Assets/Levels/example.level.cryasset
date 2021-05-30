@@ -1,4 +1,4 @@
-<AssetMetadata version="0" type="Level" guid="8691fc6a-9e2b-f5b4-3613-d6ba72915511" source="" timestamp="1622216019">
+<AssetMetadata version="0" type="Level" guid="8691fc6a-9e2b-f5b4-3613-d6ba72915511" source="" timestamp="1622380333">
  <Files>
   <File path="example/example.level"/>
  </Files>
@@ -19,6 +19,7 @@
   <Path>%engine%/engineassets/materials/material_terrain_default.mtl</Path>
   <Path>%engine%/engineassets/materials/water/wateroceanbottom.mtl</Path>
   <Path>%engine%/engineassets/objects/primitive_cube.cgf</Path>
+  <Path>%engine%/engineassets/texturemsg/defaultnouvs.dds</Path>
   <Path>%engine%/engineassets/texturemsg/defaultsolids.mtl</Path>
   <Path>%engine%/engineassets/textures/skys/night/half_moon.dds</Path>
   <Path>%engine%/engineassets/textures/white.dds</Path>
@@ -125,9 +126,6 @@
   <Path>editor/resourcecache/objects/weapons/militarydark/assaultrifle/textures/assaultrifle_diff.dds</Path>
   <Path>editor/resourcecache/objects/weapons/militarydark/assaultrifle/textures/assaultrifle_masks.dds</Path>
   <Path>editor/resourcecache/objects/weapons/militarydark/assaultrifle/textures/assaultrifle_norm.dds</Path>
-  <Path>editor/resourcecache/objects/weapons/militarydark/pistol/textures/pistol_diff.dds</Path>
-  <Path>editor/resourcecache/objects/weapons/militarydark/pistol/textures/pistol_masks.dds</Path>
-  <Path>editor/resourcecache/objects/weapons/militarydark/pistol/textures/pistol_norm.dds</Path>
   <Path>engineassets/materials/water/ocean_default.mtl</Path>
   <Path usageCount="1">libs/environmentpresets/example.env</Path>
   <Path>materials/m_assault_rifle.mtl</Path>
@@ -151,7 +149,6 @@
   <Path>objects/characters/samplecharacter/skelproxy.chr.cgf</Path>
   <Path>objects/characters/samplecharacter/thirdperson.cdf</Path>
   <Path>objects/pickups/assaultrifle_pickup.cgf</Path>
-  <Path>objects/pickups/pistol_pickup.cgf</Path>
   <Path>objects/weapons/militarydark/assaultrifle/assaultrifle.cdf</Path>
   <Path>objects/weapons/militarydark/assaultrifle/assaultrifle.chr</Path>
   <Path>objects/weapons/militarydark/assaultrifle/assaultrifle.chr.cgf</Path>
@@ -160,20 +157,10 @@
   <Path>objects/weapons/militarydark/assaultrifle/textures/assaultrifle_diff.dds</Path>
   <Path>objects/weapons/militarydark/assaultrifle/textures/assaultrifle_masks.dds</Path>
   <Path>objects/weapons/militarydark/assaultrifle/textures/assaultrifle_norm.dds</Path>
-  <Path>objects/weapons/militarydark/pistol/pistol.cdf</Path>
-  <Path>objects/weapons/militarydark/pistol/pistol.chr</Path>
-  <Path>objects/weapons/militarydark/pistol/pistol_pistols_b.skin</Path>
-  <Path>objects/weapons/militarydark/pistol/pistol_unreal_take.caf</Path>
+  <Path>objects/weapons/militarydark/pistol/pistol.cgf</Path>
   <Path>objects/weapons/militarydark/pistol/textures/pistol_diff.dds</Path>
   <Path>objects/weapons/militarydark/pistol/textures/pistol_masks.dds</Path>
   <Path>objects/weapons/militarydark/pistol/textures/pistol_norm.dds</Path>
-  <Path>objects/weapons/militarydark/shotgun/shotgun.cdf</Path>
-  <Path>objects/weapons/militarydark/shotgun/shotgun.chr</Path>
-  <Path>objects/weapons/militarydark/shotgun/shotgun_shotgun_b.skin</Path>
-  <Path>objects/weapons/militarydark/shotgun/shotgun_unreal_take.caf</Path>
-  <Path>objects/weapons/militarydark/shotgun/textures/shotgun_diff.dds</Path>
-  <Path>objects/weapons/militarydark/shotgun/textures/shotgun_masks.dds</Path>
-  <Path>objects/weapons/militarydark/shotgun/textures/shotgun_norm.dds</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.cgf</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.mtl</Path>
   <Path>textures/cubemaps/example/environmentprobe1_cm.dds</Path>

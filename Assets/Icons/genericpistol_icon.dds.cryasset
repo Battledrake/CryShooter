@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="ba3c60d3-7b32-9a1a-a24d-68198b5dd7e5" source="genericpistol_icon.tif">
+ <Files>
+  <File path="genericpistol_icon.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">194</Detail>
+  <Detail name="height">64</Detail>
+  <Detail name="mipCount">1</Detail>
+ </Details>
+</AssetMetadata>

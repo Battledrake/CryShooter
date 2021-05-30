@@ -1,0 +1,129 @@
+<CrySchematyc CryXmlVersion="2" version="105" guid="935125bf-020c-41cf-9154-b9bd1bd8f58c" scope="">
+ <root elementType="Class" guid="cf85bf4e-4e09-4929-b59c-8c25e7ae3580" name="se_genericpistol">
+  <userDocumentation author="battl" description=""/>
+  <extensions />
+  <children>
+   <element elementType="Constructor" guid="502759ce-25d0-4ecd-b22b-e469bb5d95fd" name="ConstructionGraph">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="95a1bb54-311e-4189-9789-76b59bb9f883" typeGUID="12bdfa06-ba95-4e48-bb2d-bb48a7080abc">
+        <value guid="95a1bb54-311e-4189-9789-76b59bb9f883">
+         <pos x="0" y="0"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="SignalReceiver" guid="2298e0f2-307e-4c07-a7d5-9c9820ea2978" name="SignalGraph" type="Universal" signalGUID="">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="258af75e-93f8-4122-ab37-ffafb7ce354f" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="258af75e-93f8-4122-ab37-ffafb7ce354f" objectGUID="">
+         <pos x="0" y="200"/>
+         <signalId domain="Env" guid="b2561caa-0753-458b-a91f-e8e38b0f0cdf"/>
+        </value>
+       </element>
+       <element key="01a73b7f-7cd4-4830-9f15-17632fbb1d6d" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="01a73b7f-7cd4-4830-9f15-17632fbb1d6d" objectGUID="">
+         <pos x="0" y="100"/>
+         <signalId domain="Env" guid="52ad5add-7781-429b-b4a9-0cb6c905e353"/>
+        </value>
+       </element>
+       <element key="3668e750-5486-4b66-838b-bbab1990f449" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="3668e750-5486-4b66-838b-bbab1990f449" objectGUID="">
+         <pos x="0" y="0"/>
+         <signalId domain="Env" guid="a9279137-7c66-491d-b9a0-8752c24c8979"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="Base" guid="52f8d057-100c-43a6-9ee5-55d26d3dbaf8" name="Base [Entity]">
+    <classId domain="Env" guid="be845278-0dd2-409f-b8be-97895607c256"/>
+    <envClassProperties icon="%EDITOR%/objecticons/schematyc.bmp" bHideInEditor="false" bTriggerAreas="true" bCreatePerClient="false"/>
+    <extensions />
+    <children>
+     <element elementType="ComponentInstance" guid="04eeb692-5b63-4c34-8a60-f5ace3f58c22" name="Entity" accessor="Private" typeGUID="e88093df-904f-4c52-af38-911e26777cdc">
+      <properties />
+      <extensions />
+      <children />
+     </element>
+    </children>
+   </element>
+   <element elementType="ComponentInstance" guid="7ff8ccfb-4ea0-4ee7-9664-d0770068a174" name="WeaponComponent" accessor="Private" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
+    <properties WeaponName="GenericPistol" IconPath="Icons/genericpistol_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" AnimationType="Pistol" WeaponSlot="Primary" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="12" AmmoCount="0" MaxAmmo="100">
+     <FireModes />
+     <WeaponRecoil x="-5" y="20"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="54a589e6-f134-44a9-b613-4c00b092f0e2" name="Rigidbody" accessor="Private" typeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6">
+    <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
+     <Buoyancy Damping="0" Density="1000" Resistance="1000"/>
+     <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="489e4598-9cd3-4deb-bc60-94ed4564f45d" name="Mesh" accessor="Private" typeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29">
+    <transform>
+     <translation>
+      <position>
+       <element element="0"/>
+       <element element="0"/>
+       <element element="0"/>
+      </position>
+     </translation>
+     <rotation x="0" y="-0" z="0"/>
+     <scale>
+      <element element="1"/>
+      <element element="1"/>
+      <element element="1"/>
+     </scale>
+    </transform>
+    <properties Type="RenderAndCollider" FilePath="Objects/Weapons/MilitaryDark/pistol/Pistol.cgf" Material="Materials/m_pistol.mtl">
+     <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
+     <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="f3b48abc-cafe-4aca-a168-72e00d368602" name="Box Collider" accessor="Private" typeGUID="52431c11-77ee-410a-a7a7-a7fa69e79685">
+    <transform>
+     <translation>
+      <position>
+       <element element="0"/>
+       <element element="0"/>
+       <element element="0"/>
+      </position>
+     </translation>
+     <rotation x="0" y="-0" z="0"/>
+     <scale>
+      <element element="1"/>
+      <element element="1"/>
+      <element element="1"/>
+     </scale>
+    </transform>
+    <properties Surface="metal" ReactToCollisions="true">
+     <Size x="1" y="1" z="1"/>
+     <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+  </children>
+ </root>
+</CrySchematyc>

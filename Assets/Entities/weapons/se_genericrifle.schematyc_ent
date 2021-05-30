@@ -62,7 +62,7 @@
      </element>
     </children>
    </element>
-   <element elementType="ComponentInstance" guid="5fc10660-de0e-47fd-8ca0-2bb6c48ba611" name="Mesh" accessor="Public" typeGUID="5f543092-53ea-46d7-9376-266e778317d7">
+   <element elementType="ComponentInstance" guid="5fc10660-de0e-47fd-8ca0-2bb6c48ba611" name="Mesh" accessor="Private" typeGUID="5f543092-53ea-46d7-9376-266e778317d7">
     <transform>
      <translation>
       <position>
@@ -85,8 +85,8 @@
     <extensions />
     <children />
    </element>
-   <element elementType="ComponentInstance" guid="2af72c77-e3bd-4cc9-8f6e-84e1ce401236" name="WeaponComponent" accessor="Public" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
-    <properties WeaponName="AssaultRifle" IconName="Rifle" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Rifle" EquipmentType="PrimaryWeapon" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="25" AmmoCount="250" MaxAmmo="300">
+   <element elementType="ComponentInstance" guid="2af72c77-e3bd-4cc9-8f6e-84e1ce401236" name="WeaponComponent" accessor="Private" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
+    <properties WeaponName="GenericRifle" IconPath="Icons/genericrifle_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" AnimationType="Rifle" WeaponSlot="Primary" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="25" AmmoCount="200" MaxAmmo="300">
      <FireModes>
       <element element="Auto"/>
       <element element="Single"/>
@@ -120,8 +120,8 @@
     <extensions />
     <children />
    </element>
-   <element elementType="ComponentInstance" guid="d333a380-85cd-471f-901a-b7e83293910f" name="Rigidbody" accessor="Private" typeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6">
-    <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
+   <element elementType="ComponentInstance" guid="d333a380-85cd-471f-901a-b7e83293910f" name="Rigidbody" accessor="Public" typeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6">
+    <properties Networked="false" EnabledByDefault="true" Resting="true" Type="Rigid" SendCollisionSignal="false">
      <Buoyancy Damping="0" Density="1000" Resistance="1000"/>
      <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
     </properties>
