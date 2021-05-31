@@ -71,7 +71,7 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 				pWeapon->GetEntity()->EnablePhysics(false);
 				if ((int)pWeapon->GetWeaponSlot() == m_activeWeaponIndex || pWeapon->GetWeaponSlot() == EWeaponCategory::Both)
 				{
-					if (CWeaponComponent* pOldWeapon = m_weapons.at(m_activeWeaponIndex))
+					if (CWeaponComponent* pActiveWeapon = m_weapons.at(m_activeWeaponIndex))
 					{
 						const int otherIndex = m_activeWeaponIndex == 0 ? 1 : 0;
 						if (!m_weapons.at(otherIndex) && pWeapon->GetWeaponSlot() == EWeaponCategory::Both)
@@ -80,8 +80,8 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 							HolsterWeapon(pWeapon);
 							return;
 						}
-						ClearWeaponAttach(pOldWeapon);
-						ThrowWeapon(pOldWeapon);
+						ClearWeaponAttach(pActiveWeapon);
+						ThrowWeapon(pActiveWeapon);
 					}
 					m_pCharacterComp->SetActiveWeapon(pWeapon);
 					AttachWeapon(pWeapon);
@@ -205,6 +205,7 @@ void CEquipmentComponent::ThrowWeapon(CWeaponComponent* pWeapon)
 
 bool CEquipmentComponent::HasSameEquipment(const IEquippable* pEquippable) const
 {
+	bool hasEquipment = false;
 	switch (pEquippable->GetEquipmentType())
 	{
 		case EEquipmentType::Weapon:
@@ -213,13 +214,14 @@ bool CEquipmentComponent::HasSameEquipment(const IEquippable* pEquippable) const
 			{
 				if (m_weapons.at(i))
 				{
-					return strcmp(m_weapons.at(i)->GetEquipmentName(), pEquippable->GetEquipmentName()) == 0;
+					if (strcmp(m_weapons.at(i)->GetEquipmentName(), pEquippable->GetEquipmentName()) == 0)
+						hasEquipment = true;
 				}
 			}
 		}
 		break;
 	}
-	return false;
+	return hasEquipment;
 }
 
 bool CEquipmentComponent::HasWeapon(const string weaponName) const
