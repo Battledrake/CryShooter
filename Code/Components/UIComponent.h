@@ -4,7 +4,7 @@
 #include <FlashUI/FlashUI.h>
 
 struct IUIElement;
-class CTempPlayerComponent;
+class CPlayerComponent;
 
 class CUIComponent final : public IEntityComponent
 {
@@ -28,7 +28,7 @@ protected:
 private:
 	void RegisterUIEvents(CCharacterComponent* pCharacter);
 
-	CTempPlayerComponent* m_pPlayer;
+	CPlayerComponent* m_pPlayer;
 
 	IUIElement* m_pCrosshairUI;
 	IUIElement* m_pWeaponUI;

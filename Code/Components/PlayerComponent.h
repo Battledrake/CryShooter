@@ -19,7 +19,7 @@
  
  struct IUIElement;
  
- class CTempPlayerComponent final : public IEntityComponent
+ class CPlayerComponent final : public IEntityComponent
  {
  	enum class EViewMode : uint8
  	{
@@ -93,8 +93,8 @@
  	};
  
  public:
- 	CTempPlayerComponent() = default;
- 	virtual ~CTempPlayerComponent() = default;
+ 	CPlayerComponent() = default;
+ 	virtual ~CPlayerComponent() = default;
  
  	//Events
  	SimpleEvent<> m_fireEvent;
@@ -112,7 +112,7 @@
  	void CheckInteractables();
  
  	// Reflect type to set a unique identifier for this component
- 	static void ReflectType(Schematyc::CTypeDesc<CTempPlayerComponent>& desc)
+ 	static void ReflectType(Schematyc::CTypeDesc<CPlayerComponent>& desc)
  	{
  		desc.SetGUID("{75A5C934-EA94-4149-A828-3BC3BE1620B6}"_cry_guid);
  	}

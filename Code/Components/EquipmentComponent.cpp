@@ -38,7 +38,7 @@ void CEquipmentComponent::Initialize()
 void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 {
 	//If Character already has equipment, we take ammo and hide it instead of removing entity.
-	//If ammo is full, just leave alone to pick up later. If it's armor, just leave it?
+	//If ammo is full, just leave alone to pick up later.
 	if (HasSameEquipment(pEquipment))
 	{
 		switch (pEquipment->GetEquipmentType())

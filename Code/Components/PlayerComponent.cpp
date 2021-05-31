@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "TempPlayer.h"
+#include "PlayerComponent.h"
 
 #include <CrySchematyc/Env/IEnvRegistrar.h>
 #include <CrySchematyc/Env/Elements/EnvComponent.h>
@@ -9,17 +9,17 @@
 
 namespace
 {
-	static void RegisterTempPlayerComponent(Schematyc::IEnvRegistrar& registrar)
+	static void RegisterPlayerComponent(Schematyc::IEnvRegistrar& registrar)
 	{
 		Schematyc::CEnvRegistrationScope scope = registrar.Scope(IEntity::GetEntityScopeGUID());
 		{
-			Schematyc::CEnvRegistrationScope componentScope = scope.Register(SCHEMATYC_MAKE_ENV_COMPONENT(CTempPlayerComponent));
+			Schematyc::CEnvRegistrationScope componentScope = scope.Register(SCHEMATYC_MAKE_ENV_COMPONENT(CPlayerComponent));
 		}
 	}
-	CRY_STATIC_AUTO_REGISTER_FUNCTION(&RegisterTempPlayerComponent);
+	CRY_STATIC_AUTO_REGISTER_FUNCTION(&RegisterPlayerComponent);
 }
 
-void CTempPlayerComponent::Initialize()
+void CPlayerComponent::Initialize()
 {
 	m_inputFlags.Clear();
 	m_mouseDeltaRotation = ZERO;
@@ -35,7 +35,7 @@ void CTempPlayerComponent::Initialize()
 	RegisterInputs();
 }
 
-Cry::Entity::EventFlags CTempPlayerComponent::GetEventMask() const
+Cry::Entity::EventFlags CPlayerComponent::GetEventMask() const
 {
 	return
 		Cry::Entity::EEvent::GameplayStarted |
@@ -43,7 +43,7 @@ Cry::Entity::EventFlags CTempPlayerComponent::GetEventMask() const
 		Cry::Entity::EEvent::Reset;
 }
 
-void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
+void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
 {
 	switch (event.event)
 	{
@@ -115,7 +115,7 @@ void CTempPlayerComponent::ProcessEvent(const SEntityEvent& event)
 	}
 }
 
-void CTempPlayerComponent::FreeMovement(float travelSpeed, float travelAngle, float frameTime)
+void CPlayerComponent::FreeMovement(float travelSpeed, float travelAngle, float frameTime)
 {
 	const float spectatorSpeed = 20.5f;
 
@@ -126,7 +126,7 @@ void CTempPlayerComponent::FreeMovement(float travelSpeed, float travelAngle, fl
 	m_pEntity->SetWorldTM(transformation);
 }
 
-void CTempPlayerComponent::UpdateCharacter(float travelSpeed, float travelAngle, float rotationSpeed, float frameTime)
+void CPlayerComponent::UpdateCharacter(float travelSpeed, float travelAngle, float rotationSpeed, float frameTime)
 {
 	Ang3 characterYPR = CCamera::CreateAnglesYPR(Matrix33(m_lookOrientation));
 	characterYPR.x += m_mouseDeltaRotation.x * rotationSpeed;
@@ -142,7 +142,7 @@ void CTempPlayerComponent::UpdateCharacter(float travelSpeed, float travelAngle,
 	m_pEntity->SetPos(LERP(m_pEntity->GetPos(), entityOrientation.t + m_activePos, 5.0f * frameTime));
 }
 
-Vec3 CTempPlayerComponent::GetDirectionForIK()
+Vec3 CPlayerComponent::GetDirectionForIK()
 {
 	Vec3 finalLookDirection = m_pEntity->GetForwardDir();
 	if (m_currentViewMode == EViewMode::ThirdPerson)
@@ -152,14 +152,14 @@ Vec3 CTempPlayerComponent::GetDirectionForIK()
 	return finalLookDirection;
 }
 
-void CTempPlayerComponent::SetPosOnAttach()
+void CPlayerComponent::SetPosOnAttach()
 {
 	const QuatT& entityOrientation = m_pCharacter->GetAnimComp()->GetCharacter()->GetISkeletonPose()->GetAbsJointByID(m_attachJointId);
 	m_pEntity->SetLocalTM(Matrix34::Create(Vec3(1.0f), IDENTITY, entityOrientation.t + m_activePos));
 	m_currentViewMode = m_viewBeforeSpectate;
 }
 
-void CTempPlayerComponent::SetCharacter(CCharacterComponent* character)
+void CPlayerComponent::SetCharacter(CCharacterComponent* character)
 {
 	m_pCharacter = character;
 	m_attachJointId = m_pCharacter->GetAnimComp()->GetCharacter()->GetIDefaultSkeleton().GetJointIDByName("mixamorig:head");
@@ -167,7 +167,7 @@ void CTempPlayerComponent::SetCharacter(CCharacterComponent* character)
 	m_currentViewMode = EViewMode::ThirdPerson;
 }
 
-void CTempPlayerComponent::CheckInteractables()
+void CPlayerComponent::CheckInteractables()
 {
 	Vec3 origin = m_pEntity->GetWorldPos();
 	Vec3 direction = m_pEntity->GetForwardDir();
@@ -200,7 +200,7 @@ void CTempPlayerComponent::CheckInteractables()
 	m_pActiveInteractable = nullptr;
 }
 
-void CTempPlayerComponent::RegisterInputs()
+void CPlayerComponent::RegisterInputs()
 {
 
 	m_pInputComponent->RegisterAction("player", "moveleft", [this](int activationMode, float value) { HandleInputFlagChange(EInputFlag::MoveLeft, (EActionActivationMode)activationMode); });
@@ -364,7 +364,7 @@ void CTempPlayerComponent::RegisterInputs()
 	m_pInputComponent->BindAction("player", "spectate", eAID_KeyboardMouse, eKI_F1, true, false, false);
 }
 
-void CTempPlayerComponent::HandleInputFlagChange(const CEnumFlags<EInputFlag> flags, const CEnumFlags<EActionActivationMode> activationMode, const EInputFlagType type)
+void CPlayerComponent::HandleInputFlagChange(const CEnumFlags<EInputFlag> flags, const CEnumFlags<EActionActivationMode> activationMode, const EInputFlagType type)
 {
 	switch (type)
 	{

@@ -7,7 +7,7 @@
 #include <CryExtension/CryCreateClassInstance.h>
 #include <Animation/PoseModifier/IKTorsoAim.h>
 
-#include "Components/TempPlayer.h"
+#include "Components/PlayerComponent.h"
 #include "Components/BodyDamageComponent.h"
 #include "Components/EquipmentComponent.h"
 #include "Components/WeaponComponent.h"
@@ -204,7 +204,7 @@ void CCharacterComponent::SetActiveWeapon(CWeaponComponent* pWeapon)
 	m_pActiveWeapon->m_fireEvent.RegisterListener(std::bind(&CCharacterComponent::HandleWeaponFired, this));
 	m_pActiveWeapon->m_recoilEvent.RegisterListener([this](Vec2 recoil)
 	{
-		if (CTempPlayerComponent* pPlayer = m_pOwner->GetComponent<CTempPlayerComponent>())
+		if (CPlayerComponent* pPlayer = m_pOwner->GetComponent<CPlayerComponent>())
 			pPlayer->AddRecoilEffect(recoil);
 	});
 	m_pActiveWeapon->m_ammoChangedEvent.RegisterListener([this](int ammoCount) { m_ammoChangedEvent.Invoke(ammoCount); });

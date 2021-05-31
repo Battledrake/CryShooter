@@ -40,7 +40,7 @@
  			m_pWeaponUI = gEnv->pFlashUI->GetUIElement("WeaponHud");
  			m_pInteractableUI = gEnv->pFlashUI->GetUIElement("InteractableText");
  
- 			m_pPlayer = m_pEntity->GetComponent<CTempPlayerComponent>();
+ 			m_pPlayer = m_pEntity->GetComponent<CPlayerComponent>();
  			if (CCharacterComponent* pCharacter = m_pPlayer->GetCharacter())
  			{
  				RegisterUIEvents(pCharacter);
