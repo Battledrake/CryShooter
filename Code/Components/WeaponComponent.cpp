@@ -20,7 +20,6 @@ namespace
 void CWeaponComponent::Initialize()
 {
 	m_pInterfaceComponent = m_pEntity->GetOrCreateComponent<CInterfaceComponent>();
-	m_pMesh = m_pEntity->GetComponent<Cry::DefaultComponents::CBaseMeshComponent>();
 
 	m_currentFireMode = m_fireModes.At(m_fireModesIndex);
 
@@ -68,8 +67,10 @@ void CWeaponComponent::ProcessEvent(const SEntityEvent& event)
 		case Cry::Entity::EEvent::Reset:
 		{
 			m_clipCount = m_clipCapacity;
+			m_ammoCount = 0;
 			m_fireModesIndex = 0;
 			m_currentFireMode = m_fireModes.At(m_fireModesIndex);
+			m_pEntity->EnablePhysics(true);
 		}
 		break;
 	}
@@ -190,12 +191,12 @@ void CWeaponComponent::Observe(CCharacterComponent* pObserver, SObjectData& data
 		{
 			if (pEquipComp->HasWeapon(m_weaponName.c_str()))
 			{
+				data.objectBonus = "Ammo";
 				if (pEquipComp->IsAmmoFull(m_weaponName.c_str()))
 				{
-					data.objectKeyword = "Full";
-					data.objectName = "";
+					data.objectKeyword = "";
+					data.objectBonus = "Full";
 				}
-				data.objectBonus = "Ammo";
 			}
 		}
 	}

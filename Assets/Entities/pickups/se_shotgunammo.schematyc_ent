@@ -1,0 +1,126 @@
+<CrySchematyc CryXmlVersion="2" version="105" guid="56cb44fa-21a5-4938-a195-bb635897410a" scope="">
+ <root elementType="Class" guid="dbd1485f-46b9-401a-b09f-06b5dc5bf7a2" name="se_shotgunammo">
+  <userDocumentation author="battl" description=""/>
+  <extensions />
+  <children>
+   <element elementType="Constructor" guid="2d96976e-4815-4a0e-aab9-16d7440e3beb" name="ConstructionGraph">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="55ee7f3a-d367-4619-a5e3-aea63c9e5d3f" typeGUID="12bdfa06-ba95-4e48-bb2d-bb48a7080abc">
+        <value guid="55ee7f3a-d367-4619-a5e3-aea63c9e5d3f">
+         <pos x="0" y="0"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="SignalReceiver" guid="29b6de48-0d67-431b-a692-e7d3e0f6a5e6" name="SignalGraph" type="Universal" signalGUID="">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="fc03ac84-97dd-44fd-8eef-5ca53c9529c1" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="fc03ac84-97dd-44fd-8eef-5ca53c9529c1" objectGUID="">
+         <pos x="0" y="200"/>
+         <signalId domain="Env" guid="b2561caa-0753-458b-a91f-e8e38b0f0cdf"/>
+        </value>
+       </element>
+       <element key="2e080c5d-c23f-4aa0-878a-d22576924a53" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="2e080c5d-c23f-4aa0-878a-d22576924a53" objectGUID="">
+         <pos x="0" y="0"/>
+         <signalId domain="Env" guid="a9279137-7c66-491d-b9a0-8752c24c8979"/>
+        </value>
+       </element>
+       <element key="acccb194-9b9c-4e5b-8d8e-8131bd76d284" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="acccb194-9b9c-4e5b-8d8e-8131bd76d284" objectGUID="">
+         <pos x="0" y="100"/>
+         <signalId domain="Env" guid="52ad5add-7781-429b-b4a9-0cb6c905e353"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="Base" guid="3a538d92-b390-4700-9b37-56446d592800" name="Base [Entity]">
+    <classId domain="Env" guid="be845278-0dd2-409f-b8be-97895607c256"/>
+    <envClassProperties icon="%EDITOR%/objecticons/schematyc.bmp" bHideInEditor="false" bTriggerAreas="true" bCreatePerClient="false"/>
+    <extensions />
+    <children>
+     <element elementType="ComponentInstance" guid="e2ce5e34-7160-4c31-87b6-6a892725cd09" name="Entity" accessor="Private" typeGUID="e88093df-904f-4c52-af38-911e26777cdc">
+      <properties />
+      <extensions />
+      <children />
+     </element>
+    </children>
+   </element>
+   <element elementType="ComponentInstance" guid="85b49757-fadd-48a0-b93d-8d1b2ef10ff9" name="AmmoPickup" accessor="Private" typeGUID="5bdb3d82-2757-4210-8d7a-289172469e76">
+    <properties WeaponName="GenericShotgun" AmmoAmount="10"/>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="c87c4ebf-1614-4fe9-8c78-283ac3437a3b" name="Mesh" accessor="Public" typeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29">
+    <transform>
+     <translation>
+      <position>
+       <element element="0"/>
+       <element element="0"/>
+       <element element="0"/>
+      </position>
+     </translation>
+     <rotation x="0" y="-0" z="0"/>
+     <scale>
+      <element element="1"/>
+      <element element="1"/>
+      <element element="1"/>
+     </scale>
+    </transform>
+    <properties Type="RenderAndCollider" FilePath="Objects/pickups/Shotgun_Pickup.cgf" Material="Materials/m_shotgun.mtl">
+     <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
+     <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="59afa664-200b-4046-bfd5-19112946a779" name="Rigidbody" accessor="Public" typeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6">
+    <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
+     <Buoyancy Damping="0" Density="1000" Resistance="1000"/>
+     <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="a3af8b55-c55c-475c-9a36-c7d2c5c3b772" name="Box Collider" accessor="Public" typeGUID="52431c11-77ee-410a-a7a7-a7fa69e79685">
+    <transform>
+     <translation>
+      <position>
+       <element element="0"/>
+       <element element="0"/>
+       <element element="0"/>
+      </position>
+     </translation>
+     <rotation x="0" y="-0" z="0"/>
+     <scale>
+      <element element="1"/>
+      <element element="1"/>
+      <element element="1"/>
+     </scale>
+    </transform>
+    <properties Surface="" ReactToCollisions="true">
+     <Size x="0.050000001" y="0.050000001" z="0.050000001"/>
+     <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+  </children>
+ </root>
+</CrySchematyc>

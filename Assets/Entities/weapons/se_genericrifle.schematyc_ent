@@ -86,11 +86,10 @@
     <children />
    </element>
    <element elementType="ComponentInstance" guid="2af72c77-e3bd-4cc9-8f6e-84e1ce401236" name="WeaponComponent" accessor="Private" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
-    <properties WeaponName="GenericRifle" IconPath="Icons/genericrifle_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" AnimationType="Rifle" WeaponSlot="Primary" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="25" AmmoCount="200" MaxAmmo="300">
+    <properties WeaponName="GenericRifle" IconPath="Icons/genericrifle_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Rifle" WeaponCategory="Primary" HolsterSlot="Back" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="25" AmmoCount="0" MaxAmmo="300">
      <FireModes>
       <element element="Auto"/>
       <element element="Single"/>
-      <element element="Burst"/>
      </FireModes>
      <WeaponRecoil x="-5" y="10"/>
     </properties>
@@ -102,8 +101,8 @@
      <translation>
       <position>
        <element element="0"/>
-       <element element="-0.1"/>
-       <element element="0.025"/>
+       <element element="-0.15000001"/>
+       <element element="-0.060000002"/>
       </position>
      </translation>
      <rotation x="0" y="-0" z="0"/>
@@ -114,7 +113,7 @@
      </scale>
     </transform>
     <properties Surface="" ReactToCollisions="true">
-     <Size x="0.025" y="0.40000001" z="0.075000003"/>
+     <Size x="0.025" y="0.40000001" z="0.125"/>
      <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
     </properties>
     <extensions />

@@ -63,14 +63,17 @@
     </children>
    </element>
    <element elementType="ComponentInstance" guid="7ff8ccfb-4ea0-4ee7-9664-d0770068a174" name="WeaponComponent" accessor="Private" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
-    <properties WeaponName="GenericPistol" IconPath="Icons/genericpistol_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" AnimationType="Pistol" WeaponSlot="Primary" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="12" AmmoCount="0" MaxAmmo="100">
-     <FireModes />
-     <WeaponRecoil x="-5" y="20"/>
+    <properties WeaponName="GenericPistol" IconPath="Icons/genericpistol_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Pistol" WeaponCategory="Secondary" HolsterSlot="Hip" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="12" AmmoCount="0" MaxAmmo="100">
+     <FireModes>
+      <element element="Single"/>
+      <element element="Burst"/>
+     </FireModes>
+     <WeaponRecoil x="-10" y="30"/>
     </properties>
     <extensions />
     <children />
    </element>
-   <element elementType="ComponentInstance" guid="54a589e6-f134-44a9-b613-4c00b092f0e2" name="Rigidbody" accessor="Private" typeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6">
+   <element elementType="ComponentInstance" guid="54a589e6-f134-44a9-b613-4c00b092f0e2" name="Rigidbody" accessor="Public" typeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6">
     <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
      <Buoyancy Damping="0" Density="1000" Resistance="1000"/>
      <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
@@ -101,13 +104,13 @@
     <extensions />
     <children />
    </element>
-   <element elementType="ComponentInstance" guid="f3b48abc-cafe-4aca-a168-72e00d368602" name="Box Collider" accessor="Private" typeGUID="52431c11-77ee-410a-a7a7-a7fa69e79685">
+   <element elementType="ComponentInstance" guid="f3b48abc-cafe-4aca-a168-72e00d368602" name="Box Collider" accessor="Public" typeGUID="52431c11-77ee-410a-a7a7-a7fa69e79685">
     <transform>
      <translation>
       <position>
        <element element="0"/>
-       <element element="0"/>
-       <element element="0"/>
+       <element element="-0.1"/>
+       <element element="-0.050000001"/>
       </position>
      </translation>
      <rotation x="0" y="-0" z="0"/>
@@ -118,7 +121,7 @@
      </scale>
     </transform>
     <properties Surface="metal" ReactToCollisions="true">
-     <Size x="1" y="1" z="1"/>
+     <Size x="0.025" y="0.15000001" z="0.1"/>
      <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
     </properties>
     <extensions />

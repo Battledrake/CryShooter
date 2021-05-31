@@ -43,7 +43,6 @@ public:
 		desc.SetEditorCategory("Custom");
 		desc.SetLabel("Body Damage");
 		desc.SetDescription("Allows damage modification based on body proxy");
-
 		desc.AddMember(&CBodyDamageComponent::m_bodyPartsArray, 'bpa', "PartArray", "Body Parts Array", "Define body parts and damage multipliers", Schematyc::CArray<SBodyPartsDefinition>());
 	}
 

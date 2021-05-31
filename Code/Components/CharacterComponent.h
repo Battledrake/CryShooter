@@ -44,28 +44,28 @@ public:
 	SimpleEvent<int> m_reloadEvent;
 	SimpleEvent<string> m_switchFireModeEvent;
 	SimpleEvent<int> m_ammoChangedEvent;
+	SimpleEvent<> m_characterChangedEvent;
 	//~Events
+
+	//ITakeDamage
+	virtual void PassDamage(float amount, int partId = -1) override;
+	//~ITakeDamage
 
 	Cry::DefaultComponents::CAdvancedAnimationComponent* GetAnimComp() { return m_pAnimComp; }
 	CEquipmentComponent* GetEquipmentComponent() { return m_pEquipmentComp; }
 
-	void AddAmmo(string weaponName, int amount);
 	void ChangeCharacter(const Schematyc::CharacterFileName charFile, const Schematyc::CSharedString context = "");
-	void SetActiveWeapon(CWeaponComponent* pWeapon);
 	void ProcessFire(bool isPressed);
 	void ProcessJump();
 	void ProcessReload();
 	void ProcessSprinting(bool isPressed);
+	void SetActiveWeapon(CWeaponComponent* pWeapon);
 	void SetOwner(IEntity* pOwner) { m_pOwner = pOwner; }
 	void SwitchFireMode();
 
 	void UpdateMovement(float travelSpeed, float travelAngle);
 	void UpdateLookOrientation(const Vec3& lookDirection);
 	void UpdateRotation(const Quat& rotation);
-
-	//ITakeDamage
-	virtual void PassDamage(float amount, int partId = -1) override;
-	//~ITakeDamage
 
 	static void ReflectType(Schematyc::CTypeDesc<CCharacterComponent>& desc)
 	{
@@ -86,8 +86,6 @@ protected:
 	virtual void ProcessEvent(const SEntityEvent& event) override;
 
 private:
-	void AttachWeapon();
-	void ClearAttachBinding(const char* szName);
 	void HandleWeaponFired();
 	void SetIKJoints();
 	void SetCollisionParams();
@@ -97,8 +95,8 @@ private:
 
 	Cry::DefaultComponents::CAdvancedAnimationComponent* m_pAnimComp;
 	Cry::DefaultComponents::CCharacterControllerComponent* m_pCharController;
-	CEquipmentComponent* m_pEquipmentComp;
 	CInterfaceComponent* m_pInterfaceComp;
+	CEquipmentComponent* m_pEquipmentComp;
 	CBodyDamageComponent* m_pBodyDamageComp;
 
 	Schematyc::CSharedString m_effectorJointName = "armature";
@@ -106,6 +104,7 @@ private:
 	std::shared_ptr<CIKTorsoAim> m_ikTorsoAim;
 
 	CWeaponComponent* m_pActiveWeapon = nullptr;
+	string m_activeFragment;
 
 	float m_moveSpeed = 3.0f;
 	float m_runMultiplier = 2.0f;

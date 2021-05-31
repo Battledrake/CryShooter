@@ -23,7 +23,6 @@ namespace
 
 void CAmmoPickupComponent::Initialize()
 {
-	m_pMesh = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CStaticMeshComponent>();
 	m_pInterfaceComponent = m_pEntity->GetOrCreateComponent<CInterfaceComponent>();
 }
 
@@ -53,7 +52,8 @@ void CAmmoPickupComponent::Observe(CCharacterComponent* pObserver, SObjectData& 
 		objectData.objectBonus = "Ammo";
 		if (pObserver->GetEquipmentComponent()->IsAmmoFull(m_weaponName.c_str()))
 		{
-			objectData.objectKeyword = "Full";
+			objectData.objectKeyword = "";
+			objectData.objectBonus = "Full";
 		}
 	}
 }

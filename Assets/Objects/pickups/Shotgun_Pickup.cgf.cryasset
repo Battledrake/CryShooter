@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Mesh" guid="ab05c849-8d40-6045-ab18-ca4c763f6b17" source="Shotgun_Pickup.FBX">
+ <Files>
+  <File path="Shotgun_Pickup.cgf"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">3</Detail>
+  <Detail name="triangleCount">466</Detail>
+  <Detail name="vertexCount">528</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">materials/m_shotgun.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

@@ -312,6 +312,12 @@ void CTempPlayerComponent::RegisterInputs()
 	});
 	m_pInputComponent->BindAction("player", "switchfiremode", eAID_KeyboardMouse, eKI_X, true, false, false);
 
+	m_pInputComponent->RegisterAction("player", "swapweapons", [this](int activationMode, float value)
+	{
+		m_pCharacter->GetEquipmentComponent()->SwapWeapons();
+	});
+	m_pInputComponent->BindAction("player", "swapweapons", eAID_KeyboardMouse, eKI_Q, true, false, false);
+
 	m_pInputComponent->RegisterAction("player", "sprint", [this](int activationMode, float value)
 	{
 		if (m_currentViewMode == EViewMode::Spectator)

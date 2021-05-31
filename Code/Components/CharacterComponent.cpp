@@ -31,11 +31,11 @@ namespace
 
 void CCharacterComponent::Initialize()
 {
-	m_pAnimComp = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
-	m_pCharController = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CCharacterControllerComponent>();
-	m_pEquipmentComp = m_pEntity->GetOrCreateComponent<CEquipmentComponent>();
+	m_pAnimComp = m_pEntity->GetComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
+	m_pCharController = m_pEntity->GetComponent<Cry::DefaultComponents::CCharacterControllerComponent>();
 	m_pInterfaceComp = m_pEntity->GetOrCreateComponent<CInterfaceComponent>();
 	m_pBodyDamageComp = m_pEntity->GetOrCreateComponent<CBodyDamageComponent>();
+	m_pEquipmentComp = m_pEntity->GetOrCreateComponent<CEquipmentComponent>();
 
 	CryCreateClassInstanceForInterface(cryiidof<IAnimationPoseModifierTorsoAim>(), m_ikTorsoAim);
 }
@@ -65,13 +65,15 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 			if (!m_pCharController->IsOnGround() && !m_hasJumped && !m_isFalling)
 			{
 				m_isFalling = true;
-				m_pAnimComp->QueueFragment("Jump");
+				m_activeFragment = "Jump";
+				m_pAnimComp->QueueFragment(m_activeFragment);
 			}
 			if (m_pCharController->IsOnGround() && (m_hasJumped || m_isFalling) && m_jumpFrameId != gEnv->pRenderer->GetFrameID())
 			{
 				m_isFalling = false;
 				m_hasJumped = false;
-				m_pAnimComp->QueueFragment("Locomotion");
+				m_activeFragment = "Locomotion";
+				m_pAnimComp->QueueFragment(m_activeFragment);
 			}
 		}
 		break;
@@ -79,38 +81,23 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 		{
 			if (m_pActiveWeapon)
 			{
-				ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
-				m_pActiveWeapon->GetEntity()->EnablePhysics(true);
 				m_pActiveWeapon = nullptr;
 			}
 
 			m_pAnimComp->ResetCharacter();
-			m_pAnimComp->QueueFragment("Locomotion");
+			m_activeFragment = "Locomotion";
+			m_pAnimComp->QueueFragment(m_activeFragment);
 		}
 		break;
 	}
 }
-
-// void CCharacterComponent::AddAmmo(string weaponName, int amount)
-// {
-// 	if (m_pActiveWeapon)
-// 	{
-// 		if (strcmp(m_pActiveWeapon->GetEquipmentName(), weaponName) == 0)
-// 		{
-// 			m_pActiveWeapon->GiveAmmo(amount);
-//  			m_ammoAddedEvent.Invoke(m_pActiveWeapon->GetAmmoCount());
-// 		}
-// 	}
-// }
 
 void CCharacterComponent::ChangeCharacter(const Schematyc::CharacterFileName charFile, const Schematyc::CSharedString context)
 {
 	if (m_pActiveWeapon)
 	{
 		m_pActiveWeapon->DisableFiring();
-		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
 	}
-
 
 	m_pAnimComp->SetCharacterFile(charFile.value);
 	if (context.length() > 0)
@@ -119,12 +106,11 @@ void CCharacterComponent::ChangeCharacter(const Schematyc::CharacterFileName cha
 	SetIKJoints();
 	SetCollisionParams();
 
-	m_pAnimComp->QueueFragment("Locomotion");
-
 	if (m_pActiveWeapon)
-	{
-		AttachWeapon();
-	}
+		m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), true);
+	m_pAnimComp->QueueFragment(m_activeFragment);
+
+	m_characterChangedEvent.Invoke();
 }
 
 void CCharacterComponent::ProcessJump()
@@ -135,7 +121,8 @@ void CCharacterComponent::ProcessJump()
 			m_pActiveWeapon->ProcessFire(false);
 
 		m_pCharController->ChangeVelocity(Vec3(0.0f, 0.0f, 5.0f), Cry::DefaultComponents::CCharacterControllerComponent::EChangeVelocityMode::Jump);
-		m_pAnimComp->QueueFragment("Jump");
+		m_activeFragment = "Jump";
+		m_pAnimComp->QueueFragment(m_activeFragment);
 		m_hasJumped = true;
 		m_jumpFrameId = gEnv->pRenderer->GetFrameID();
 	}
@@ -203,20 +190,17 @@ void CCharacterComponent::SetActiveWeapon(CWeaponComponent* pWeapon)
 {
 	if (m_pActiveWeapon)
 	{
-		m_pAnimComp->SetTag(EnumToString(pWeapon->GetWeaponType()), false);
-		ClearAttachBinding(EnumToString(m_pActiveWeapon->GetWeaponType()));
+		m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), false);
 		m_pActiveWeapon->m_fireEvent.RemoveListener();
 		m_pActiveWeapon->m_recoilEvent.RemoveListener();
 		m_pActiveWeapon->m_ammoChangedEvent.RemoveListener();
 	}
 	m_pActiveWeapon = pWeapon;
-	m_pActiveWeapon->GetEntity()->EnablePhysics(false);
-	AttachWeapon();
 
+	//Register Weapon Events
 	m_equipEvent.Invoke(m_pActiveWeapon->GetIconPath(), EnumToString(m_pActiveWeapon->GetFireMode()),
 		m_pActiveWeapon->GetClipCount(), m_pActiveWeapon->GetClipCapacity(),
 		m_pActiveWeapon->GetAmmoCount());
-
 	m_pActiveWeapon->m_fireEvent.RegisterListener(std::bind(&CCharacterComponent::HandleWeaponFired, this));
 	m_pActiveWeapon->m_recoilEvent.RegisterListener([this](Vec2 recoil)
 	{
@@ -226,7 +210,7 @@ void CCharacterComponent::SetActiveWeapon(CWeaponComponent* pWeapon)
 	m_pActiveWeapon->m_ammoChangedEvent.RegisterListener([this](int ammoCount) { m_ammoChangedEvent.Invoke(ammoCount); });
 
 	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), true);
-	m_pAnimComp->QueueFragment("Locomotion");
+	m_pAnimComp->QueueFragment(m_activeFragment);
 }
 
 void CCharacterComponent::HandleWeaponFired()
@@ -305,26 +289,6 @@ void CCharacterComponent::UpdateLookOrientation(const Vec3& lookDirection)
 		m_ikTorsoAim->SetTargetDirection(localRot * lookDirection);
 		m_ikTorsoAim->SetBlendWeight(1.0f);
 		pSkelAnim->PushPoseModifier(0, m_ikTorsoAim);
-	}
-}
-
-void CCharacterComponent::ClearAttachBinding(const char* szName)
-{
-	if (IAttachment* pAttach = m_pAnimComp->GetCharacter()->GetIAttachmentManager()->GetInterfaceByName(szName))
-	{
-		pAttach->ClearBinding();
-	}
-}
-
-void CCharacterComponent::AttachWeapon()
-{
-	m_pAnimComp->SetTag(EnumToString(m_pActiveWeapon->GetWeaponType()), true);
-
-	if (IAttachment* pAttach = m_pAnimComp->GetCharacter()->GetIAttachmentManager()->GetInterfaceByName(EnumToString(m_pActiveWeapon->GetWeaponType())))
-	{
-		CEntityAttachment* pWepAttach = new CEntityAttachment();
-		pWepAttach->SetEntityId(m_pActiveWeapon->GetEntityId());
-		pAttach->AddBinding(pWepAttach);
 	}
 }
 

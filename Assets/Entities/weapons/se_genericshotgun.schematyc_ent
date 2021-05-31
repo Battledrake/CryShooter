@@ -1,0 +1,131 @@
+<CrySchematyc CryXmlVersion="2" version="105" guid="b840c9fe-08bc-4018-b524-30959ba9dab9" scope="">
+ <root elementType="Class" guid="4aac077f-41af-4372-9678-ef4fd55f2123" name="se_genericshotgun">
+  <userDocumentation author="battl" description=""/>
+  <extensions />
+  <children>
+   <element elementType="Constructor" guid="d390ffa6-56e2-4a1c-97f2-0490c709ce1c" name="ConstructionGraph">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="349c4323-7854-4489-8328-bbc00b52f920" typeGUID="12bdfa06-ba95-4e48-bb2d-bb48a7080abc">
+        <value guid="349c4323-7854-4489-8328-bbc00b52f920">
+         <pos x="0" y="0"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="SignalReceiver" guid="a7f2166c-2096-45b7-99c3-2de4dfe29df3" name="SignalGraph" type="Universal" signalGUID="">
+    <userDocumentation author="battl" description=""/>
+    <extensions>
+     <Graph>
+      <pos x="0" y="0"/>
+      <nodes>
+       <element key="d3e3f13d-55f9-4a88-8d8e-3d35ea72802d" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="d3e3f13d-55f9-4a88-8d8e-3d35ea72802d" objectGUID="">
+         <pos x="0" y="0"/>
+         <signalId domain="Env" guid="a9279137-7c66-491d-b9a0-8752c24c8979"/>
+        </value>
+       </element>
+       <element key="4e93e1b8-88c4-4de5-ac6b-437c1973d067" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="4e93e1b8-88c4-4de5-ac6b-437c1973d067" objectGUID="">
+         <pos x="0" y="200"/>
+         <signalId domain="Env" guid="b2561caa-0753-458b-a91f-e8e38b0f0cdf"/>
+        </value>
+       </element>
+       <element key="5bb43074-6a81-4eed-a7e1-229b9f47ba72" typeGUID="ad2aee64-0a60-4469-8ec7-38b4b720d30c">
+        <value guid="5bb43074-6a81-4eed-a7e1-229b9f47ba72" objectGUID="">
+         <pos x="0" y="100"/>
+         <signalId domain="Env" guid="52ad5add-7781-429b-b4a9-0cb6c905e353"/>
+        </value>
+       </element>
+      </nodes>
+      <links />
+     </Graph>
+    </extensions>
+    <children />
+   </element>
+   <element elementType="Base" guid="a5f7559d-1783-4457-8383-20f83231bd4d" name="Base [Entity]">
+    <classId domain="Env" guid="be845278-0dd2-409f-b8be-97895607c256"/>
+    <envClassProperties icon="%EDITOR%/objecticons/schematyc.bmp" bHideInEditor="false" bTriggerAreas="true" bCreatePerClient="false"/>
+    <extensions />
+    <children>
+     <element elementType="ComponentInstance" guid="1a6fc313-5df2-413b-88f6-3bded1796ca7" name="Entity" accessor="Private" typeGUID="e88093df-904f-4c52-af38-911e26777cdc">
+      <properties />
+      <extensions />
+      <children />
+     </element>
+    </children>
+   </element>
+   <element elementType="ComponentInstance" guid="bf418a6d-debc-4f97-bbec-e1eb342b1390" name="WeaponComponent" accessor="Private" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
+    <properties WeaponName="GenericShotgun" IconPath="Icons/genericshotgun_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Rifle" WeaponCategory="Both" HolsterSlot="Hip" FireRate="60" Burst="0" BurstDelay="0" ClipCapacity="8" AmmoCount="0" MaxAmmo="20">
+     <FireModes>
+      <element element="Single"/>
+     </FireModes>
+     <WeaponRecoil x="0" y="100"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="2ccf74aa-9f1c-4643-9d3d-490b4c0f2c24" name="Box Collider" accessor="Public" typeGUID="52431c11-77ee-410a-a7a7-a7fa69e79685">
+    <transform>
+     <translation>
+      <position>
+       <element element="0"/>
+       <element element="-0.30000001"/>
+       <element element="0.050000001"/>
+      </position>
+     </translation>
+     <rotation x="0" y="-0" z="0"/>
+     <scale>
+      <element element="1"/>
+      <element element="1"/>
+      <element element="1"/>
+     </scale>
+    </transform>
+    <properties Surface="" ReactToCollisions="true">
+     <Size x="0.025" y="0.29999992" z="0.050000001"/>
+     <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="37f30dea-5081-4e47-a69f-66be2b64c5f0" name="Rigidbody" accessor="Public" typeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6">
+    <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
+     <Buoyancy Damping="0" Density="1000" Resistance="1000"/>
+     <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+   <element elementType="ComponentInstance" guid="62d614ec-9536-4308-8b1e-27ef0bda3b75" name="Mesh" accessor="Private" typeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29">
+    <transform>
+     <translation>
+      <position>
+       <element element="0"/>
+       <element element="0"/>
+       <element element="0"/>
+      </position>
+     </translation>
+     <rotation x="0" y="-0" z="0"/>
+     <scale>
+      <element element="1"/>
+      <element element="1"/>
+      <element element="1"/>
+     </scale>
+    </transform>
+    <properties Type="RenderAndCollider" FilePath="Objects/Weapons/MilitaryDark/shotgun/Shotgun.cgf" Material="Materials/m_shotgun.mtl">
+     <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
+     <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
+    </properties>
+    <extensions />
+    <children />
+   </element>
+  </children>
+ </root>
+</CrySchematyc>

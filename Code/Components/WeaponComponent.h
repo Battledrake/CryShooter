@@ -1,7 +1,8 @@
 #pragma once
 
 #include <CryEntitySystem/IEntitySystem.h>
-#include <DefaultComponents/Geometry/AnimatedMeshComponent.h>
+#include <CrySchematyc/Utils/SharedString.h>
+#include <CrySchematyc/ResourceTypes.h>
 
 #include "Interfaces/IInteractable.h"
 #include "Interfaces/IEquippable.h"
@@ -14,17 +15,23 @@ enum class EFireMode : uint8
 	Auto
 };
 
-enum class EAnimationType : uint8
+enum class EWeaponType : uint8
 {
 	Rifle,
 	Pistol
 };
 
-enum class EWeaponSlot : uint8
+enum class EWeaponCategory : uint8
 {
 	Primary,
 	Secondary,
 	Both
+};
+
+enum class EHolsterSlot : uint8
+{
+	Back,
+	Hip
 };
 
 static void ReflectType(Schematyc::CTypeDesc<EFireMode>& desc)
@@ -37,25 +44,35 @@ static void ReflectType(Schematyc::CTypeDesc<EFireMode>& desc)
 	desc.AddConstant(EFireMode::Auto, "Auto", "Auto Fire");
 }
 
-static void ReflectType(Schematyc::CTypeDesc<EAnimationType>& desc)
+static void ReflectType(Schematyc::CTypeDesc<EWeaponType>& desc)
 {
 	desc.SetGUID("{ED5FBADA-0B8D-4419-BD3C-0AA781999414}"_cry_guid);
-	desc.SetLabel("Animation Type");
+	desc.SetLabel("Weapon Type");
 	desc.SetDescription("Determines animation tag and attach slot");
-	desc.SetDefaultValue(EAnimationType::Rifle);
-	desc.AddConstant(EAnimationType::Rifle, "Rifle", "Rifle");
-	desc.AddConstant(EAnimationType::Pistol, "Pistol", "Pistol");
+	desc.SetDefaultValue(EWeaponType::Rifle);
+	desc.AddConstant(EWeaponType::Rifle, "Rifle", "Rifle");
+	desc.AddConstant(EWeaponType::Pistol, "Pistol", "Pistol");
 }
 
-static void ReflectType(Schematyc::CTypeDesc<EWeaponSlot>& desc)
+static void ReflectType(Schematyc::CTypeDesc<EWeaponCategory>& desc)
 {
 	desc.SetGUID("{C7719231-03CC-4EAF-8E35-9C9CCFA520C5}"_cry_guid);
-	desc.SetLabel("Weapon Slot");
-	desc.SetDescription("Determines which Weapon slot this weapon belongs to");
-	desc.SetDefaultValue(EWeaponSlot::Primary);
-	desc.AddConstant(EWeaponSlot::Primary, "Primary", "Primary");
-	desc.AddConstant(EWeaponSlot::Secondary, "Secondary", "Secondary");
-	desc.AddConstant(EWeaponSlot::Both, "Both", "Both");
+	desc.SetLabel("Weapon Category");
+	desc.SetDescription("Determines which weapon slot this weapon can be assigned to");
+	desc.SetDefaultValue(EWeaponCategory::Primary);
+	desc.AddConstant(EWeaponCategory::Primary, "Primary", "Primary");
+	desc.AddConstant(EWeaponCategory::Secondary, "Secondary", "Secondary");
+	desc.AddConstant(EWeaponCategory::Both, "Both", "Both");
+}
+
+static void ReflectType(Schematyc::CTypeDesc<EHolsterSlot>& desc)
+{
+	desc.SetGUID("{A8A42683-69A1-4F35-8D11-C876057C48D8}"_cry_guid);
+	desc.SetLabel("Holster Type");
+	desc.SetDescription("Determines where weapon is holstered when not active");
+	desc.SetDefaultValue(EHolsterSlot::Back);
+	desc.AddConstant(EHolsterSlot::Back, "Back", "Back");
+	desc.AddConstant(EHolsterSlot::Hip, "Hip", "Hip");
 }
 
 class CInterfaceComponent;
@@ -86,9 +103,9 @@ public:
 	string GetIconPath() const { return m_iconPath.value; }
 	string GetProjectileClass() const { return m_projectileClass.value; }
 	EFireMode GetFireMode() const { return m_currentFireMode; }
-	EAnimationType GetWeaponType() const { return m_animType; }
-	EEquipmentType GetEquipType() const { return m_equipmentType; }
-	EWeaponSlot GetWeaponSlot() const { return m_weaponSlot; }
+	EWeaponType GetWeaponType() const { return m_weaponType; }
+	EWeaponCategory GetWeaponSlot() const { return m_weaponCategory; }
+	EHolsterSlot GetHolsterSlot() const { return m_holsterSlot; }
 	int GetClipCount() const { return m_clipCount; }
 	int GetClipCapacity() const { return m_clipCapacity; }
 	int GetAmmoCount() const { return m_ammoCount; }
@@ -109,14 +126,15 @@ public:
 		desc.AddMember(&CWeaponComponent::m_weaponName, 'name', "WeaponName", "Weapon Name", "Name of weapon, used to identify and differentiate", "");
 		desc.AddMember(&CWeaponComponent::m_iconPath, 'icon', "IconPath", "Icon Path", "Icon to load in weapon hud", "");
 		desc.AddMember(&CWeaponComponent::m_projectileClass, 'proj', "ProjectileClass", "Projectile Class", "Entity class to spawn on fire", "");
-		desc.AddMember(&CWeaponComponent::m_animType, 'anim', "AnimationType", "Animation Type", "Determines animation tag and attach slot", EAnimationType::Rifle);
-		desc.AddMember(&CWeaponComponent::m_weaponSlot, 'slot', "WeaponSlot", "Weapon Slot", "Determines which weapon slot this weapon can belong to", EWeaponSlot::Primary);
+		desc.AddMember(&CWeaponComponent::m_weaponType, 'type', "WeaponType", "Weapon Type", "Determines animation tag and attach slot", EWeaponType::Rifle);
+		desc.AddMember(&CWeaponComponent::m_weaponCategory, 'cat', "WeaponCategory", "Weapon Category", "Determines which weapon slot this weapon can be assigned to", EWeaponCategory::Primary);
+		desc.AddMember(&CWeaponComponent::m_holsterSlot, 'slot', "HolsterSlot", "Holster Slot", "Determines where weapon is holstered when not active", EHolsterSlot::Back);
 		desc.AddMember(&CWeaponComponent::m_fireModes, 'mode', "FireModes", "Weapon Fire Modes", "Determines the firing modes the weapon supports", Schematyc::CArray<EFireMode>());
 		desc.AddMember(&CWeaponComponent::m_fireRate, 'rate', "FireRate", "Weapon Fire Rate", "Rate per minute", 500);
 		desc.AddMember(&CWeaponComponent::m_wepRecoil, 'coil', "WeaponRecoil", "Weapon Recoil", "Sets the recoil", Vec2(-2.0f, 5.0f));
 		desc.AddMember(&CWeaponComponent::m_shotsInBurst, 'brst', "Burst", "Shots in Burst", "Number of shots fired per burst", 3);
 		desc.AddMember(&CWeaponComponent::m_burstDelay, 'dlay', "BurstDelay", "Burst Delay", "Determines the length of time before firing another burst", 0.5f);
-		desc.AddMember(&CWeaponComponent::m_clipCapacity, 'clip', "ClipCapacity", "Clip Capacity", "Amount of bullets held by clip", 30);
+		desc.AddMember(&CWeaponComponent::m_clipCapacity, 'clip', "ClipCapacity", "Clip Capacity", "Amount of bullets clip can hold", 30);
 		desc.AddMember(&CWeaponComponent::m_ammoCount, 'ammo', "AmmoCount", "Ammo Count", "Ammo available outside of clip", 0);
 		desc.AddMember(&CWeaponComponent::m_maxAmmo, 'max', "MaxAmmo", "Max Ammo", "Maximum amount of ammo weapon can have", 300);
 	}
@@ -130,7 +148,6 @@ private:
 	void BeginBurst();
 	void Fire();
 
-	Cry::DefaultComponents::CBaseMeshComponent* m_pMesh;
 	CInterfaceComponent* m_pInterfaceComponent;
 
 	Schematyc::CSharedString m_weaponName;
@@ -156,8 +173,9 @@ private:
 	int m_ammoCount = 0;
 	int m_maxAmmo;
 
-	EAnimationType m_animType;
+	EWeaponType m_weaponType;
 	EEquipmentType m_equipmentType = EEquipmentType::Weapon;
-	EWeaponSlot m_weaponSlot;
+	EWeaponCategory m_weaponCategory;
+	EHolsterSlot m_holsterSlot;
 	EFireMode m_currentFireMode;
 };

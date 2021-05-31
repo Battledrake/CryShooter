@@ -1,6 +1,6 @@
-<AssetMetadata version="0" type="Texture" guid="d5265745-612d-9a68-4cba-ebd9db38c9de" source="genericrifle_icon.tif">
+<AssetMetadata version="0" type="Texture" guid="487b4f4c-20fe-d002-be73-c79e9f4dcef8" source="genericshotgun_icon.tif">
  <Files>
-  <File path="genericrifle_icon.dds"/>
+  <File path="genericshotgun_icon.dds"/>
  </Files>
  <Details>
   <Detail name="width">194</Detail>

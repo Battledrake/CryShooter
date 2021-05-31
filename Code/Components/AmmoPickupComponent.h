@@ -1,7 +1,7 @@
 #pragma once
 
 #include <CryEntitySystem/IEntitySystem.h>
-#include <DefaultComponents/Geometry/StaticMeshComponent.h>
+#include <CrySchematyc/Utils/SharedString.h>
 
 #include "Interfaces/IInteractable.h"
 #include "Components/WeaponComponent.h"
@@ -26,7 +26,7 @@ public:
 		desc.SetEditorCategory("Custom");
 		desc.SetLabel("AmmoPickup");
 		desc.SetDescription("Ammo Pickup!");
-		desc.AddMember(&CAmmoPickupComponent::m_weaponName, 'name', "WeaponName", "Weapon Name", "Determines the weapon the ammo is for", "AssaultRifle");
+		desc.AddMember(&CAmmoPickupComponent::m_weaponName, 'name', "WeaponName", "Weapon Name", "Determines the weapon the ammo is for", "GenericRifle");
 		desc.AddMember(&CAmmoPickupComponent::m_ammoAmount, 'amt', "AmmoAmount", "Ammo Amount", "Determines amount of ammo to give on pickup", 25);
 	}
 
@@ -36,7 +36,6 @@ protected:
 	virtual void ProcessEvent(const SEntityEvent& event) override;
 
 private:
-	Cry::DefaultComponents::CStaticMeshComponent* m_pMesh;
 	CInterfaceComponent* m_pInterfaceComponent;
 
 	Schematyc::CSharedString m_weaponName;

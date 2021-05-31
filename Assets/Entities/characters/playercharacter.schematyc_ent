@@ -107,7 +107,7 @@
      </scale>
     </transform>
     <properties Networked="true">
-     <Physics Mass="80" Radius="0.44999999" Height="0.935" Capsule="false" GroundContactEps="0.0040000002" SendCollisionSignal="false"/>
+     <Physics Mass="80" Radius="0.44999999" Height="0.935" Capsule="true" GroundContactEps="0.0040000002" SendCollisionSignal="false"/>
      <Movement AirControl="1" AirResistance="0.2" Inertia="8" InertiaAcc="8" MaxClimb="0.87266463" MaxJump="0.87266463" MinSlide="1.2217305" MinFall="1.3962634" MaxGroundVelocity="16"/>
     </properties>
     <extensions />

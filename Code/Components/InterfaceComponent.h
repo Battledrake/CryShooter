@@ -10,12 +10,6 @@ public:
 	CInterfaceComponent() = default;
 	virtual ~CInterfaceComponent() = default;
 
-	static void ReflectType(Schematyc::CTypeDesc<CInterfaceComponent>& desc)
-	{
-		desc.SetGUID("{7F8BBB39-46D3-4D32-9868-918C22638962}"_cry_guid);
-		desc.SetComponentFlags({ IEntityComponent::EFlags::Singleton, IEntityComponent::EFlags::HiddenFromUser});
-	}
-
 	template<class InterfaceType>
 	InterfaceType* GetInterface()
 	{
@@ -36,6 +30,22 @@ public:
 			return true;
 		};
 		return false;
+	}
+
+	template<class InterfaceType>
+	void RemoveInterface()
+	{
+		std::unordered_map<const char*, IInterfaceBase*>::iterator it = m_interfaceMap.find(typeid(InterfaceType).name());
+		if (it != m_interfaceMap.end())
+		{
+			m_interfaceMap.erase(it);
+		}
+	}
+
+	static void ReflectType(Schematyc::CTypeDesc<CInterfaceComponent>& desc)
+	{
+		desc.SetGUID("{7F8BBB39-46D3-4D32-9868-918C22638962}"_cry_guid);
+		desc.SetComponentFlags({ IEntityComponent::EFlags::Singleton, IEntityComponent::EFlags::HiddenFromUser });
 	}
 
 protected:
