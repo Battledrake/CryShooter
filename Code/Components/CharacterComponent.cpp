@@ -62,6 +62,9 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 		break;
 		case Cry::Entity::EEvent::Update:
 		{
+			if (!gEnv->IsGameOrSimulation())
+				return;
+
 			if (!m_pCharController->IsOnGround() && !m_hasJumped && !m_isFalling)
 			{
 				m_isFalling = true;

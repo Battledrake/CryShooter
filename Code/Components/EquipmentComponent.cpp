@@ -69,19 +69,30 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 			if (CWeaponComponent* pWeapon = static_cast<CWeaponComponent*>(pEquipment))
 			{
 				pWeapon->GetEntity()->EnablePhysics(false);
-				if ((int)pWeapon->GetWeaponSlot() == m_activeWeaponIndex || pWeapon->GetWeaponSlot() == EWeaponCategory::Both)
+				if ((int)pWeapon->GetWeaponCategory() == m_activeWeaponIndex || pWeapon->GetWeaponCategory() == EWeaponCategory::Both)
 				{
 					if (CWeaponComponent* pActiveWeapon = m_weapons.at(m_activeWeaponIndex))
 					{
 						const int otherIndex = m_activeWeaponIndex == 0 ? 1 : 0;
-						if (!m_weapons.at(otherIndex) && pWeapon->GetWeaponSlot() == EWeaponCategory::Both)
+						if (!m_weapons.at(otherIndex))
 						{
-							m_weapons.at(otherIndex) = pWeapon;
-							HolsterWeapon(pWeapon);
-							return;
+							if (pWeapon->GetWeaponCategory() == EWeaponCategory::Both)
+							{
+								m_weapons.at(otherIndex) = pWeapon;
+								HolsterWeapon(pWeapon);
+								return;
+							}
+							else if (pActiveWeapon->GetWeaponCategory() == EWeaponCategory::Both)
+							{
+								m_weapons.at(otherIndex) = pActiveWeapon;
+								HolsterWeapon(pActiveWeapon);
+							}
 						}
-						ClearWeaponAttach(pActiveWeapon);
-						ThrowWeapon(pActiveWeapon);
+						else
+						{
+							ClearWeaponAttach(pActiveWeapon);
+							ThrowWeapon(pActiveWeapon);
+						}
 					}
 					m_pCharacterComp->SetActiveWeapon(pWeapon);
 					AttachWeapon(pWeapon);
@@ -90,13 +101,12 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 				}
 				else
 				{
-					//If there's a weapon at the same weapon slot, we clear it and throw it
-					if (CWeaponComponent* pOldWeapon = m_weapons.at((int)pWeapon->GetWeaponSlot()))
+					if (CWeaponComponent* pOldWeapon = m_weapons.at((int)pWeapon->GetWeaponCategory()))
 					{
 						ClearHolsterAttach(pOldWeapon);
 						ThrowWeapon(pOldWeapon);
 					}
-					m_weapons.at((int)pWeapon->GetWeaponSlot()) = pWeapon;
+					m_weapons.at((int)pWeapon->GetWeaponCategory()) = pWeapon;
 					//If we have another weapon that's active, we holster this one
 					if (m_equipmentSlots.at((int)EEquipmentType::Weapon))
 					{
@@ -108,7 +118,7 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 						m_pCharacterComp->SetActiveWeapon(pWeapon);
 						AttachWeapon(pWeapon);
 						m_equipmentSlots.at((int)EEquipmentType::Weapon) = pWeapon;
-						m_activeWeaponIndex = (int)pWeapon->GetWeaponSlot();
+						m_activeWeaponIndex = (int)pWeapon->GetWeaponCategory();
 					}
 				}
 			}

@@ -104,7 +104,7 @@ public:
 	string GetProjectileClass() const { return m_projectileClass.value; }
 	EFireMode GetFireMode() const { return m_currentFireMode; }
 	EWeaponType GetWeaponType() const { return m_weaponType; }
-	EWeaponCategory GetWeaponSlot() const { return m_weaponCategory; }
+	EWeaponCategory GetWeaponCategory() const { return m_weaponCategory; }
 	EHolsterSlot GetHolsterSlot() const { return m_holsterSlot; }
 	int GetClipCount() const { return m_clipCount; }
 	int GetClipCapacity() const { return m_clipCapacity; }

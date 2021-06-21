@@ -171,9 +171,10 @@ void CPlayerComponent::CheckInteractables()
 {
 	Vec3 origin = m_pEntity->GetWorldPos();
 	Vec3 direction = m_pEntity->GetForwardDir();
+	float distance = m_currentViewMode == EViewMode::FirstPerson ? 1.5f : 3.0f;
 	const unsigned int rayFlags = rwi_stop_at_pierceable | rwi_colltype_any;
 	ray_hit hitInfo;
-	if (gEnv->pPhysicalWorld->RayWorldIntersection(origin, direction * 3.0f, ent_all, rayFlags, &hitInfo, 1, m_pCharacter->GetEntity()->GetPhysicalEntity()))
+	if (gEnv->pPhysicalWorld->RayWorldIntersection(origin, direction * distance, ent_all, rayFlags, &hitInfo, 1, m_pCharacter->GetEntity()->GetPhysicalEntity()))
 	{
 		if (IEntity* pHitEnt = gEnv->pEntitySystem->GetEntityFromPhysics(hitInfo.pCollider))
 		{
