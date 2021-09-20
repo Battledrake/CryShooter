@@ -1,0 +1,16 @@
+<AudioSystemData name="l_airfield" version="5" triggers="4">
+ <Triggers>
+  <Trigger name="Play_l_airfield_sfx_jet_engine_idle_loop" path="l_airfield_sfx"/>
+  <Trigger name="Play_l_airfield_amb_hangar" path="l_airfield_amb"/>
+  <Trigger name="Play_l_airfield_amb_rain_corridor" path="l_airfield_amb"/>
+  <Trigger name="Play_l_airfield_amb_runway" path="l_airfield_amb"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="l_airfield_sfx"/>
+   <Folder name="l_airfield_amb"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

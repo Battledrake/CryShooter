@@ -1,0 +1,12 @@
+<AssetMetadata version="0" type="Material" guid="ac5c53ca-54fd-aef2-de04-fbdb3f34665a" source="" timestamp="1632097985">
+ <Files>
+  <File path="m_test_dirt.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">0</Detail>
+  <Detail name="textureCount">1</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">%engine%/engineassets/textures/water_gloss.dds</Path>
+ </Dependencies>
+</AssetMetadata>

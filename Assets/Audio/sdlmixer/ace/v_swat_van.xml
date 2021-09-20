@@ -1,0 +1,18 @@
+<AudioSystemData name="v_swat_van" version="5" triggers="9">
+ <Triggers>
+  <Trigger name="Play_swat_van_bump"/>
+  <Trigger name="Play_swat_van_run"/>
+  <Trigger name="Play_swat_van_start"/>
+  <Trigger name="Play_swat_van_stop"/>
+  <Trigger name="Play_swat_van_door_close"/>
+  <Trigger name="Play_swat_van_door_open"/>
+  <Trigger name="Play_swat_van_boost"/>
+  <Trigger name="Play_swat_van_gear"/>
+  <Trigger name="Play_swat_van_horn"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

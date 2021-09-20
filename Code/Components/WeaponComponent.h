@@ -100,6 +100,8 @@ public:
 	virtual EEquipmentType GetEquipmentType() const override { return m_equipmentType; }
 	//~IEquippable
 
+	CryAudio::ControlId GetWeaponSelectAudio() { return CryAudio::StringToId(m_selectAudio.value); }
+	CryAudio::ControlId GetPickupAudio() { return CryAudio::StringToId(m_pickupAudio.value); }
 	string GetIconPath() const { return m_iconPath.value; }
 	string GetProjectileClass() const { return m_projectileClass.value; }
 	EFireMode GetFireMode() const { return m_currentFireMode; }
@@ -113,6 +115,7 @@ public:
 
 	void AddAmmo(int amount);
 	void DisableFiring() { ProcessFire(false); m_isBursting = false; m_burstQueued = false; }
+	void PlayAudio(string audioName);
 	void ProcessFire(bool isPressed);
 	void Reload();
 	EFireMode SwitchFireModes();
@@ -124,6 +127,12 @@ public:
 		desc.SetLabel("WeaponComponent");
 		desc.SetDescription("Creates weapons");
 		desc.AddMember(&CWeaponComponent::m_weaponName, 'name', "WeaponName", "Weapon Name", "Name of weapon, used to identify and differentiate", "");
+		desc.AddMember(&CWeaponComponent::m_fireAudio, 'wfa', "FireAudio", "Fire Audio", "Sound gun make on shoot", "");
+		desc.AddMember(&CWeaponComponent::m_reloadAudio, 'wra', "ReloadAudio", "Reload Audio", "Sound gun make on reload", "");
+		desc.AddMember(&CWeaponComponent::m_dryFireAudio, 'wdfa', "DryFireAudio", "Dryfire Audio", "Sound gun make when empty", "");
+		desc.AddMember(&CWeaponComponent::m_pickupAudio, 'wpa', "PickupAudio", "Pickup Audio", "Sound made when picked up", "");
+		desc.AddMember(&CWeaponComponent::m_selectAudio, 'wsa', "SelectAudio", "Select Audio", "Sound gun make on select", "");
+		desc.AddMember(&CWeaponComponent::m_switchFireModeAudio, 'sfma', "SwitchFireModeAudio", "Switch Fire Mode Audio", "Sound gun make when fire mode changed", "");
 		desc.AddMember(&CWeaponComponent::m_iconPath, 'icon', "IconPath", "Icon Path", "Icon to load in weapon hud", "");
 		desc.AddMember(&CWeaponComponent::m_projectileClass, 'proj', "ProjectileClass", "Projectile Class", "Entity class to spawn on fire", "");
 		desc.AddMember(&CWeaponComponent::m_weaponType, 'type', "WeaponType", "Weapon Type", "Determines animation tag and attach slot", EWeaponType::Rifle);
@@ -135,7 +144,7 @@ public:
 		desc.AddMember(&CWeaponComponent::m_shotsInBurst, 'brst', "Burst", "Shots in Burst", "Number of shots fired per burst", 3);
 		desc.AddMember(&CWeaponComponent::m_burstDelay, 'dlay', "BurstDelay", "Burst Delay", "Determines the length of time before firing another burst", 0.5f);
 		desc.AddMember(&CWeaponComponent::m_clipCapacity, 'clip', "ClipCapacity", "Clip Capacity", "Amount of bullets clip can hold", 30);
-		desc.AddMember(&CWeaponComponent::m_ammoCount, 'ammo', "AmmoCount", "Ammo Count", "Ammo available outside of clip", 0);
+		desc.AddMember(&CWeaponComponent::m_startingAmmo, 'ammo', "StartingAmmo", "Starting Ammo", "Ammo available outside of clip at start", 0);
 		desc.AddMember(&CWeaponComponent::m_maxAmmo, 'max', "MaxAmmo", "Max Ammo", "Maximum amount of ammo weapon can have", 300);
 	}
 
@@ -151,6 +160,12 @@ private:
 	CInterfaceComponent* m_pInterfaceComponent;
 
 	Schematyc::CSharedString m_weaponName;
+	Schematyc::AudioTriggerName m_fireAudio;
+	Schematyc::AudioTriggerName m_reloadAudio;
+	Schematyc::AudioTriggerName m_dryFireAudio;
+	Schematyc::AudioTriggerName m_pickupAudio;
+	Schematyc::AudioTriggerName m_selectAudio;
+	Schematyc::AudioTriggerName m_switchFireModeAudio;
 	Schematyc::TextureFileName m_iconPath;
 	Schematyc::EntityClassName m_projectileClass;
 	Schematyc::CArray<EFireMode> m_fireModes;
@@ -171,6 +186,7 @@ private:
 	int m_clipCount = 0;
 	int m_clipCapacity = 30;
 	int m_ammoCount = 0;
+	int m_startingAmmo = 0;
 	int m_maxAmmo;
 
 	EWeaponType m_weaponType;

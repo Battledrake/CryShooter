@@ -1,0 +1,23 @@
+<FXLib>
+<Effect name="default">
+	<Audio trigger="Play_c_player_fts_concrete"/>
+</Effect>
+<Effect name="dirt">
+	<Audio trigger="Play_c_player_fts_dirt"/>
+</Effect>
+<Effect name="grass">
+	<Audio trigger="Play_c_player_fts_grass"/>
+</Effect>
+<Effect name="fabric">
+	<Audio trigger="Play_c_player_fts_fabric"/>
+</Effect>
+<Effect name="gravel">
+	<Audio trigger="Play_c_player_fts_gravel"/>
+</Effect>
+<Effect name="metal">
+	<Audio trigger="Play_c_player_fts_metal_thick"/>
+</Effect>
+<Effect name="sand">
+	<Audio trigger="Play_c_player_fts_sand_dry"/>
+</Effect>
+</FXLib>

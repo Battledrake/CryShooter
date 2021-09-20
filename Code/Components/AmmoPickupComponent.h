@@ -27,6 +27,7 @@ public:
 		desc.SetLabel("AmmoPickup");
 		desc.SetDescription("Ammo Pickup!");
 		desc.AddMember(&CAmmoPickupComponent::m_weaponName, 'name', "WeaponName", "Weapon Name", "Determines the weapon the ammo is for", "GenericRifle");
+		desc.AddMember(&CAmmoPickupComponent::m_pickupAudio, 'apa', "PickupAudio", "Pickup Audio", "Sound made when collected", "");
 		desc.AddMember(&CAmmoPickupComponent::m_ammoAmount, 'amt', "AmmoAmount", "Ammo Amount", "Determines amount of ammo to give on pickup", 25);
 	}
 
@@ -39,5 +40,6 @@ private:
 	CInterfaceComponent* m_pInterfaceComponent;
 
 	Schematyc::CSharedString m_weaponName;
+	Schematyc::AudioTriggerName m_pickupAudio;
 	int m_ammoAmount;
 };

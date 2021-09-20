@@ -1,0 +1,18 @@
+<AudioSystemData name="p_col_obj" version="5" triggers="9">
+ <Triggers>
+  <Trigger name="Play_p_col_obj_grenade_hit_mat_default"/>
+  <Trigger name="Play_p_col_obj_grenade_hit_mat_grass"/>
+  <Trigger name="Play_p_col_obj_grenade_hit_mat_water"/>
+  <Trigger name="Play_p_col_obj_grenade_hit_mat_soil"/>
+  <Trigger name="Play_p_col_obj_grenade_hit_mat_rock"/>
+  <Trigger name="Play_p_col_obj_grenade_hit_mat_wood"/>
+  <Trigger name="Play_p_col_obj_weapon_medium_on_ground"/>
+  <Trigger name="Play_p_col_obj_weapon_small_on_ground"/>
+  <Trigger name="Play_p_col_obj_rope_oil_lamp"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

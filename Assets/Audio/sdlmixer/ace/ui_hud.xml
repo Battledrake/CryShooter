@@ -1,0 +1,11 @@
+<AudioSystemData name="ui_hud" version="5" triggers="2">
+ <Triggers>
+  <Trigger name="Play_ui_hud_mission_completed"/>
+  <Trigger name="Play_ui_hud_mission_activated"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

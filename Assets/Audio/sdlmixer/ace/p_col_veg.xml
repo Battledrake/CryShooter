@@ -1,0 +1,15 @@
+<AudioSystemData name="p_col_veg" version="5" triggers="3">
+ <ImplData events="1"/>
+ <Triggers>
+  <Trigger name="Play_p_col_veg_mm_vegetation"/>
+  <Trigger name="Play_p_col_veg_mm_grass"/>
+  <Trigger name="Play_p_col_veg_mfx">
+   <Event name="p_col_veg_mfx.ogg" type="start" volume="-17" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

@@ -1,0 +1,17 @@
+<AudioSystemData name="v_abrams" version="5" triggers="8">
+ <Triggers>
+  <Trigger name="Play_abrams_cannon_turn"/>
+  <Trigger name="Play_abrams_boost"/>
+  <Trigger name="Play_abrams_bump"/>
+  <Trigger name="Play_abrams_hatch_close"/>
+  <Trigger name="Play_abrams_hatch_open"/>
+  <Trigger name="Play_abrams_run"/>
+  <Trigger name="Play_abrams_start"/>
+  <Trigger name="Play_abrams_stop"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

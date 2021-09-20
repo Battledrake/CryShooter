@@ -51,6 +51,7 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 						return;
 
 					TryAddAmmo(pWeapon->GetEquipmentName(), pWeapon->GetClipCount());
+					PlayAudio(pWeapon->GetPickupAudio());
 					pWeapon->GetEntity()->Hide(true);
 					return;
 				}
@@ -80,6 +81,7 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 							{
 								m_weapons.at(otherIndex) = pWeapon;
 								HolsterWeapon(pWeapon);
+								PlayAudio(pWeapon->GetPickupAudio());
 								return;
 							}
 							else if (pActiveWeapon->GetWeaponCategory() == EWeaponCategory::Both)
@@ -121,6 +123,7 @@ void CEquipmentComponent::TryAddEquipment(IEquippable* pEquipment)
 						m_activeWeaponIndex = (int)pWeapon->GetWeaponCategory();
 					}
 				}
+				PlayAudio(pWeapon->GetPickupAudio());
 			}
 		}
 		break;
@@ -161,6 +164,7 @@ void CEquipmentComponent::AttachWeapon(CWeaponComponent* pWeapon)
 		CEntityAttachment* pWepAttach = new CEntityAttachment();
 		pWepAttach->SetEntityId(pWeapon->GetEntityId());
 		pAttach->AddBinding(pWepAttach);
+		PlayAudio(pWeapon->GetWeaponSelectAudio());
 	}
 }
 
@@ -297,4 +301,11 @@ void CEquipmentComponent::ProcessEvent(const SEntityEvent& event)
 		}
 		break;
 	}
+}
+
+void CEquipmentComponent::PlayAudio(CryAudio::ControlId audioId)
+{
+	CryAudio::SExecuteTriggerData triggerData(audioId, (const char*)nullptr,
+		CryAudio::EOcclusionType::Ignore, m_pEntity->GetWorldPos());
+	gEnv->pAudioSystem->ExecuteTriggerEx(triggerData);
 }

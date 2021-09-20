@@ -1,0 +1,55 @@
+<AudioSystemData name="w_shotgun" version="5" triggers="14">
+ <ImplData events="14"/>
+ <Triggers>
+  <Trigger name="Play_w_shotgun_cock_back_3p" path="w_shotgun_handling_3p">
+   <Event name="w_shotgun_cock_back.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_cock_forward_3p" path="w_shotgun_handling_3p">
+   <Event name="w_shotgun_cock_fwd.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_deselect_3p" path="w_shotgun_handling_3p">
+   <Event name="w_shotgun_foley_deselect.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_reload_3p" path="w_shotgun_handling_3p">
+   <Event name="w_shotgun_reload.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_select_3p" path="w_shotgun_handling_3p">
+   <Event name="w_shotgun_foley_select.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_cock_back_fp" path="w_shotgun_handling_fp">
+   <Event name="w_shotgun_cock_back.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_cock_forward_fp" path="w_shotgun_handling_fp">
+   <Event name="w_shotgun_cock_fwd.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_deselect_fp" path="w_shotgun_handling_fp">
+   <Event name="w_shotgun_foley_deselect.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_reload_fp" path="w_shotgun_handling_fp">
+   <Event name="w_shotgun_reload.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_select_fp" path="w_shotgun_handling_fp">
+   <Event name="w_shotgun_foley_select.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_dryfire_3p" path="w_shotgun_fire_3p"/>
+  <Trigger name="Play_w_shotgun_fire_3p" path="w_shotgun_fire_3p">
+   <Event name="w_shotgun_fire_single_3p.ogg" type="start" volume="-6" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+   <Event name="w_shotgun_fire_tail.ogg" type="start" volume="-19" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_shotgun_dryfire_fp" path="w_shotgun_fire_fp"/>
+  <Trigger name="Play_w_shotgun_fire_fp" path="w_shotgun_fire_fp">
+   <Event name="w_shotgun_fire_single_fp.ogg" type="start" volume="-6" loop_count="1"/>
+   <Event name="w_shotgun_fire_tail.ogg" type="start" volume="-18" loop_count="1"/>
+  </Trigger>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="w_shotgun_handling_3p"/>
+   <Folder name="w_shotgun_handling_fp"/>
+   <Folder name="w_shotgun_fire_3p"/>
+   <Folder name="w_shotgun_fire_fp"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

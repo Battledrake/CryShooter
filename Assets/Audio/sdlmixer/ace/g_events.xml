@@ -1,0 +1,13 @@
+<AudioSystemData name="g_events" version="5" triggers="4">
+ <Triggers>
+  <Trigger name="water_exit"/>
+  <Trigger name="water_enter"/>
+  <Trigger name="water_dive_out"/>
+  <Trigger name="water_dive_in"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

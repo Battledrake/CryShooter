@@ -1,0 +1,96 @@
+<AudioSystemData name="l_global" version="5" triggers="53">
+ <ImplData events="12"/>
+ <Triggers>
+  <Trigger name="Play_l_global_amb_rain_exterior" path="l_global_amb"/>
+  <Trigger name="Play_l_global_amb_rain_interior" path="l_global_amb"/>
+  <Trigger name="Play_l_global_amb_cicadas_night" path="l_global_amb"/>
+  <Trigger name="Play_l_global_amb_wind_spooky" path="l_global_amb"/>
+  <Trigger name="Play_l_global_amb_cicadas_day" path="l_global_amb"/>
+  <Trigger name="Play_l_global_amb_cave_mysterious" path="l_global_amb"/>
+  <Trigger name="Play_l_global_amb_wind_light" path="l_global_amb"/>
+  <Trigger name="Play_l_global_amb_open_ground" path="l_global_amb"/>
+  <Trigger name="Play_l_global_ambl_wind_cold" path="l_global_amb"/>
+  <Trigger name="Play_l_global_amb_trees_mixed" path="l_global_amb"/>
+  <Trigger name="Play_l_global_amb_wind_storm" path="l_global_amb"/>
+  <Trigger name="Play_death_chicken" path="l_global_boids/chicken">
+   <Event name="l_global_boids_chicken_death.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_idle_chicken" path="l_global_boids/chicken">
+   <Event name="l_global_boids_chicken_idle.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_scared_chicken" path="l_global_boids/chicken">
+   <Event name="l_global_boids_chicken_scared.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_death_frog" path="l_global_boids/frog">
+   <Event name="l_global_boids_frog_scared.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_idle_frog" path="l_global_boids/frog">
+   <Event name="l_global_boids_frog_idle.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_scared_frog" path="l_global_boids/frog">
+   <Event name="l_global_boids_frog_scared.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_death_turtle" path="l_global_boids/turtle">
+   <Event name="l_global_boids_turtle_scared.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_idle_turtle" path="l_global_boids/turtle">
+   <Event name="l_global_boids_turtle_idle.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_scared_turtle" path="l_global_boids/turtle">
+   <Event name="l_global_boids_turtle_scared.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_door_wood_solid_open" path="l_global_sce"/>
+  <Trigger name="Play_door_wood_old_closed" path="l_global_sce"/>
+  <Trigger name="Play_door_metal_solid_closed" path="l_global_sce"/>
+  <Trigger name="Play_door_metal_solid_close" path="l_global_sce"/>
+  <Trigger name="Play_door_metal_solid_open" path="l_global_sce"/>
+  <Trigger name="Play_door_wood_solid_close" path="l_global_sce"/>
+  <Trigger name="Play_door_wood_solid_closed" path="l_global_sce"/>
+  <Trigger name="Play_door_wood_old_open" path="l_global_sce"/>
+  <Trigger name="Play_door_wood_old_close" path="l_global_sce"/>
+  <Trigger name="Stop_door_metal_solid_open" path="l_global_sce"/>
+  <Trigger name="Stop_door_wood_old_open" path="l_global_sce"/>
+  <Trigger name="Stop_door_wood_solid_open" path="l_global_sce"/>
+  <Trigger name="Play_l_global_waterfall_small_splashes" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_wind_gust" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_vegetation_stick_crack" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_waterfall_medium_loop" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_vegetation_stick_dropping" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_water_rain_drops_wind" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_water_dripping" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_waterfall_large_loop" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_bird_woodpecker" path="l_global_sfx">
+   <Event name="l_global_sfx_woodpecker.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_global_sfx_vegetation_log_creak" path="l_global_sfx">
+   <Event name="l_global_sfx_log_creak.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_global_sfx_bush_leaves" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_crow" path="l_global_sfx">
+   <Event name="l_global_sfx_crow.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_global_sfx_creaks_metal" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_thunder" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_bird_fly_off" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_bird_chirping" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_bird_fly_off_calm" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_flies" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_metal_creaks" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_vegetation_bush_movement" path="l_global_sfx"/>
+  <Trigger name="Play_l_global_sfx_waterfall_small_loop" path="l_global_sfx"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="l_global_amb"/>
+   <Folder name="l_global_boids">
+    <Folder name="chicken"/>
+    <Folder name="frog"/>
+    <Folder name="turtle"/>
+   </Folder>
+   <Folder name="l_global_sce"/>
+   <Folder name="l_global_sfx"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

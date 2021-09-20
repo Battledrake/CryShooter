@@ -1,0 +1,33 @@
+<AudioSystemData name="w_hmg" version="5" triggers="6">
+ <ImplData events="8"/>
+ <Triggers>
+  <Trigger name="Play_w_hmg_fire_dryfire_fp" path="w_hmg_fire_fp">
+   <Event name="w_hmg_fire_dry_01.ogg" type="start" volume="-9" enable_panning="true" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_hmg_fire_fire_loop_fp" path="w_hmg_fire_fp">
+   <Event name="w_hmg_fire_close_loop_01.ogg" type="start" volume="-3" enable_panning="true" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_w_hmg_fire_fire_tail_fp" path="w_hmg_fire_fp">
+   <Event name="w_hmg_fire_close_loop_01.ogg" type="stop"/>
+   <Event name="w_hmg_fire_tail_close_01.ogg" type="start" volume="-3" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_hmg_fire_fire_tail_3p" path="w_hmg_fire_3p">
+   <Event name="w_hmg_fire_medium_loop_01.ogg" type="stop"/>
+   <Event name="w_hmg_fire_tail_distant_01.ogg" type="start" volume="-6" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_hmg_fire_dryfire_3p" path="w_hmg_fire_3p">
+   <Event name="w_hmg_fire_dry_01.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_hmg_fire_fire_loop_3p" path="w_hmg_fire_3p">
+   <Event name="w_hmg_fire_medium_loop_01.ogg" type="start" volume="-6" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="0"/>
+  </Trigger>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="w_hmg_fire_fp"/>
+   <Folder name="w_hmg_fire_3p"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

@@ -1,0 +1,101 @@
+<AudioSystemData name="w_rifle" version="5" triggers="32">
+ <ImplData events="28"/>
+ <Triggers>
+  <Trigger name="Play_w_rifle_clip_in_3p" path="w_rifle_handling_3p">
+   <Event name="w_rifle_clip_in.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_clip_out_3p" path="w_rifle_handling_3p">
+   <Event name="w_rifle_clip_out.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_cock_back_3p" path="w_rifle_handling_3p">
+   <Event name="w_rifle_cock_back.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_cock_forward_3p" path="w_rifle_handling_3p">
+   <Event name="w_rifle_cock_forward.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_deselect_3p" path="w_rifle_handling_3p">
+   <Event name="w_rifle_deselect.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_grab_clip_3p" path="w_rifle_handling_3p">
+   <Event name="w_rifle_grab_clip.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_hand_on_gun_3p" path="w_rifle_handling_3p">
+   <Event name="w_rifle_hand_on_gun.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_select_3p" path="w_rifle_handling_3p">
+   <Event name="w_rifle_select.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_switch_firemode_3p" path="w_rifle_handling_3p">
+   <Event name="w_rifle_switch_firemode.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_clip_in_fp" path="w_rifle_handling_fp">
+   <Event name="w_rifle_clip_in.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_clip_out_fp" path="w_rifle_handling_fp">
+   <Event name="w_rifle_clip_out.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_cock_back_fp" path="w_rifle_handling_fp">
+   <Event name="w_rifle_cock_back.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_cock_forward_fp" path="w_rifle_handling_fp">
+   <Event name="w_rifle_cock_forward.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_deselect_fp" path="w_rifle_handling_fp">
+   <Event name="w_rifle_deselect.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_grab_clip_fp" path="w_rifle_handling_fp">
+   <Event name="w_rifle_grab_clip.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_hand_on_gun_fp" path="w_rifle_handling_fp">
+   <Event name="w_rifle_hand_on_gun.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_select_fp" path="w_rifle_handling_fp">
+   <Event name="w_rifle_select.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_switch_firemode_fp" path="w_rifle_handling_fp">
+   <Event name="w_rifle_switch_firemode.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_dryfire_3p" path="w_rifle_fire_3p">
+   <Event name="w_rifle_dry_fire.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_fire_loop_3p" path="w_rifle_fire_3p">
+   <Event name="w_rifle_fire_loop_3p.ogg" type="start" volume="-3" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_fire_single_3p" path="w_rifle_fire_3p">
+   <Event name="w_rifle_fire_single_3p.ogg" type="start" volume="-3" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_fire_loop_tail_3p" path="w_rifle_fire_3p">
+   <Event name="w_rifle_fire_loop_3p.ogg" type="stop"/>
+   <Event name="w_rifle_fire_tail.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_silencer_loop_3p" path="w_rifle_fire_3p"/>
+  <Trigger name="Play_w_rifle_silencer_loop_tail_3p" path="w_rifle_fire_3p"/>
+  <Trigger name="Play_w_rifle_silencer_single_3p" path="w_rifle_fire_3p"/>
+  <Trigger name="Play_w_rifle_dryfire_fp" path="w_rifle_fire_fp">
+   <Event name="w_rifle_dry_fire.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_fire_single_fp" path="w_rifle_fire_fp">
+   <Event name="w_rifle_fire_single_fp.ogg" type="start" volume="-3" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_fire_loop_fp" path="w_rifle_fire_fp">
+   <Event name="w_rifle_fire_loop_fp.ogg" type="start" volume="-3" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_fire_loop_tail_fp" path="w_rifle_fire_fp">
+   <Event name="w_rifle_fire_loop_fp.ogg" type="stop"/>
+   <Event name="w_rifle_fire_tail.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_rifle_silencer_loop_fp" path="w_rifle_fire_fp"/>
+  <Trigger name="Play_w_rifle_silencer_loop_tail_fp" path="w_rifle_fire_fp"/>
+  <Trigger name="Play_w_rifle_silencer_single_fp" path="w_rifle_fire_fp"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="w_rifle_handling_3p"/>
+   <Folder name="w_rifle_handling_fp"/>
+   <Folder name="w_rifle_fire_3p"/>
+   <Folder name="w_rifle_fire_fp"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

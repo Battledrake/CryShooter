@@ -1,0 +1,45 @@
+<AudioSystemData name="w_global" version="5" triggers="16">
+ <ImplData events="8"/>
+ <Triggers>
+  <Trigger name="Play_w_global_ironsight_lean_3p" path="w_global_handling_3p">
+   <Event name="w_global_ironsight_lean.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_global_ironsight_off_3p" path="w_global_handling_3p">
+   <Event name="w_global_ironsight_off.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_global_ironsight_on_3p" path="w_global_handling_3p">
+   <Event name="w_global_ironsight_on.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_global_pickup_ammo_large_3p" path="w_global_handling_3p"/>
+  <Trigger name="Play_w_global_pickup_ammo_medium_3p" path="w_global_handling_3p"/>
+  <Trigger name="Play_w_global_pickup_ammo_small_3p" path="w_global_handling_3p"/>
+  <Trigger name="Play_w_global_pickup_explosive_3p" path="w_global_handling_3p"/>
+  <Trigger name="Play_w_global_pickup_weapon_3p" path="w_global_handling_3p">
+   <Event name="w_global_pickup_weapon.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_global_ironsight_lean_fp" path="w_global_handling_fp">
+   <Event name="w_global_ironsight_lean.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_global_ironsight_off_fp" path="w_global_handling_fp">
+   <Event name="w_global_ironsight_off.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_global_ironsight_on_fp" path="w_global_handling_fp">
+   <Event name="w_global_ironsight_on.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_global_pickup_ammo_large_fp" path="w_global_handling_fp"/>
+  <Trigger name="Play_w_global_pickup_ammo_medium_fp" path="w_global_handling_fp"/>
+  <Trigger name="Play_w_global_pickup_ammo_small_fp" path="w_global_handling_fp"/>
+  <Trigger name="Play_w_global_pickup_explosive_fp" path="w_global_handling_fp"/>
+  <Trigger name="Play_w_global_pickup_weapon_fp" path="w_global_handling_fp">
+   <Event name="w_global_pickup_weapon.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="w_global_handling_3p"/>
+   <Folder name="w_global_handling_fp"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

@@ -63,7 +63,7 @@
     </children>
    </element>
    <element elementType="ComponentInstance" guid="85b49757-fadd-48a0-b93d-8d1b2ef10ff9" name="AmmoPickup" accessor="Private" typeGUID="5bdb3d82-2757-4210-8d7a-289172469e76">
-    <properties WeaponName="GenericShotgun" AmmoAmount="10"/>
+    <properties WeaponName="Generic Shotgun" PickupAudio="Play_w_global_pickup_weapon_fp" AmmoAmount="10"/>
     <extensions />
     <children />
    </element>

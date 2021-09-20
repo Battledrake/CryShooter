@@ -113,6 +113,9 @@ private:
 	bool m_isRunning;
 	bool m_hasJumped;
 	bool m_isFalling;
+	bool m_hasBegunFalling;
 
 	int m_jumpFrameId;
+	int m_startFallFrameId;
+	int m_framesBeforeIsFalling = 60;
 };

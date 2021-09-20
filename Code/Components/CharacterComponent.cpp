@@ -6,6 +6,8 @@
 #include <CryCore/StaticInstanceList.h>
 #include <CryExtension/CryCreateClassInstance.h>
 #include <Animation/PoseModifier/IKTorsoAim.h>
+#include <CryAction/IMaterialEffects.h>
+#include <Cry3DEngine/ISurfaceType.h>
 
 #include "Components/PlayerComponent.h"
 #include "Components/BodyDamageComponent.h"
@@ -45,6 +47,7 @@ Cry::Entity::EventFlags CCharacterComponent::GetEventMask() const
 	return
 		Cry::Entity::EEvent::GameplayStarted |
 		Cry::Entity::EEvent::Update |
+		Cry::Entity::EEvent::AnimationEvent |
 		Cry::Entity::EEvent::Reset;
 }
 
@@ -65,11 +68,21 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 			if (!gEnv->IsGameOrSimulation())
 				return;
 
-			if (!m_pCharController->IsOnGround() && !m_hasJumped && !m_isFalling)
+			if (!m_pCharController->IsOnGround() && !m_hasJumped && !m_isFalling && !m_hasBegunFalling)
 			{
+				m_hasBegunFalling = true;
+				m_startFallFrameId = gEnv->pRenderer->GetFrameID();
+			}
+			if (!m_pCharController->IsOnGround() && m_hasBegunFalling && m_framesBeforeIsFalling <= gEnv->pRenderer->GetFrameID() - m_startFallFrameId)
+			{
+				m_hasBegunFalling = false;
 				m_isFalling = true;
 				m_activeFragment = "Jump";
 				m_pAnimComp->QueueFragment(m_activeFragment);
+			}
+			if (m_pCharController->IsOnGround() && m_hasBegunFalling && m_framesBeforeIsFalling <= gEnv->pRenderer->GetFrameID())
+			{
+				m_hasBegunFalling = false;
 			}
 			if (m_pCharController->IsOnGround() && (m_hasJumped || m_isFalling) && m_jumpFrameId != gEnv->pRenderer->GetFrameID())
 			{
@@ -77,6 +90,43 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 				m_hasJumped = false;
 				m_activeFragment = "Locomotion";
 				m_pAnimComp->QueueFragment(m_activeFragment);
+			}
+		}
+		break;
+		case Cry::Entity::EEvent::AnimationEvent:
+		{
+			if (ICharacterInstance* pCharInstance = reinterpret_cast<ICharacterInstance*>(event.nParam[1]))
+			{
+				if (const AnimEventInstance* pAnimEvent = reinterpret_cast<AnimEventInstance*>(event.nParam[0]))
+				{
+					if (std::strcmp(pAnimEvent->m_EventName, "footstep") == 0)
+					{
+						if (m_pCharController->GetVelocity().len2() == 0)
+							return;
+
+						if (IMaterialEffects* pMaterialEffects = gEnv->pMaterialEffects)
+						{
+							TMFXEffectId effectId = InvalidEffectId;
+
+							pe_status_living status;
+							m_pEntity->GetPhysicalEntity()->GetStatus(&status);
+
+							ISurfaceType* pSurfaceType = gEnv->p3DEngine->GetMaterialManager()->GetSurfaceType(status.groundSurfaceIdx);
+
+							effectId = pMaterialEffects->GetEffectIdByName("footsteps", pSurfaceType->GetType());
+
+							if (effectId != InvalidEffectId)
+							{
+								SMFXRunTimeEffectParams params;
+								params.audioProxyEntityId = m_pEntity->GetId();
+								params.pos = m_pEntity->GetWorldPos();
+								params.angle = 0;
+
+								pMaterialEffects->ExecuteEffect(effectId, params);
+							}
+						}
+					}
+				}
 			}
 		}
 		break;

@@ -1,0 +1,22 @@
+<AudioSystemData name="w_rocketlauncher" version="5" triggers="8">
+ <Triggers>
+  <Trigger name="Play_w_rocketlauncher_dryfire_3p" path="w_rocketlauncher_fire_3p"/>
+  <Trigger name="Play_w_rocketlauncher_fire_3p" path="w_rocketlauncher_fire_3p"/>
+  <Trigger name="Play_w_rocketlauncher_fire_fp" path="w_rocketlauncher_fire_fp"/>
+  <Trigger name="Play_w_rocketlauncher_dryfire_fp" path="w_rocketlauncher_fire_fp"/>
+  <Trigger name="Play_w_rocketlauncher_deselect_3p" path="w_rocketlauncher_handling_fp"/>
+  <Trigger name="Play_w_rocketlauncher_select_3p" path="w_rocketlauncher_handling_fp"/>
+  <Trigger name="Play_w_rocketlauncher_deselect_fp" path="w_rocketlauncher_handling_3p"/>
+  <Trigger name="Play_w_rocketlauncher_select_fp" path="w_rocketlauncher_handling_3p"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="w_rocketlauncher_fire_3p"/>
+   <Folder name="w_rocketlauncher_fire_fp"/>
+   <Folder name="w_rocketlauncher_handling_fp"/>
+   <Folder name="w_rocketlauncher_handling_3p"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

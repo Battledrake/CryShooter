@@ -1,2 +1,14 @@
 <anim_event_list>
+ <animation name="animations/mixamo/bspace/bspace_movestrafe_unarmed.bspace">
+  <event name="footstep" time="0.33980578" endTime="0.33980578" parameter="" bone="" offset="0,0,0" dir="0,0,0" model=""/>
+  <event name="footstep" time="0.88349503" endTime="0.88349503" parameter="" bone="" offset="0,0,0" dir="0,0,0" model=""/>
+ </animation>
+ <animation name="animations/mixamo/bspace/bspace_movestrafe_rifle.bspace">
+  <event name="footstep" time="0.39344263" endTime="0.39344263" parameter="" bone="" offset="0,0,0" dir="0,0,0" model=""/>
+  <event name="footstep" time="0.9016394" endTime="0.9016394" parameter="" bone="" offset="0,0,0" dir="0,0,0" model=""/>
+ </animation>
+ <animation name="animations/mixamo/bspace/bspace_movestrafe_pistol.bspace">
+  <event name="footstep" time="0.35648146" endTime="0.35648146" parameter="" bone="" offset="0,0,0" dir="0,0,0" model=""/>
+  <event name="footstep" time="0.84259254" endTime="0.84259254" parameter="" bone="" offset="0,0,0" dir="0,0,0" model=""/>
+ </animation>
 </anim_event_list>

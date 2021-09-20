@@ -24,13 +24,24 @@
   <Physics sound_obstruction="0.5" />
  </SurfaceType>
  
- <SurfaceType name="mat_body_head"/>
- <SurfaceType name="mat_body_torso"/>
- <SurfaceType name="mat_body_upperarm"/>
- <SurfaceType name="mat_body_lowerarm"/>
- <SurfaceType name="mat_body_hand"/>
- <SurfaceType name="mat_body_upperleg"/>
- <SurfaceType name="mat_body_lowerleg"/>
- <SurfaceType name="mat_body_foot"/>
+ <SurfaceType name="mat_dirt">
+	<Physics sound_obstruction="0.5" />
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_grass">
+	<Physics sound_obstruction="0.5"/>
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_fabric">
+	<Physics sound_obstruction="0.5f"/>
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_gravel">
+	<Physics sound_obstruction="0.5f"/>
+ </SurfaceType>
+ 
+ <SurfaceType name="mat_sand">
+	<Physics sound_obstruction="0.5f"/>
+ </SurfaceType>
  
 </SurfaceTypes>

@@ -67,7 +67,7 @@ void CWeaponComponent::ProcessEvent(const SEntityEvent& event)
 		case Cry::Entity::EEvent::Reset:
 		{
 			m_clipCount = m_clipCapacity;
-			m_ammoCount = 0;
+			m_ammoCount = m_startingAmmo;
 			m_fireModesIndex = 0;
 			m_currentFireMode = m_fireModes.At(m_fireModesIndex);
 			m_pEntity->EnablePhysics(true);
@@ -78,11 +78,6 @@ void CWeaponComponent::ProcessEvent(const SEntityEvent& event)
 
 void CWeaponComponent::ProcessFire(bool isPressed)
 {
-	if (isPressed && m_clipCapacity <= 0)
-	{
-		//TODO: Play click sound when trying to fire
-	}
-
 	switch (m_currentFireMode)
 	{
 		case EFireMode::Single:
@@ -124,6 +119,8 @@ void CWeaponComponent::Fire()
 {
 	if (m_clipCount > 0)
 	{
+		PlayAudio(m_fireAudio.value);
+
 		int rateAdjuster = 60;
 
 		if (m_isBursting)
@@ -144,6 +141,8 @@ void CWeaponComponent::Fire()
 	}
 	else
 	{
+		PlayAudio(m_dryFireAudio.value);
+
 		m_isBursting = false;
 		m_isAutoing = false;
 	}
@@ -159,6 +158,11 @@ void CWeaponComponent::AddAmmo(int amount)
 
 void CWeaponComponent::Reload()
 {
+	if (m_ammoCount <= 0)
+		return;
+
+	PlayAudio(m_reloadAudio.value);
+
 	const int clipSpace = m_clipCapacity - m_clipCount;
 	const int fill = m_ammoCount - clipSpace >= 0 ? clipSpace : m_ammoCount;
 	m_clipCount += fill;
@@ -177,13 +181,15 @@ EFireMode CWeaponComponent::SwitchFireModes()
 
 	m_currentFireMode = m_fireModes.At(m_fireModesIndex);
 
+	PlayAudio(m_switchFireModeAudio.value);
+
 	return m_currentFireMode;
 }
 
 void CWeaponComponent::Observe(CCharacterComponent* pObserver, SObjectData& data)
 {
 	data.objectKeyword = "Take";
-	data.objectName = m_weaponName.c_str();
+ 	data.objectName = m_weaponName.c_str();
 
 	if (pObserver)
 	{
@@ -205,4 +211,11 @@ void CWeaponComponent::Observe(CCharacterComponent* pObserver, SObjectData& data
 void CWeaponComponent::Interact(CCharacterComponent* pInteractor)
 {
 	pInteractor->GetEquipmentComponent()->TryAddEquipment(this);
+}
+
+void CWeaponComponent::PlayAudio(string audioName)
+{
+	CryAudio::SExecuteTriggerData triggerData(CryAudio::StringToId(audioName),
+		(const char*)nullptr, CryAudio::EOcclusionType::Ignore, m_pEntity->GetWorldPos());
+	gEnv->pAudioSystem->ExecuteTriggerEx(triggerData);
 }

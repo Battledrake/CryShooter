@@ -1,0 +1,27 @@
+<AudioSystemData name="w_grenade" version="5" triggers="6">
+ <ImplData events="4"/>
+ <Triggers>
+  <Trigger name="Play_w_grenade_select_3p" path="w_grenade_handling_3p">
+   <Event name="w_grenade_foley_select.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_grenade_unlock_3p" path="w_grenade_handling_3p">
+   <Event name="w_grenade_foley_unlock.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_grenade_throw_fp" path="w_grenade_handling_3p"/>
+  <Trigger name="Play_w_grenade_select_fp" path="w_grenade_handling_fp">
+   <Event name="w_grenade_foley_select.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_grenade_unlock_fp" path="w_grenade_handling_fp">
+   <Event name="w_grenade_foley_unlock.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_grenade_throw_3p" path="w_grenade_handling_fp"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="w_grenade_handling_3p"/>
+   <Folder name="w_grenade_handling_fp"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

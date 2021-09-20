@@ -63,7 +63,7 @@
     </children>
    </element>
    <element elementType="ComponentInstance" guid="bf418a6d-debc-4f97-bbec-e1eb342b1390" name="WeaponComponent" accessor="Private" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
-    <properties WeaponName="GenericShotgun" IconPath="Icons/genericshotgun_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Rifle" WeaponCategory="Both" HolsterSlot="Hip" FireRate="60" Burst="0" BurstDelay="0" ClipCapacity="8" AmmoCount="0" MaxAmmo="20">
+    <properties WeaponName="Generic Shotgun" FireAudio="Play_w_shotgun_fire_3p" ReloadAudio="Play_w_shotgun_reload_fp" DryFireAudio="Play_w_rifle_dryfire_fp" PickupAudio="Play_w_shotgun_deselect_fp" SelectAudio="Play_w_shotgun_select_fp" SwitchFireModeAudio="Play_w_rifle_switch_firemode_fp" IconPath="Icons/genericshotgun_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Rifle" WeaponCategory="Both" HolsterSlot="Hip" FireRate="60" Burst="2" BurstDelay="0" ClipCapacity="8" StartingAmmo="0" MaxAmmo="20">
      <FireModes>
       <element element="Single"/>
      </FireModes>

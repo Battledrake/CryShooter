@@ -1,0 +1,96 @@
+<AudioSystemData name="c_npc" version="5" triggers="40">
+ <ImplData events="21"/>
+ <Triggers>
+  <Trigger name="Play_c_npc_fts_metal_grate" path="c_npc_fts">
+   <Event name="c_player_fts_metal_grate_walk.ogg" type="start" volume="-29" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_metal_chainlink" path="c_npc_fts">
+   <Event name="c_player_fts_metal_chainlink_walk.ogg" type="start" volume="-29" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_leaves" path="c_npc_fts">
+   <Event name="c_player_fts_leaves_walk.ogg" type="start" volume="-36" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_gravel" path="c_npc_fts">
+   <Event name="c_player_fts_gravel_walk.ogg" type="start" volume="-29" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_grass_tall" path="c_npc_fts">
+   <Event name="c_player_fts_grass_tall_walk.ogg" type="start" volume="-37" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_grass" path="c_npc_fts">
+   <Event name="c_player_fts_grass_walk.ogg" type="start" volume="-33" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_wood_solid" path="c_npc_fts">
+   <Event name="c_player_fts_wood_solid_walk.ogg" type="start" volume="-31" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_wood_hollow" path="c_npc_fts">
+   <Event name="c_player_fts_wood_hollow_walk.ogg" type="start" volume="-28" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_water_shallow" path="c_npc_fts">
+   <Event name="c_player_fts_water_shallow_walk.ogg" type="start" volume="-29" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_water_deep" path="c_npc_fts">
+   <Event name="c_player_fts_water_deep_walk.ogg" type="start" volume="-31" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_vegetation" path="c_npc_fts">
+   <Event name="c_player_fts_vegetation_walk.ogg" type="start" volume="-33" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_sand_dry" path="c_npc_fts">
+   <Event name="c_player_fts_sand_dry_walk.ogg" type="start" volume="-29" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_plastic" path="c_npc_fts">
+   <Event name="c_player_fts_plastic_walk.ogg" type="start" volume="-30" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_pebble" path="c_npc_fts">
+   <Event name="c_player_fts_pebble_walk.ogg" type="start" volume="-33" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_mud" path="c_npc_fts">
+   <Event name="c_player_fts_mud_walk.ogg" type="start" volume="-33" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_metal_thick" path="c_npc_fts">
+   <Event name="c_player_fts_metal_thick_walk.ogg" type="start" volume="-30" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_metal_sheet" path="c_npc_fts">
+   <Event name="c_player_fts_metal_sheet_walk.ogg" type="start" volume="-29" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_dirt" path="c_npc_fts">
+   <Event name="c_player_fts_dirt_walk.ogg" type="start" volume="-30" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_fabric" path="c_npc_fts">
+   <Event name="c_player_fts_fabric_walk.ogg" type="start" volume="-34" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fts_concrete" path="c_npc_fts">
+   <Event name="c_player_fts_concrete_walk.ogg" type="start" volume="-27" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fol_bodyfall" path="c_npc_fol">
+   <Event name="c_player_foley_land.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_npc_fol_bag_movement" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_turn" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_crouch_on" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_crouch_off" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_gear" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_bush_movement" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_grab_generic" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_bodyhit" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_jump_on" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_jump_off" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_throw_generic" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_gear_fast" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_gear_medium" path="c_npc_fol"/>
+  <Trigger name="Play_c_npc_fol_gear_slow" path="c_npc_fol"/>
+  <Trigger name="Play_ai_npc_alerted" path="c_npc_voc"/>
+  <Trigger name="Play_ai_npc_death" path="c_npc_voc"/>
+  <Trigger name="Play_ai_npc_pain" path="c_npc_voc"/>
+  <Trigger name="Play_ai_npc_see_player" path="c_npc_voc"/>
+  <Trigger name="Play_ai_npc_spot_player_while_searching" path="c_npc_voc"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="c_npc_fts"/>
+   <Folder name="c_npc_fol"/>
+   <Folder name="c_npc_voc"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

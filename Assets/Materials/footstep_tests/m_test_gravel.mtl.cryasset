@@ -1,0 +1,12 @@
+<AssetMetadata version="0" type="Material" guid="d5c7bea0-1221-893f-cba7-88ec6c1e2a96" source="" timestamp="1632097990">
+ <Files>
+  <File path="m_test_gravel.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">0</Detail>
+  <Detail name="textureCount">1</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">%engine%/engineassets/textures/water_gloss.dds</Path>
+ </Dependencies>
+</AssetMetadata>

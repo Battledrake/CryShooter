@@ -1,0 +1,10 @@
+<AudioSystemData name="l_atl_preloads" version="5" preloads="1">
+ <Preloads>
+  <PreloadRequest name="l_airfield" type="autoload"/>
+ </Preloads>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

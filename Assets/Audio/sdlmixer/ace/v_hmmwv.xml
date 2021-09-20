@@ -1,0 +1,19 @@
+<AudioSystemData name="v_hmmwv" version="5" triggers="10">
+ <Triggers>
+  <Trigger name="Play_hmmwv_boost"/>
+  <Trigger name="Play_hmmwv_bump"/>
+  <Trigger name="Play_hmmwv_door_close"/>
+  <Trigger name="Play_hmmwv_door_open"/>
+  <Trigger name="Play_hmmwv_gear"/>
+  <Trigger name="Play_hmmwv_horn"/>
+  <Trigger name="Play_hmmwv_run"/>
+  <Trigger name="Play_hmmwv_scratch"/>
+  <Trigger name="Play_hmmwv_start"/>
+  <Trigger name="Play_hmmwv_stop"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

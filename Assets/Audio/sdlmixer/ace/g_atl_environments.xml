@@ -1,0 +1,16 @@
+<AudioSystemData name="g_atl_environments" version="5" environments="7">
+ <Environments>
+  <Environment name="cave"/>
+  <Environment name="cliff_delays"/>
+  <Environment name="forest"/>
+  <Environment name="hangar"/>
+  <Environment name="open_ground"/>
+  <Environment name="room_small"/>
+  <Environment name="tower"/>
+ </Environments>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

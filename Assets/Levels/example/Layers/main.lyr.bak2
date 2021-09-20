@@ -1,5 +1,5 @@
 <ObjectLayer>
- <Layer Name="Main" FullName="Main" GUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Hidden="0" Frozen="0" Expanded="0" Type="0" Exportable="1" ExportLayerPak="1" DefaultLoaded="0" HavePhysics="1" IsDefaultColor="1" Color="4671303" Timestamp="1622395279">
+ <Layer Name="Main" FullName="Main" GUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Hidden="0" Frozen="0" Expanded="0" Type="0" Exportable="1" ExportLayerPak="1" DefaultLoaded="0" HavePhysics="1" IsDefaultColor="1" Color="4671303" Timestamp="1632097670">
   <LayerObjects>
    <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="4ccb90a3-1dbb-4500-99bf-25286ff6daf7" Name="Designer Box3" Pos="80,66,32" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="%engine%/EngineAssets/Materials/material_default" MinSpec="0" RndFlags="1073741832" StaticObjFlags="0" ViewDistRatio="100">
     <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
@@ -85,6 +85,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="d8310c63-327d-e6c9-6c3d-400ecb010db0" Name="entities::pickups::se_rifleammo-1" Pos="73.625,57,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_rifleammo" ClassGUID="b9fe25f6-ca9d-47ca-8553-4367bf659093" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="8c398493-7bf0-b424-e2f6-56f789868fb0" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="c35554eb-fae9-c1ea-1b24-b4b3973fa568" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="4d5bb6dc-d087-2169-48d5-d1a00ba4b7ed" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="e2e0702e-7f96-120c-71da-9318e64ffeff" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="319bc6a5-73c8-5b03-cd24-26a06222a943" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="e3d0520b-6962-9523-baeb-3199fcdafde9" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="64082d82-969e-b17e-c66b-fae3fac7f4e0" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -375,6 +393,20 @@
      </Component>
     </Components>
    </Object>
+   <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="50e5c61e-0839-72aa-79ee-3ce407ddb41d" Name="Designer-3" Pos="69.755608,46.056587,32.016178" Rotate="1,0,0,0" Scale="1.4577936,1,0.25" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="Materials/footstep_tests/m_test_gravel" MinSpec="0" RndFlags="1073741832" StaticObjFlags="0" ViewDistRatio="100">
+    <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
+     <Polygon GUID="538fa534-6174-7713-cde1-363801546464" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAwAAAAMAAAACAAAAAgAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8D8AAABAt8fEvwAAADcAAIC2vTH6vwAAgLa9Mfq/byhGwAAAADdvKEbA"/>
+     <Polygon GUID="19c869b9-0cac-8acb-9b40-90a7a66d26d3" BinaryData="BAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAAAAAAAAAAAAADQPr0x+r8AAAAAAAAANwAAAAAAAAA3uj0mvr0x+r+6PSa+"/>
+     <Polygon GUID="ffc06e24-2583-509b-3080-21c1edf653ee" BinaryData="BAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAAAAAAAp3mycN0b/v28oRsAAAAAAAACAtgAAAAAAAIC2uj0mvm8oRsC6PSa+"/>
+     <Polygon GUID="92311e80-0285-9e35-a0a8-62b343310654" BinaryData="BAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAACCK+bcDcUIwAAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+"/>
+     <Polygon GUID="4df1acbf-9231-1b0f-5695-0e4325ed85aa" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAABAt8fEPwAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwPwAAAAAAAACAAAAAAAAAAAAAAAAAAADQPgAAgDYAAAAAbyhGQAAAAABvKEZAuj0mvgAAgDa6PSa+"/>
+     <Polygon GUID="37fd7b50-b83e-e864-d7bf-bc7abd488e7a" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8L8AAAAAAADQPgAAALcAAIA2vTH6PwAAgDa9Mfo/byhGQAAAALdvKEZA"/>
+     <SmoothingGroups />
+     <SemiSharpCrease />
+     <UVIslands />
+    </Brush>
+    <Mesh Version="2" BinaryData="AAAAAAAAAAAYAAAAGAAAACQAAAAYAAAAAQAAAAAAADcAAIA2uj0mPgAAADdvKEZAuj0mPr0x+r9vKEZAuj0mPr0x+r8AAIA2uj0mPr0x+r8AAIA2AAAAAAAAADcAAIA2AAAAAAAAADcAAIA2uj0mPr0x+r8AAIA2uj0mPr0x+r9vKEZAAAAAAL0x+r8AAIA2AAAAAL0x+r8AAIA2uj0mPr0x+r9vKEZAuj0mPgAAADdvKEZAAAAAAL0x+r9vKEZAAAAAAL0x+r9vKEZAuj0mPgAAADdvKEZAuj0mPgAAADcAAIA2AAAAAAAAADdvKEZAAAAAAAAAADdvKEZAuj0mPgAAADcAAIA2uj0mPgAAADcAAIA2AAAAAL0x+r8AAIA2AAAAAL0x+r9vKEZAAAAAAAAAADdvKEZAAAAAAAAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAADcAAIC2AAAAN28oRsC9Mfq/byhGwL0x+r8AAIC2vTH6vwAAAAAAAAA3AAAAAAAAADe6PSa+vTH6v7o9Jr5vKEbAAAAAAAAAgLYAAAAAAACAtro9Jr5vKEbAuj0mvgAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+AACANgAAAABvKEZAAAAAAG8oRkC6PSa+AACANro9Jr4AAAC3AACANr0x+j8AAIA2vTH6P28oRkAAAAC3byhGQAAAAQACAAAAAgADAAQABQAGAAQABgAHAAgACQAKAAgACgALAAwADQAOAAwADgAPABAAEQASABAAEgATABQAFQAWABQAFgAXAP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAYAAAAGA/38AAAAAAYAAAAGAAAABgP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAAABgAGA/38AAAAAAYAAAAAAAYABgP9/AAAAAAGAAAAAAAGAAYD/fwAAAAABgAAAAAABgAGAAAABgAAAAYAAAAAAAYABgAAAAoAAAAGAAAAAAAKAAYAAAAGAAAABgAAAAAABgAGAAAACgAAAAYAAAAAAAoABgAGAAAAAAAGAAAAAAAGAAYABgAAAAAABgAAAAAABgAGAAYAAAAAAAYAAAAAAAYABgAGAAAAAAAGAAAAAAAGAAYAAAP9/AAABgAAAAAABgAGAAAD+fwAAAYAAAAAAAoABgAAA/38AAAGAAAAAAAGAAYAAAP5/AAABgAAAAAACgAGAAYAAAAAA/38AAP9/AAD/fwGAAAAAAP9/AAD/fwAA/38BgAAAAAD/fwAA/38AAP9/AYAAAAAA/38AAP9/AAD/f30xer9/KMY/uj2mPVaS6j8AAAAAAAAAACQAAAAAAAAAGAAAAAAAAAAAAAAAABAAAA=="/>
+   </Object>
    <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="0149dfea-1e42-1d3b-77bc-82a57a1cdb86" Name="RigidBodyEx6" Pos="68,56.5,33.5" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
     <Properties />
     <Components>
@@ -406,6 +438,12 @@
        <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
       </properties>
      </Component>
+    </Components>
+   </Object>
+   <Object Type="Comment" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="7a930dae-fea5-be12-9dd3-1ed8c04dfa17" Name="Comment-1" Pos="79.484009,46,33.596836" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="41215" UseCustomLevelLayerColor="0" MinSpec="0" EntityClass="Comment" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component typeId="979e412f-68b9-4866-b61e-eb87cfa757cf" guid="9a3f886f-90a0-0c89-fd4b-83d669672900" CryXmlVersion="2" Text="mat_dirt" ViewDistance="100" FontSize="1.2"/>
     </Components>
    </Object>
    <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="8642bab2-6d0f-0ec8-4d68-a04d231e7458" Name="RigidBodyEx7" Pos="69,56.5,33.5" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
@@ -444,6 +482,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="918a1d1f-cadb-1f1a-5d15-c5d2a9a6561a" Name="entities::pickups::se_rifleammo-3" Pos="73.625,57.125,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_rifleammo" ClassGUID="b9fe25f6-ca9d-47ca-8553-4367bf659093" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="e0d96d39-7799-170d-deb3-b6166bdd3597" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="9a8c8198-5a0d-ec3a-2e22-7e05423ca41c" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="0a5799af-1bb4-6e15-e3d4-23dc5e8ca3b8" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="19656736-cfd6-87c0-c7c8-122a3612f51b" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="5fa3f73b-5f12-8714-656a-02c93d75906e" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="1cfdf168-f34e-c702-c8c5-740841205b0b" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="fb152eac-8813-b6e4-0853-4a5b0f0bb6fa" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -463,7 +519,9 @@
        <value overridePolicy="Default"/>
       </element>
       <element key="83272f4f-fe0f-473f-b6fe-018223904d27">
-       <value overridePolicy="Default"/>
+       <value overridePolicy="Override">
+        <properties WeaponName="Generic Rifle" PickupAudio="Play_w_global_pickup_weapon_fp" AmmoAmount="25"/>
+       </value>
       </element>
       <element key="855ff708-ac78-491d-97e8-e0eace41ed91">
        <value overridePolicy="Default"/>
@@ -508,6 +566,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="b224727b-0059-388b-5285-a269542bdc65" Name="entities::weapons::se_genericpistol-1" Pos="69.750008,56.5,33.023628" Rotate="3.0496378e-07,0.70780736,-2.6149996e-07,-0.70640552" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::weapons::se_genericpistol" ClassGUID="cf85bf4e-4e09-4929-b59c-8c25e7ae3580" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="adafbff3-ea42-e804-7486-d28112f08223" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="3052448a-2575-36df-9d11-3042b4c8e01c" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="e6e99cd4-439a-f4e3-cbae-3496cb0d8ac2" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="8e649b52-d85c-1ff3-7b34-d6e5d345f611" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="acde9d70-3168-eb2b-1035-0cc388e2158c" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="54f3667a-4a32-daba-d017-f448fb27c4fb" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="4a5356e1-bfc5-fbf3-0040-6b732c04262d" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -544,6 +620,42 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="8afc495a-ce9f-b934-52a5-bbff75a2280e" Name="entities::characters::se_enemycharacter-1" Pos="69.379593,55.221264,31.987478" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::characters::se_enemycharacter" ClassGUID="e7b20172-be95-4018-8e58-f9b9481f64ac" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="7d527366-bed6-1a52-6f78-5f0c8d229501" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="d993eb1f-224b-e276-7fb6-3774399b922e" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="03825cf6-94cc-e886-6a85-7853df327dfb" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="51d2d8c4-0b2a-62f2-2f98-0977eab90fc7" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="7ac24a5a-80e5-3801-8d3b-975c23749063" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="9d8cec23-d854-a901-9420-14ed04ce5ddc" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="6a361ae2-7a74-f594-173e-eaf60f955b73" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="dfda8378-b424-0dce-130d-38c3dc630fe9" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="9c68a854-6b71-fef0-f582-ed1d2c2df343" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="7056ca58-105c-4098-b066-d0f1b0e703b3" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="d9bb64fb-75b1-901a-8592-a8e85abe7dcf" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="b473b047-e506-b6f5-aef9-e5e575d4c1aa" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="973c2d21-78ee-1ba0-3d86-6206aa058391" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -743,6 +855,42 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="059b35fc-be5b-b688-cdac-fe1b69f1d6e2" Name="entities::characters::se_enemycharacter-2" Pos="72.942352,64.464203,31.930712" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::characters::se_enemycharacter" ClassGUID="e7b20172-be95-4018-8e58-f9b9481f64ac" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="527c9d3c-610b-fa6b-e3cf-01bebd7921b2" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="2d6bed9e-118d-8de1-2de8-53a49a466ae1" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="92273a97-ef2a-0231-6fdd-4cc8ccc57179" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="73629a27-18f9-a685-97b4-eae201947815" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="ed4559f2-2a26-fc5a-9b54-4f8ea39511fa" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="6fb96927-ef52-f236-8b68-35f8cbae5e4b" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="d78f104e-d1b8-42d8-6104-93f0b229bdb0" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="4cc94911-c140-a87c-af56-b7a6fe862f67" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="05f20fb4-7891-9538-7dbe-d6164bf7d253" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="ae738b09-10c8-b060-4b4a-c44406aee2e3" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="f69d597f-b9cb-d634-e634-232a233a4bf7" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="4738182f-4626-4a54-b467-8d68d9953c21" TypeName="CEquipmentComponent" GUID="0e616e89-face-9a69-403e-4f0004c9f9b4" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="ef83cb15-603f-47f0-4de9-d67938930aba" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -951,12 +1099,44 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="eb29153f-78ef-1b35-d8ca-d187dc446594" Name="entities::pickups::se_pistolammo-1" Pos="74,57.375,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_pistolammo" ClassGUID="6282a2e9-536b-44b0-81b5-a47bb3bd3a2b" HasEntity="0">
     <Properties />
    </Object>
+   <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="cdfa5d53-54ca-506b-85f6-09fe55f73103" Name="Designer-5" Pos="77.17424,46.041046,32.016178" Rotate="1,0,0,0" Scale="1.4577936,1,0.25" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="Materials/footstep_tests/m_test_grass" MinSpec="0" RndFlags="1073741832" StaticObjFlags="0" ViewDistRatio="100">
+    <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
+     <Polygon GUID="538fa534-6174-7713-cde1-363801546464" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAwAAAAMAAAACAAAAAgAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8D8AAABAt8fEvwAAADcAAIC2vTH6vwAAgLa9Mfq/byhGwAAAADdvKEbA"/>
+     <Polygon GUID="19c869b9-0cac-8acb-9b40-90a7a66d26d3" BinaryData="BAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAAAAAAAAAAAAADQPr0x+r8AAAAAAAAANwAAAAAAAAA3uj0mvr0x+r+6PSa+"/>
+     <Polygon GUID="ffc06e24-2583-509b-3080-21c1edf653ee" BinaryData="BAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAAAAAAAp3mycN0b/v28oRsAAAAAAAACAtgAAAAAAAIC2uj0mvm8oRsC6PSa+"/>
+     <Polygon GUID="92311e80-0285-9e35-a0a8-62b343310654" BinaryData="BAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAACCK+bcDcUIwAAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+"/>
+     <Polygon GUID="4df1acbf-9231-1b0f-5695-0e4325ed85aa" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAABAt8fEPwAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwPwAAAAAAAACAAAAAAAAAAAAAAAAAAADQPgAAgDYAAAAAbyhGQAAAAABvKEZAuj0mvgAAgDa6PSa+"/>
+     <Polygon GUID="37fd7b50-b83e-e864-d7bf-bc7abd488e7a" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8L8AAAAAAADQPgAAALcAAIA2vTH6PwAAgDa9Mfo/byhGQAAAALdvKEZA"/>
+     <SmoothingGroups />
+     <SemiSharpCrease />
+     <UVIslands />
+    </Brush>
+    <Mesh Version="2" BinaryData="AAAAAAAAAAAYAAAAGAAAACQAAAAYAAAAAQAAAAAAADcAAIA2uj0mPgAAADdvKEZAuj0mPr0x+r9vKEZAuj0mPr0x+r8AAIA2uj0mPr0x+r8AAIA2AAAAAAAAADcAAIA2AAAAAAAAADcAAIA2uj0mPr0x+r8AAIA2uj0mPr0x+r9vKEZAAAAAAL0x+r8AAIA2AAAAAL0x+r8AAIA2uj0mPr0x+r9vKEZAuj0mPgAAADdvKEZAAAAAAL0x+r9vKEZAAAAAAL0x+r9vKEZAuj0mPgAAADdvKEZAuj0mPgAAADcAAIA2AAAAAAAAADdvKEZAAAAAAAAAADdvKEZAuj0mPgAAADcAAIA2uj0mPgAAADcAAIA2AAAAAL0x+r8AAIA2AAAAAL0x+r9vKEZAAAAAAAAAADdvKEZAAAAAAAAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAADcAAIC2AAAAN28oRsC9Mfq/byhGwL0x+r8AAIC2vTH6vwAAAAAAAAA3AAAAAAAAADe6PSa+vTH6v7o9Jr5vKEbAAAAAAAAAgLYAAAAAAACAtro9Jr5vKEbAuj0mvgAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+AACANgAAAABvKEZAAAAAAG8oRkC6PSa+AACANro9Jr4AAAC3AACANr0x+j8AAIA2vTH6P28oRkAAAAC3byhGQAAAAQACAAAAAgADAAQABQAGAAQABgAHAAgACQAKAAgACgALAAwADQAOAAwADgAPABAAEQASABAAEgATABQAFQAWABQAFgAXAP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAYAAAAGA/38AAAAAAYAAAAGAAAABgP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAAABgAGA/38AAAAAAYAAAAAAAYABgP9/AAAAAAGAAAAAAAGAAYD/fwAAAAABgAAAAAABgAGAAAABgAAAAYAAAAAAAYABgAAAAoAAAAGAAAAAAAKAAYAAAAGAAAABgAAAAAABgAGAAAACgAAAAYAAAAAAAoABgAGAAAAAAAGAAAAAAAGAAYABgAAAAAABgAAAAAABgAGAAYAAAAAAAYAAAAAAAYABgAGAAAAAAAGAAAAAAAGAAYAAAP9/AAABgAAAAAABgAGAAAD+fwAAAYAAAAAAAoABgAAA/38AAAGAAAAAAAGAAYAAAP5/AAABgAAAAAACgAGAAYAAAAAA/38AAP9/AAD/fwGAAAAAAP9/AAD/fwAA/38BgAAAAAD/fwAA/38AAP9/AYAAAAAA/38AAP9/AAD/f30xer9/KMY/uj2mPVaS6j8AAAAAAAAAACQAAAAAAAAAGAAAAAAAAAAAAAAAABAAAA=="/>
+   </Object>
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="f805af2f-46eb-b908-b981-b5d4203b1e97" Name="entities::weapons::se_secondrifle-2" Pos="74.375,57.125,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::weapons::se_secondrifle" ClassGUID="6f90b658-f2ba-4934-9a59-f6fce7b83321" HasEntity="0">
     <Properties />
    </Object>
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="38968dea-e4f8-9cf8-326f-80a8637f2ef9" Name="entities::weapons::se_genericrifle-1" Pos="66.377708,56.5,33.066147" Rotate="0.9652949,0,0.26116225,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::weapons::se_genericrifle" ClassGUID="3e17a106-7d40-4de5-8ca2-f36f22c57244" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="0c6d0b4c-0a33-cbad-b0b1-64f35e8f7421" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="4af38859-90a5-ccfb-595b-7b5452dda279" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="3389a568-0f8b-5dbe-f1e3-410513d3339a" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="243d215c-330e-bb94-7f5f-ba301f091a9c" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="e6649866-9e03-16cc-c526-13e13fd1dd1b" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="1b7224df-6a5d-9e08-57f6-59a3ca1ef47f" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="a3fd3fdc-00a1-5f34-9a2b-d199edb16d2e" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -993,6 +1173,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="60c145f4-40bd-e794-8643-ed1a2a2f28bb" Name="entities::weapons::se_genericshotgun-1" Pos="74,56.750004,32.999992" Rotate="0.010129398,0.68161106,0.0091842031,0.73158693" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::weapons::se_genericshotgun" ClassGUID="4aac077f-41af-4372-9678-ef4fd55f2123" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="97444f8c-913a-09e5-455b-b46c40a09b05" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="e118c23f-f1f5-eedc-3514-dca3d6d74b52" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="85fb7a73-3d50-2c02-00a4-309008e7d24e" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="62adc425-4989-b532-7e0e-35da6dc5bf19" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="ba5e7a3f-3039-c2e5-2571-2eca9a604ca8" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="ef654f9e-5b86-860c-9069-76af77967030" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="a166d7ec-3c47-1212-c805-855b2775b215" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -1029,6 +1227,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="162da6cb-2f00-cb80-0852-ef469c3087d4" Name="entities::pickups::se_shotgunammo-1" Pos="73.625,56.625,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_shotgunammo" ClassGUID="dbd1485f-46b9-401a-b09f-06b5dc5bf7a2" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="51ad21d9-ee47-907b-f608-3894cc069053" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="8a400433-5a37-1e02-1124-d9ed0bd312ba" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="827bb0c7-f2b4-1b7e-989a-c7dd897ae56f" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="2029beab-35bf-7fa4-ea21-b24406067721" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="aa451e09-8875-a443-a66b-20408bcb1211" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="2ea6d5e2-be3a-c959-88ce-8b8ba17b96c0" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="32c7c998-e001-ad33-21e3-f53a7c37d763" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -1065,6 +1281,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="3eb343fc-894f-f462-2e33-f72e39e4e93c" Name="entities::pickups::se_rifleammo-2" Pos="73.625,56.875,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_rifleammo" ClassGUID="b9fe25f6-ca9d-47ca-8553-4367bf659093" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="a7399e7c-3bcf-0ab1-a924-923763e51154" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="abaabbcd-4ac8-8c08-99a4-72399dc82589" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="8df581eb-a369-2b5b-db9d-966e016c5d22" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="fd221cdc-7e59-b56e-8b7c-ccaf1858f015" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="5a8bc5b9-e98f-770a-31fd-dea1afe8d6c4" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="9cc52873-fa34-e08c-2a6a-1b855111dc2e" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="062c8cdd-af92-32d3-5ee7-5186daf479ea" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -1096,6 +1330,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="fd1a5d33-90d5-228d-92ce-a03681779483" Name="entities::pickups::se_shotgunammo-2" Pos="73.75,56.625,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_shotgunammo" ClassGUID="dbd1485f-46b9-401a-b09f-06b5dc5bf7a2" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="e598bccb-dae8-4865-7cbc-f29a4fe1f0c4" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="89398ea9-9a15-ea6d-d468-c0759f158dd4" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="ac2a44e1-c913-e437-b3a9-cbaf56563e71" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="b2148358-e6eb-5439-1fd6-840fa7457182" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="8604d0be-a73a-b423-6cc0-06390b17d24b" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="85399861-4066-e98c-f047-9379c1585e32" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="946025be-a3b4-b22c-0269-61137f01935b" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -1124,6 +1376,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="6e396840-4e57-07b4-f837-6d7f6b8cea23" Name="entities::pickups::se_shotgunammo-3" Pos="73.875,56.625,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_shotgunammo" ClassGUID="dbd1485f-46b9-401a-b09f-06b5dc5bf7a2" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="03dd00b0-fc6e-6081-24a9-0c4003f296e3" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="63227cad-c0de-5adf-4d70-11d56de55cb6" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="0062339b-2bb1-283e-8c04-7a2610ac7395" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="93f04547-071c-e679-d776-a7445bb719b5" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="b230984a-3ec5-df29-82b9-3d99f50626f5" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="90062438-b4cf-5a6d-8b79-c2d7b3c1f51c" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="2750aab3-254e-a7e4-475e-402ff1790d63" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -1152,6 +1422,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="61a65ab4-533d-a80f-b179-35232af6769e" Name="entities::pickups::se_shotgunammo-4" Pos="74.375,56.625,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_shotgunammo" ClassGUID="dbd1485f-46b9-401a-b09f-06b5dc5bf7a2" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="397807b6-2695-7116-17dc-d26dfc2cfcd4" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="c9f43a51-c10e-33d4-216a-36fe4bb5f0f5" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="ed04516a-db0e-0bfd-c8a1-c7c3c30597ab" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="90de5d80-4aa8-5c04-1f14-7d7d38d8de3d" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="f425ca51-bb73-349d-ff23-70a4058fcdc0" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="7b181cfc-bfb4-e0ca-4033-8afd3e488143" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="a6050727-1c94-321e-eeeb-42bed9a1699c" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -1180,6 +1468,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="aa5485c0-8ebc-74cd-c7b2-1599a86fbbe0" Name="entities::pickups::se_shotgunammo-5" Pos="74.25,56.625,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_shotgunammo" ClassGUID="dbd1485f-46b9-401a-b09f-06b5dc5bf7a2" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="462d8670-d2c1-863b-12b2-8c3278430677" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="ba1601f3-136c-c6d0-8ec3-74dff7cde570" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="6f5a7d46-c583-b8ac-c541-5a42cf5d30b1" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="e98da1b1-2367-2cf9-2560-f26378ec1c3d" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="da8f6d77-b8af-5f88-c61f-55ad106850bc" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="c365cd0f-2f48-0f47-cb3d-eac4dfabe40c" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="8ac0c6e3-7712-bfac-f9ad-5b90ca8088e0" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -1208,6 +1514,24 @@
    <Object Type="Entity" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="18b23115-e0d9-7672-2d00-e281880203fa" Name="entities::pickups::se_shotgunammo-6" Pos="74.125,56.625,33" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="schematyc::entities::pickups::se_shotgunammo" ClassGUID="dbd1485f-46b9-401a-b09f-06b5dc5bf7a2" HasEntity="1">
     <Properties />
     <Components>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="ae0c54d3-3038-79da-a4ca-2154acbd9334" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="99b6e7c4-8184-197d-74f9-727230609826" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="3ebd81fe-6716-6087-d29f-f6b795e347b8" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="68abf85f-252d-e169-c996-955ebe74f1a8" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="d4d83286-74ef-09d6-9690-4baf77f98878" Name="" UserAdded="false">
+      <properties />
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="dfb06907-7675-15c1-7aee-7ba69889b1c3" Name="" UserAdded="false">
+      <properties />
+     </Component>
      <Component CryXmlVersion="2" TypeGUID="7f8bbb39-46d3-4d32-9868-918c22638962" TypeName="CInterfaceComponent" GUID="1a3446fb-0708-865f-fec7-9cec71714854" Name="" UserAdded="false">
       <properties />
      </Component>
@@ -1232,6 +1556,92 @@
      </components>
      <variables />
     </SchematycProperties>
+   </Object>
+   <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="1ca52f76-e6ff-2beb-f293-75acac3b8e95" Name="Designer-6" Pos="62.944145,46.092319,32.016178" Rotate="1,0,0,0" Scale="1.4577936,1,0.25" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="Materials/footstep_tests/m_test_sand" MinSpec="0" RndFlags="1073741832" StaticObjFlags="0" ViewDistRatio="100">
+    <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
+     <Polygon GUID="538fa534-6174-7713-cde1-363801546464" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAwAAAAMAAAACAAAAAgAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8D8AAABAt8fEvwAAADcAAIC2vTH6vwAAgLa9Mfq/byhGwAAAADdvKEbA"/>
+     <Polygon GUID="19c869b9-0cac-8acb-9b40-90a7a66d26d3" BinaryData="BAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAAAAAAAAAAAAADQPr0x+r8AAAAAAAAANwAAAAAAAAA3uj0mvr0x+r+6PSa+"/>
+     <Polygon GUID="ffc06e24-2583-509b-3080-21c1edf653ee" BinaryData="BAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAAAAAAAp3mycN0b/v28oRsAAAAAAAACAtgAAAAAAAIC2uj0mvm8oRsC6PSa+"/>
+     <Polygon GUID="92311e80-0285-9e35-a0a8-62b343310654" BinaryData="BAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAACCK+bcDcUIwAAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+"/>
+     <Polygon GUID="4df1acbf-9231-1b0f-5695-0e4325ed85aa" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAABAt8fEPwAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwPwAAAAAAAACAAAAAAAAAAAAAAAAAAADQPgAAgDYAAAAAbyhGQAAAAABvKEZAuj0mvgAAgDa6PSa+"/>
+     <Polygon GUID="37fd7b50-b83e-e864-d7bf-bc7abd488e7a" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8L8AAAAAAADQPgAAALcAAIA2vTH6PwAAgDa9Mfo/byhGQAAAALdvKEZA"/>
+     <SmoothingGroups />
+     <SemiSharpCrease />
+     <UVIslands />
+    </Brush>
+    <Mesh Version="2" BinaryData="AAAAAAAAAAAYAAAAGAAAACQAAAAYAAAAAQAAAAAAADcAAIA2uj0mPgAAADdvKEZAuj0mPr0x+r9vKEZAuj0mPr0x+r8AAIA2uj0mPr0x+r8AAIA2AAAAAAAAADcAAIA2AAAAAAAAADcAAIA2uj0mPr0x+r8AAIA2uj0mPr0x+r9vKEZAAAAAAL0x+r8AAIA2AAAAAL0x+r8AAIA2uj0mPr0x+r9vKEZAuj0mPgAAADdvKEZAAAAAAL0x+r9vKEZAAAAAAL0x+r9vKEZAuj0mPgAAADdvKEZAuj0mPgAAADcAAIA2AAAAAAAAADdvKEZAAAAAAAAAADdvKEZAuj0mPgAAADcAAIA2uj0mPgAAADcAAIA2AAAAAL0x+r8AAIA2AAAAAL0x+r9vKEZAAAAAAAAAADdvKEZAAAAAAAAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAADcAAIC2AAAAN28oRsC9Mfq/byhGwL0x+r8AAIC2vTH6vwAAAAAAAAA3AAAAAAAAADe6PSa+vTH6v7o9Jr5vKEbAAAAAAAAAgLYAAAAAAACAtro9Jr5vKEbAuj0mvgAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+AACANgAAAABvKEZAAAAAAG8oRkC6PSa+AACANro9Jr4AAAC3AACANr0x+j8AAIA2vTH6P28oRkAAAAC3byhGQAAAAQACAAAAAgADAAQABQAGAAQABgAHAAgACQAKAAgACgALAAwADQAOAAwADgAPABAAEQASABAAEgATABQAFQAWABQAFgAXAP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAYAAAAGA/38AAAAAAYAAAAGAAAABgP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAAABgAGA/38AAAAAAYAAAAAAAYABgP9/AAAAAAGAAAAAAAGAAYD/fwAAAAABgAAAAAABgAGAAAABgAAAAYAAAAAAAYABgAAAAoAAAAGAAAAAAAKAAYAAAAGAAAABgAAAAAABgAGAAAACgAAAAYAAAAAAAoABgAGAAAAAAAGAAAAAAAGAAYABgAAAAAABgAAAAAABgAGAAYAAAAAAAYAAAAAAAYABgAGAAAAAAAGAAAAAAAGAAYAAAP9/AAABgAAAAAABgAGAAAD+fwAAAYAAAAAAAoABgAAA/38AAAGAAAAAAAGAAYAAAP5/AAABgAAAAAACgAGAAYAAAAAA/38AAP9/AAD/fwGAAAAAAP9/AAD/fwAA/38BgAAAAAD/fwAA/38AAP9/AYAAAAAA/38AAP9/AAD/f30xer9/KMY/uj2mPVaS6j8AAAAAAAAAACQAAAAAAAAAGAAAAAAAAAAAAAAAABAAAA=="/>
+   </Object>
+   <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="4a41c450-d6a9-dcf7-8ddc-cf07b83fe667" Name="Designer-2" Pos="66.336929,46.062347,32.016178" Rotate="1,0,0,0" Scale="1.4577936,1,0.25" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="Materials/footstep_tests/m_test_metal" MinSpec="0" RndFlags="1073742344" StaticObjFlags="0" ViewDistRatio="100">
+    <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
+     <Polygon GUID="538fa534-6174-7713-cde1-363801546464" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAwAAAAMAAAACAAAAAgAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8D8AAABAt8fEvwAAADcAAIC2vTH6vwAAgLa9Mfq/byhGwAAAADdvKEbA"/>
+     <Polygon GUID="19c869b9-0cac-8acb-9b40-90a7a66d26d3" BinaryData="BAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAAAAAAAAAAAAADQPr0x+r8AAAAAAAAANwAAAAAAAAA3uj0mvr0x+r+6PSa+"/>
+     <Polygon GUID="ffc06e24-2583-509b-3080-21c1edf653ee" BinaryData="BAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAAAAAAAp3mycN0b/v28oRsAAAAAAAACAtgAAAAAAAIC2uj0mvm8oRsC6PSa+"/>
+     <Polygon GUID="92311e80-0285-9e35-a0a8-62b343310654" BinaryData="BAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAACCK+bcDcUIwAAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+"/>
+     <Polygon GUID="4df1acbf-9231-1b0f-5695-0e4325ed85aa" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAABAt8fEPwAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwPwAAAAAAAACAAAAAAAAAAAAAAAAAAADQPgAAgDYAAAAAbyhGQAAAAABvKEZAuj0mvgAAgDa6PSa+"/>
+     <Polygon GUID="37fd7b50-b83e-e864-d7bf-bc7abd488e7a" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8L8AAAAAAADQPgAAALcAAIA2vTH6PwAAgDa9Mfo/byhGQAAAALdvKEZA"/>
+     <SmoothingGroups />
+     <SemiSharpCrease />
+     <UVIslands />
+    </Brush>
+    <Mesh Version="2" BinaryData="AAAAAAAAAAAYAAAAGAAAACQAAAAYAAAAAQAAAAAAADcAAIA2uj0mPgAAADdvKEZAuj0mPr0x+r9vKEZAuj0mPr0x+r8AAIA2uj0mPr0x+r8AAIA2AAAAAAAAADcAAIA2AAAAAAAAADcAAIA2uj0mPr0x+r8AAIA2uj0mPr0x+r9vKEZAAAAAAL0x+r8AAIA2AAAAAL0x+r8AAIA2uj0mPr0x+r9vKEZAuj0mPgAAADdvKEZAAAAAAL0x+r9vKEZAAAAAAL0x+r9vKEZAuj0mPgAAADdvKEZAuj0mPgAAADcAAIA2AAAAAAAAADdvKEZAAAAAAAAAADdvKEZAuj0mPgAAADcAAIA2uj0mPgAAADcAAIA2AAAAAL0x+r8AAIA2AAAAAL0x+r9vKEZAAAAAAAAAADdvKEZAAAAAAAAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAADcAAIC2AAAAN28oRsC9Mfq/byhGwL0x+r8AAIC2vTH6vwAAAAAAAAA3AAAAAAAAADe6PSa+vTH6v7o9Jr5vKEbAAAAAAAAAgLYAAAAAAACAtro9Jr5vKEbAuj0mvgAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+AACANgAAAABvKEZAAAAAAG8oRkC6PSa+AACANro9Jr4AAAC3AACANr0x+j8AAIA2vTH6P28oRkAAAAC3byhGQAAAAQACAAAAAgADAAQABQAGAAQABgAHAAgACQAKAAgACgALAAwADQAOAAwADgAPABAAEQASABAAEgATABQAFQAWABQAFgAXAP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAYAAAAGA/38AAAAAAYAAAAGAAAABgP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAAABgAGA/38AAAAAAYAAAAAAAYABgP9/AAAAAAGAAAAAAAGAAYD/fwAAAAABgAAAAAABgAGAAAABgAAAAYAAAAAAAYABgAAAAoAAAAGAAAAAAAKAAYAAAAGAAAABgAAAAAABgAGAAAACgAAAAYAAAAAAAoABgAGAAAAAAAGAAAAAAAGAAYABgAAAAAABgAAAAAABgAGAAYAAAAAAAYAAAAAAAYABgAGAAAAAAAGAAAAAAAGAAYAAAP9/AAABgAAAAAABgAGAAAD+fwAAAYAAAAAAAoABgAAA/38AAAGAAAAAAAGAAYAAAP5/AAABgAAAAAACgAGAAYAAAAAA/38AAP9/AAD/fwGAAAAAAP9/AAD/fwAA/38BgAAAAAD/fwAA/38AAP9/AYAAAAAA/38AAP9/AAD/f30xer9/KMY/uj2mPVaS6j8AAAAAAAAAACQAAAAAAAAAGAAAAAAAAAAAAAAAABAAAA=="/>
+   </Object>
+   <Object Type="Comment" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="bd9fc51d-c3b9-21fa-92bd-bf3785013316" Name="Comment-6" Pos="61.524757,46,33.744602" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="41215" UseCustomLevelLayerColor="0" MinSpec="0" EntityClass="Comment" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component typeId="979e412f-68b9-4866-b61e-eb87cfa757cf" guid="ce87d8fa-e0b0-b849-26cf-c2076ace54b9" CryXmlVersion="2" Text="mat_sand" ViewDistance="100" FontSize="1.2"/>
+    </Components>
+   </Object>
+   <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="50a95f87-1665-425e-60cc-64f0f8c78565" Name="Designer-4" Pos="73.331772,46.098232,32.016178" Rotate="1,0,0,0" Scale="1.4577936,1,0.25" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="Materials/footstep_tests/m_test_fabric" MinSpec="0" RndFlags="1073741832" StaticObjFlags="0" ViewDistRatio="100">
+    <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
+     <Polygon GUID="538fa534-6174-7713-cde1-363801546464" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAwAAAAMAAAACAAAAAgAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8D8AAABAt8fEvwAAADcAAIC2vTH6vwAAgLa9Mfq/byhGwAAAADdvKEbA"/>
+     <Polygon GUID="19c869b9-0cac-8acb-9b40-90a7a66d26d3" BinaryData="BAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAAAAAAAAAAAAADQPr0x+r8AAAAAAAAANwAAAAAAAAA3uj0mvr0x+r+6PSa+"/>
+     <Polygon GUID="ffc06e24-2583-509b-3080-21c1edf653ee" BinaryData="BAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAAAAAAAp3mycN0b/v28oRsAAAAAAAACAtgAAAAAAAIC2uj0mvm8oRsC6PSa+"/>
+     <Polygon GUID="92311e80-0285-9e35-a0a8-62b343310654" BinaryData="BAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAACCK+bcDcUIwAAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+"/>
+     <Polygon GUID="4df1acbf-9231-1b0f-5695-0e4325ed85aa" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAABAt8fEPwAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwPwAAAAAAAACAAAAAAAAAAAAAAAAAAADQPgAAgDYAAAAAbyhGQAAAAABvKEZAuj0mvgAAgDa6PSa+"/>
+     <Polygon GUID="37fd7b50-b83e-e864-d7bf-bc7abd488e7a" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8L8AAAAAAADQPgAAALcAAIA2vTH6PwAAgDa9Mfo/byhGQAAAALdvKEZA"/>
+     <SmoothingGroups />
+     <SemiSharpCrease />
+     <UVIslands />
+    </Brush>
+    <Mesh Version="2" BinaryData="AAAAAAAAAAAYAAAAGAAAACQAAAAYAAAAAQAAAAAAADcAAIA2uj0mPgAAADdvKEZAuj0mPr0x+r9vKEZAuj0mPr0x+r8AAIA2uj0mPr0x+r8AAIA2AAAAAAAAADcAAIA2AAAAAAAAADcAAIA2uj0mPr0x+r8AAIA2uj0mPr0x+r9vKEZAAAAAAL0x+r8AAIA2AAAAAL0x+r8AAIA2uj0mPr0x+r9vKEZAuj0mPgAAADdvKEZAAAAAAL0x+r9vKEZAAAAAAL0x+r9vKEZAuj0mPgAAADdvKEZAuj0mPgAAADcAAIA2AAAAAAAAADdvKEZAAAAAAAAAADdvKEZAuj0mPgAAADcAAIA2uj0mPgAAADcAAIA2AAAAAL0x+r8AAIA2AAAAAL0x+r9vKEZAAAAAAAAAADdvKEZAAAAAAAAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAADcAAIC2AAAAN28oRsC9Mfq/byhGwL0x+r8AAIC2vTH6vwAAAAAAAAA3AAAAAAAAADe6PSa+vTH6v7o9Jr5vKEbAAAAAAAAAgLYAAAAAAACAtro9Jr5vKEbAuj0mvgAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+AACANgAAAABvKEZAAAAAAG8oRkC6PSa+AACANro9Jr4AAAC3AACANr0x+j8AAIA2vTH6P28oRkAAAAC3byhGQAAAAQACAAAAAgADAAQABQAGAAQABgAHAAgACQAKAAgACgALAAwADQAOAAwADgAPABAAEQASABAAEgATABQAFQAWABQAFgAXAP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAYAAAAGA/38AAAAAAYAAAAGAAAABgP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAAABgAGA/38AAAAAAYAAAAAAAYABgP9/AAAAAAGAAAAAAAGAAYD/fwAAAAABgAAAAAABgAGAAAABgAAAAYAAAAAAAYABgAAAAoAAAAGAAAAAAAKAAYAAAAGAAAABgAAAAAABgAGAAAACgAAAAYAAAAAAAoABgAGAAAAAAAGAAAAAAAGAAYABgAAAAAABgAAAAAABgAGAAYAAAAAAAYAAAAAAAYABgAGAAAAAAAGAAAAAAAGAAYAAAP9/AAABgAAAAAABgAGAAAD+fwAAAYAAAAAAAoABgAAA/38AAAGAAAAAAAGAAYAAAP5/AAABgAAAAAACgAGAAYAAAAAA/38AAP9/AAD/fwGAAAAAAP9/AAD/fwAA/38BgAAAAAD/fwAA/38AAP9/AYAAAAAA/38AAP9/AAD/f30xer9/KMY/uj2mPVaS6j8AAAAAAAAAACQAAAAAAAAAGAAAAAAAAAAAAAAAABAAAA=="/>
+   </Object>
+   <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="4501555b-fd31-2a32-3852-a647f3660036" Name="Designer-7" Pos="80.945892,45.971161,32.016178" Rotate="1,0,0,0" Scale="1.4577936,1,0.25" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="Materials/footstep_tests/m_test_dirt" MinSpec="0" RndFlags="1073741832" StaticObjFlags="0" ViewDistRatio="100">
+    <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
+     <Polygon GUID="538fa534-6174-7713-cde1-363801546464" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAwAAAAMAAAACAAAAAgAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8D8AAABAt8fEvwAAADcAAIC2vTH6vwAAgLa9Mfq/byhGwAAAADdvKEbA"/>
+     <Polygon GUID="19c869b9-0cac-8acb-9b40-90a7a66d26d3" BinaryData="BAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAAAAAAAAAAAAADQPr0x+r8AAAAAAAAANwAAAAAAAAA3uj0mvr0x+r+6PSa+"/>
+     <Polygon GUID="ffc06e24-2583-509b-3080-21c1edf653ee" BinaryData="BAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAABAt8fEPynebJw3Rv+/givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAAAAAAAp3mycN0b/v28oRsAAAAAAAACAtgAAAAAAAIC2uj0mvm8oRsC6PSa+"/>
+     <Polygon GUID="92311e80-0285-9e35-a0a8-62b343310654" BinaryData="BAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAABAt8fEPwAAAAAAAOA+givm3A3FCEAAAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAACCK+bcDcUIwAAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+"/>
+     <Polygon GUID="4df1acbf-9231-1b0f-5695-0e4325ed85aa" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAABAt8fEPwAAAAAAAOA+AAAAAAAA0D4AAABAt8fEPwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwPwAAAAAAAACAAAAAAAAAAAAAAAAAAADQPgAAgDYAAAAAbyhGQAAAAABvKEZAuj0mvgAAgDa6PSa+"/>
+     <Polygon GUID="37fd7b50-b83e-e864-d7bf-bc7abd488e7a" BinaryData="BAAAAAAAAAAAAOA+AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/AAAAAAAA0D4AAAAAAAAAACnebJw3Rv+/givm3A3FCEAAAAAAAAAAAAAAAAAAAOA+givm3A3FCEAAAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8L8AAAAAAADQPgAAALcAAIA2vTH6PwAAgDa9Mfo/byhGQAAAALdvKEZA"/>
+     <SmoothingGroups />
+     <SemiSharpCrease />
+     <UVIslands />
+    </Brush>
+    <Mesh Version="2" BinaryData="AAAAAAAAAAAYAAAAGAAAACQAAAAYAAAAAQAAAAAAADcAAIA2uj0mPgAAADdvKEZAuj0mPr0x+r9vKEZAuj0mPr0x+r8AAIA2uj0mPr0x+r8AAIA2AAAAAAAAADcAAIA2AAAAAAAAADcAAIA2uj0mPr0x+r8AAIA2uj0mPr0x+r9vKEZAAAAAAL0x+r8AAIA2AAAAAL0x+r8AAIA2uj0mPr0x+r9vKEZAuj0mPgAAADdvKEZAAAAAAL0x+r9vKEZAAAAAAL0x+r9vKEZAuj0mPgAAADdvKEZAuj0mPgAAADcAAIA2AAAAAAAAADdvKEZAAAAAAAAAADdvKEZAuj0mPgAAADcAAIA2uj0mPgAAADcAAIA2AAAAAL0x+r8AAIA2AAAAAL0x+r9vKEZAAAAAAAAAADdvKEZAAAAAAAAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAIAAAACAAACAPwAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAADcAAIC2AAAAN28oRsC9Mfq/byhGwL0x+r8AAIC2vTH6vwAAAAAAAAA3AAAAAAAAADe6PSa+vTH6v7o9Jr5vKEbAAAAAAAAAgLYAAAAAAACAtro9Jr5vKEbAuj0mvgAAALcAAAAAvTH6PwAAAAC9Mfo/uj0mvgAAALe6PSa+AACANgAAAABvKEZAAAAAAG8oRkC6PSa+AACANro9Jr4AAAC3AACANr0x+j8AAIA2vTH6P28oRkAAAAC3byhGQAAAAQACAAAAAgADAAQABQAGAAQABgAHAAgACQAKAAgACgALAAwADQAOAAwADgAPABAAEQASABAAEgATABQAFQAWABQAFgAXAP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAYAAAAGA/38AAAAAAYAAAAGAAAABgP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAAABgAGA/38AAAAAAYAAAAAAAYABgP9/AAAAAAGAAAAAAAGAAYD/fwAAAAABgAAAAAABgAGAAAABgAAAAYAAAAAAAYABgAAAAoAAAAGAAAAAAAKAAYAAAAGAAAABgAAAAAABgAGAAAACgAAAAYAAAAAAAoABgAGAAAAAAAGAAAAAAAGAAYABgAAAAAABgAAAAAABgAGAAYAAAAAAAYAAAAAAAYABgAGAAAAAAAGAAAAAAAGAAYAAAP9/AAABgAAAAAABgAGAAAD+fwAAAYAAAAAAAoABgAAA/38AAAGAAAAAAAGAAYAAAP5/AAABgAAAAAACgAGAAYAAAAAA/38AAP9/AAD/fwGAAAAAAP9/AAD/fwAA/38BgAAAAAD/fwAA/38AAP9/AYAAAAAA/38AAP9/AAD/f30xer9/KMY/uj2mPVaS6j8AAAAAAAAAACQAAAAAAAAAGAAAAAAAAAAAAAAAABAAAA=="/>
+   </Object>
+   <Object Type="Comment" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="ada874c0-2426-29fd-222a-09b62715517e" Name="Comment-2" Pos="75.765808,46,33.613361" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="41215" UseCustomLevelLayerColor="0" MinSpec="0" EntityClass="Comment" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component typeId="979e412f-68b9-4866-b61e-eb87cfa757cf" guid="72671f96-2f03-5fe6-d28e-5bf67d200ecc" CryXmlVersion="2" Text="mat_grass" ViewDistance="100" FontSize="1.2"/>
+    </Components>
+   </Object>
+   <Object Type="Comment" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="ee1cf676-7f8e-8bb4-2b08-7b7c9fe72961" Name="Comment-3" Pos="71.84819,46,33.650635" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="41215" UseCustomLevelLayerColor="0" MinSpec="0" EntityClass="Comment" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component typeId="979e412f-68b9-4866-b61e-eb87cfa757cf" guid="4c32d6e9-ce02-1fb6-858f-3cf1aaeed7e6" CryXmlVersion="2" Text="mat_frabric" ViewDistance="100" FontSize="1.2"/>
+    </Components>
+   </Object>
+   <Object Type="Comment" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="717ed2c9-63ed-2917-f0b5-b9ff76233881" Name="Comment-4" Pos="68.382248,46,33.602211" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="41215" UseCustomLevelLayerColor="0" MinSpec="0" EntityClass="Comment" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component typeId="979e412f-68b9-4866-b61e-eb87cfa757cf" guid="8fa9cbb7-ec21-a79b-6c52-50859efdef84" CryXmlVersion="2" Text="mat_gravel" ViewDistance="100" FontSize="1.2"/>
+    </Components>
+   </Object>
+   <Object Type="Comment" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="e4ab948c-29a6-7f61-429d-1b0b751cadd9" Name="Comment-5" Pos="64.912117,46,33.654472" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="41215" UseCustomLevelLayerColor="0" MinSpec="0" EntityClass="Comment" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component typeId="979e412f-68b9-4866-b61e-eb87cfa757cf" guid="8d01b779-a505-f4b6-e5ce-2ead00404835" CryXmlVersion="2" Text="mat_metal" ViewDistance="100" FontSize="1.2"/>
+    </Components>
    </Object>
   </LayerObjects>
  </Layer>

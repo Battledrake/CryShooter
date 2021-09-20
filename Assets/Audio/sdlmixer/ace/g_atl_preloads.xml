@@ -1,0 +1,27 @@
+<AudioSystemData name="g_atl_preloads" version="5" preloads="15">
+ <Preloads>
+  <PreloadRequest name="v_abrams" path="vehicles" type="autoload"/>
+  <PreloadRequest name="v_global" path="vehicles" type="autoload"/>
+  <PreloadRequest name="v_hmmwv" path="vehicles" type="autoload"/>
+  <PreloadRequest name="v_mh60_blackhawk" path="vehicles" type="autoload"/>
+  <PreloadRequest name="v_speedboat" path="vehicles" type="autoload"/>
+  <PreloadRequest name="v_swat_van" path="vehicles" type="autoload"/>
+  <PreloadRequest name="w_global" path="weapons" type="autoload"/>
+  <PreloadRequest name="w_grenade" path="weapons" type="autoload"/>
+  <PreloadRequest name="w_hmg" path="weapons" type="autoload"/>
+  <PreloadRequest name="w_melee" path="weapons" type="autoload"/>
+  <PreloadRequest name="w_pistol" path="weapons" type="autoload"/>
+  <PreloadRequest name="w_rifle" path="weapons" type="autoload"/>
+  <PreloadRequest name="w_rocketlauncher" path="weapons" type="autoload"/>
+  <PreloadRequest name="w_shotgun" path="weapons" type="autoload"/>
+  <PreloadRequest name="global_preloaddata" type="autoload"/>
+ </Preloads>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="vehicles"/>
+   <Folder name="weapons"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

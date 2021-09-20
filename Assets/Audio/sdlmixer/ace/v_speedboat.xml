@@ -1,0 +1,15 @@
+<AudioSystemData name="v_speedboat" version="5" triggers="6">
+ <Triggers>
+  <Trigger name="Play_speedboat_boost"/>
+  <Trigger name="Play_speedboat_horn"/>
+  <Trigger name="Play_speedboat_run"/>
+  <Trigger name="Play_speedboat_splash"/>
+  <Trigger name="Play_speedboat_start"/>
+  <Trigger name="Play_speedboat_stop"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

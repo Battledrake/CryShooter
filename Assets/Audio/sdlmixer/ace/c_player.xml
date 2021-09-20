@@ -1,0 +1,147 @@
+<AudioSystemData name="c_player" version="5" triggers="69">
+ <ImplData events="32"/>
+ <Triggers>
+  <Trigger name="Play_c_player_fts_dirt" path="c_player_fts">
+   <Event name="c_player_fts_dirt_walk.ogg" type="start" volume="-24" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_concrete" path="c_player_fts">
+   <Event name="c_player_fts_concrete_walk.ogg" type="start" volume="-21" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_fabric" path="c_player_fts">
+   <Event name="c_player_fts_fabric_walk.ogg" type="start" volume="-28" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_wood_solid" path="c_player_fts">
+   <Event name="c_player_fts_wood_solid_walk.ogg" type="start" volume="-25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_grass" path="c_player_fts">
+   <Event name="c_player_fts_grass_walk.ogg" type="start" volume="-27" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_grass_tall" path="c_player_fts">
+   <Event name="c_player_fts_grass_tall_walk.ogg" type="start" volume="-31" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_gravel" path="c_player_fts">
+   <Event name="c_player_fts_gravel_walk.ogg" type="start" volume="-23" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_leaves" path="c_player_fts">
+   <Event name="c_player_fts_leaves_walk.ogg" type="start" volume="-30" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_metal_chainlink" path="c_player_fts">
+   <Event name="c_player_fts_metal_chainlink_walk.ogg" type="start" volume="-23" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_metal_grate" path="c_player_fts">
+   <Event name="c_player_fts_metal_grate_walk.ogg" type="start" volume="-23" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_metal_sheet" path="c_player_fts">
+   <Event name="c_player_fts_metal_sheet_walk.ogg" type="start" volume="-23" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_pebble" path="c_player_fts">
+   <Event name="c_player_fts_pebble_walk.ogg" type="start" volume="-24" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_plastic" path="c_player_fts">
+   <Event name="c_player_fts_plastic_walk.ogg" type="start" volume="-24" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_sand_dry" path="c_player_fts">
+   <Event name="c_player_fts_sand_dry_walk.ogg" type="start" volume="-23" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_vegetation" path="c_player_fts">
+   <Event name="c_player_fts_vegetation_walk.ogg" type="start" volume="-27" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_water_deep" path="c_player_fts">
+   <Event name="c_player_fts_water_deep_walk.ogg" type="start" volume="-25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_water_shallow" path="c_player_fts">
+   <Event name="c_player_fts_water_shallow_walk.ogg" type="start" volume="-23" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_wood_hollow" path="c_player_fts">
+   <Event name="c_player_fts_wood_hollow_walk.ogg" type="start" volume="-22" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_metal_thick" path="c_player_fts">
+   <Event name="c_player_fts_metal_thick_walk.ogg" type="start" volume="-24" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fts_mud" path="c_player_fts">
+   <Event name="c_player_fts_mud_walk.ogg" type="start" volume="-27" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fol_bodyfall" path="c_player_fol">
+   <Event name="c_player_foley_land.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fol_bag_movement" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_climb_ladder" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_bush_movement" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_crouch_on" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_dive_out" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_dive_in" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_crouch_off" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_gear" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_jump_off" path="c_player_fol">
+   <Event name="c_player_fol_gear.ogg" type="start" volume="-20" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fol_bodyhit" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_slide_bodyfall" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_slide_gear" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_jump_on" path="c_player_fol">
+   <Event name="c_player_fol_gear.ogg" type="start" volume="-30" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fol_throw_generic" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_turn" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_slide_loop" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_slide_start" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_slide_stop" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_gear_fast" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_gear_medium" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_gear_slow" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_grab_generic" path="c_player_fol"/>
+  <Trigger name="Play_c_player_fol_swim" path="c_player_fol">
+   <Event name="c_player_fol_swim.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fol_swim_idle" path="c_player_fol">
+   <Event name="c_player_fol_swim.ogg" type="start" volume="-24" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fol_swim_sprint" path="c_player_fol">
+   <Event name="c_player_fol_swim.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Stop_c_player_fbk_underwater_ambience" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_underwater_ambience" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_effect_health_low" path="c_player_fbk"/>
+  <Trigger name="Stop_c_player_fbk_effect_health_low" path="c_player_fbk"/>
+  <Trigger name="Stop_c_player_fbk_effect_focus" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_effect_focus" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_breath_idle" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_breath_focus" path="c_player_fbk">
+   <Event name="do_nothing.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fbk_breath_run" path="c_player_fbk">
+   <Event name="do_nothing.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fbk_breath_swim" path="c_player_fbk"/>
+  <Trigger name="Stop_c_player_fbk_breath_run" path="c_player_fbk">
+   <Event name="do_nothing.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Stop_c_player_fbk_breath_swim" path="c_player_fbk"/>
+  <Trigger name="Stop_c_player_fbk_breath_idle" path="c_player_fbk"/>
+  <Trigger name="Stop_c_player_fbk_breath_focus" path="c_player_fbk">
+   <Event name="do_nothing.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fbk_breath_low_health" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_death" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_effect_heartbeat" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_effort" path="c_player_fbk">
+   <Event name="do_nothing.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fbk_jump" path="c_player_fbk">
+   <Event name="do_nothing.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_c_player_fbk_melee" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_pain" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_throw" path="c_player_fbk"/>
+  <Trigger name="Play_c_player_fbk_land" path="c_player_fbk"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="c_player_fts"/>
+   <Folder name="c_player_fol"/>
+   <Folder name="c_player_fbk"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

@@ -65,7 +65,13 @@ void CAmmoPickupComponent::Interact(CCharacterComponent* pInteractor)
 		if (!pInteractor->GetEquipmentComponent()->IsAmmoFull(m_weaponName.c_str()))
 		{
 			if (pInteractor->GetEquipmentComponent()->TryAddAmmo(m_weaponName.c_str(), m_ammoAmount))
+			{
+				CryAudio::SExecuteTriggerData triggerData(CryAudio::StringToId(m_pickupAudio.value),
+					(const char*)nullptr, CryAudio::EOcclusionType::Ignore, m_pEntity->GetWorldPos());
+				gEnv->pAudioSystem->ExecuteTriggerEx(triggerData);
+
 				m_pEntity->Hide(true);
+			}
 		}
 	}
 }

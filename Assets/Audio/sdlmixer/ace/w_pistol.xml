@@ -1,0 +1,69 @@
+<AudioSystemData name="w_pistol" version="5" triggers="18">
+ <ImplData events="18"/>
+ <Triggers>
+  <Trigger name="Play_w_pistol_cock_slide_3p" path="w_pistol_handling_3p">
+   <Event name="w_pistol_cock_slide.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_cocking_3p" path="w_pistol_handling_3p">
+   <Event name="w_pistol_cocking.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_deselect_3p" path="w_pistol_handling_3p">
+   <Event name="w_pistol_deselect.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_mag_in_3p" path="w_pistol_handling_3p">
+   <Event name="w_pistol_mag_in.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_mag_out_3p" path="w_pistol_handling_3p">
+   <Event name="w_pistol_mag_out.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_select_3p" path="w_pistol_handling_3p">
+   <Event name="w_pistol_select.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_cock_slide_fp" path="w_pistol_handling_fp">
+   <Event name="w_pistol_cock_slide.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_cocking_fp" path="w_pistol_handling_fp">
+   <Event name="w_pistol_cocking.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_deselect_fp" path="w_pistol_handling_fp">
+   <Event name="w_pistol_deselect.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_mag_in_fp" path="w_pistol_handling_fp">
+   <Event name="w_pistol_mag_in.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_mag_out_fp" path="w_pistol_handling_fp">
+   <Event name="w_pistol_mag_out.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_select_fp" path="w_pistol_handling_fp">
+   <Event name="w_pistol_select.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_dryfire_3p" path="w_pistol_fire_3p">
+   <Event name="w_pistol_dry_fire.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_fire_3p" path="w_pistol_fire_3p">
+   <Event name="w_pistol_fire_3p.ogg" type="start" volume="-6" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_silencer_3p" path="w_pistol_fire_3p">
+   <Event name="w_pistol_silencer_single.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_dryfire_fp" path="w_pistol_fire_fp">
+   <Event name="w_pistol_dry_fire.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_fire_fp" path="w_pistol_fire_fp">
+   <Event name="w_pistol_fire_fp.ogg" type="start" volume="-6" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_w_pistol_silencer_fp" path="w_pistol_fire_fp">
+   <Event name="w_pistol_silencer_single.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="w_pistol_handling_3p"/>
+   <Folder name="w_pistol_handling_fp"/>
+   <Folder name="w_pistol_fire_3p"/>
+   <Folder name="w_pistol_fire_fp"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

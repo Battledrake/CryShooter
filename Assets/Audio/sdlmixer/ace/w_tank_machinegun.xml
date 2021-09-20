@@ -1,0 +1,12 @@
+<AudioSystemData name="w_tank_machinegun" version="5" triggers="3">
+ <Triggers>
+  <Trigger name="Stop_w_tank_machinegun_fire"/>
+  <Trigger name="Play_w_tank_machinegun_fire"/>
+  <Trigger name="Play_w_tank_machinegun_dryfire"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

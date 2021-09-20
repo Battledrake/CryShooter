@@ -63,10 +63,11 @@
     </children>
    </element>
    <element elementType="ComponentInstance" guid="7ff8ccfb-4ea0-4ee7-9664-d0770068a174" name="WeaponComponent" accessor="Private" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
-    <properties WeaponName="GenericPistol" IconPath="Icons/genericpistol_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Pistol" WeaponCategory="Secondary" HolsterSlot="Hip" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="12" AmmoCount="0" MaxAmmo="100">
+    <properties WeaponName="Generic Pistol" FireAudio="Play_w_pistol_fire_fp" ReloadAudio="Play_w_pistol_cocking_fp" DryFireAudio="Play_w_pistol_dryfire_fp" PickupAudio="Play_w_pistol_deselect_fp" SelectAudio="Play_w_pistol_select_fp" SwitchFireModeAudio="Play_w_rifle_switch_firemode_fp" IconPath="Icons/genericpistol_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Pistol" WeaponCategory="Secondary" HolsterSlot="Hip" FireRate="500" Burst="3" BurstDelay="0.5" ClipCapacity="12" StartingAmmo="100" MaxAmmo="100">
      <FireModes>
       <element element="Single"/>
       <element element="Burst"/>
+      <element element="Auto"/>
      </FireModes>
      <WeaponRecoil x="-10" y="30"/>
     </properties>

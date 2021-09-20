@@ -1,0 +1,25 @@
+<AudioSystemData name="l_vr_demo" version="5" triggers="13" preloads="1">
+ <Triggers>
+  <Trigger name="Play_l_vr_demo_sce_door_closed"/>
+  <Trigger name="Play_l_vr_demo_sce_door_opened"/>
+  <Trigger name="Play_l_vr_demo_sfx_energy_sphere"/>
+  <Trigger name="Play_l_vr_demo_sfx_power_sparks"/>
+  <Trigger name="Play_l_vr_demo_sfx_ventilation_fan"/>
+  <Trigger name="Play_l_vr_demo_sfx_growing_chamber"/>
+  <Trigger name="Play_l_vr_demo_sfx_energy_fx_03"/>
+  <Trigger name="Play_l_vr_demo_sfx_energy_fx_02"/>
+  <Trigger name="Play_l_vr_demo_sfx_energy_fx_01"/>
+  <Trigger name="Play_l_vr_demo_sce_door_open"/>
+  <Trigger name="Play_l_vr_demo_sce_door_close"/>
+  <Trigger name="Play_l_vr_demo_amb_hallway"/>
+  <Trigger name="Play_l_vr_demo_amb_room_01"/>
+ </Triggers>
+ <Preloads>
+  <PreloadRequest name="l_vr_demo" type="autoload"/>
+ </Preloads>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

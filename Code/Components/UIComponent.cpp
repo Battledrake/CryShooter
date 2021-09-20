@@ -92,13 +92,12 @@
  	});
  
  	m_pPlayer->m_interactEvent.RegisterListener([this](const SObjectData& objData, const bool isShowing)
- 	{
+	{
  		if (isShowing)
  		{
  			string combinedString = objData.objectKeyword + " " + objData.objectName + " " + objData.objectBonus;
  			m_pInteractableUI->CallFunction("UpdateText", SUIArguments::Create(combinedString));
  		}
- 		m_pInteractableUI->SetVisible(isShowing);
- 
+		m_pInteractableUI->SetVisible(isShowing);
  	});
  }

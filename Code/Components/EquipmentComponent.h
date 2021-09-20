@@ -19,6 +19,7 @@ public:
 	bool HasSameEquipment(const IEquippable* equipmentName) const;
 	bool HasWeapon(const string weaponName) const;
 	bool IsAmmoFull(string weaponName) const;
+	void PlayAudio(CryAudio::ControlId audioId);
 	void SwapWeapons();
 
 	static void ReflectType(Schematyc::CTypeDesc<CEquipmentComponent>& desc) {

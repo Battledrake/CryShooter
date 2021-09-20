@@ -45,10 +45,10 @@ void CDebugComponent::ProcessEvent(const SEntityEvent& event)
 			break;
 		case Cry::Entity::EEvent::GameplayStarted:
 		{
-			pe_params_collision_class params;
-			params.collisionClassOR.type = static_cast<uint32>(m_collisionType);
-			params.collisionClassOR.ignore = static_cast<uint32>(m_collisionType);
-			m_pEntity->GetPhysicalEntity()->SetParams(&params);
+// 			pe_params_collision_class params;
+// 			params.collisionClassOR.type = static_cast<uint32>(m_collisionType);
+// 			params.collisionClassOR.ignore = static_cast<uint32>(m_collisionType);
+// 			m_pEntity->GetPhysicalEntity()->SetParams(&params);
 		}
 		break;
 		case Cry::Entity::EEvent::PhysicsCollision:

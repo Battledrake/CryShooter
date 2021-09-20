@@ -1,0 +1,17 @@
+<AudioSystemData name="ui_menu" version="5" triggers="8">
+ <Triggers>
+  <Trigger name="Play_ui_menu_cancel"/>
+  <Trigger name="Play_ui_menu_confirm"/>
+  <Trigger name="Play_ui_menu_roll_over"/>
+  <Trigger name="Play_ui_menu_screen_close"/>
+  <Trigger name="Play_ui_menu_screen_open"/>
+  <Trigger name="Stop_ui_menu_all"/>
+  <Trigger name="Play_ui_menu_ambience"/>
+  <Trigger name="Play_ui_menu_controls"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>

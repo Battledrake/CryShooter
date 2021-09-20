@@ -1,0 +1,126 @@
+<AudioSystemData name="l_woodland" version="5" triggers="38">
+ <ImplData events="36"/>
+ <Triggers>
+  <Trigger name="Play_l_woodland_mus_trackview" path="l_woodland_mus">
+   <Event name="l_woodland_mus_trackview.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Stop_l_woodland_mus_trackview" path="l_woodland_mus">
+   <Event name="l_woodland_mus_trackview.ogg" type="stop"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_mus_stinger_rifle_pickup" path="l_woodland_mus"/>
+  <Trigger name="Play_l_woodland_amb_insects_pond" path="l_woodland_amb">
+   <Event name="do_nothing.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_lake_calm" path="l_woodland_amb">
+   <Event name="l_woodland_amb_lake_calm.ogg" type="start" volume="-35" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="5" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_river_calm" path="l_woodland_amb">
+   <Event name="l_woodland_amb_river_calm.ogg" type="start" volume="-35" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="15" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_river_fast" path="l_woodland_amb">
+   <Event name="l_woodland_amb_river_fast.ogg" type="start" volume="-35" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="10" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab1_waterfall_large" path="l_woodland_amb">
+   <Event name="l_woodland_amb_waterfall_large.ogg" type="start" volume="-15" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="45" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab1_waterfall_small" path="l_woodland_amb">
+   <Event name="do_nothing.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab4_waterfall_small" path="l_woodland_amb">
+   <Event name="l_woodland_amb_waterfall_medium.ogg" type="start" volume="-18" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="35" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab5_waterfall_medium" path="l_woodland_amb">
+   <Event name="l_woodland_amb_waterfall_large.ogg" type="start" volume="-18" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="40" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab6_waterfall_small" path="l_woodland_amb">
+   <Event name="l_woodland_amb_waterfall_medium.ogg" type="start" volume="-23" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="30" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab1_cave" path="l_woodland_amb">
+   <Event name="do_nothing.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab1_crash_site" path="l_woodland_amb">
+   <Event name="l_woodland_amb_crashsite.ogg" type="start" volume="-14" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab1_forest" path="l_woodland_amb">
+   <Event name="l_woodland_amb_forest.ogg" type="start" volume="-14" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab1_open_ground" path="l_woodland_amb">
+   <Event name="l_woodland_amb_open_ground.ogg" type="start" volume="-14" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab2_forest" path="l_woodland_amb">
+   <Event name="l_woodland_amb_forest.ogg" type="start" volume="-14" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab3_village" path="l_woodland_amb">
+   <Event name="l_woodland_amb_village.ogg" type="start" volume="-14" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab4_forest" path="l_woodland_amb">
+   <Event name="l_woodland_amb_village.ogg" type="start" volume="-14" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab5_lake" path="l_woodland_amb">
+   <Event name="l_woodland_amb_lake.ogg" type="start" volume="-14" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab6_forest" path="l_woodland_amb">
+   <Event name="l_woodland_amb_forest.ogg" type="start" volume="-14" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_amb_ab6_lake" path="l_woodland_amb">
+   <Event name="l_woodland_amb_lake.ogg" type="start" volume="-14" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="0"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_bird_nighthawk" path="l_woodland_sfx">
+   <Event name="l_woodland_sfx_bird_nighthawk.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="30" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_wind_gust" path="l_woodland_sfx">
+   <Event name="l_woodland_sfx_wind_gust.ogg" type="start" volume="-30" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="-30" attenuation_dist_max="0" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_metal_creak" path="l_woodland_sfx">
+   <Event name="l_woodland_sfx_metal_creak.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_log_creak" path="l_woodland_sfx">
+   <Event name="l_woodland_sfx_vegetation_log_creak.ogg" type="start" volume="-27" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_vegetation_rustle" path="l_woodland_sfx">
+   <Event name="l_woodland_sfx_vegetation_rustle.ogg" type="start" volume="-26" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="20" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_frog" path="l_woodland_sfx">
+   <Event name="l_global_boids_frog_scared.ogg" type="start" volume="-25" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="15" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_leaves_rustling_loop" path="l_woodland_sfx"/>
+  <Trigger name="Play_l_woodland_sfx_bird_chirping" path="l_woodland_sfx">
+   <Event name="l_woodland_sfx_bird_chirping.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_bird_crow" path="l_woodland_sfx">
+   <Event name="l_global_sfx_crow.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="25" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_bird_woodpecker" path="l_woodland_sfx">
+   <Event name="l_global_sfx_woodpecker.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="100" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_water_dripping" path="l_woodland_sfx">
+   <Event name="l_woodland_sfx_water_dripping.ogg" type="start" volume="-14" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="15" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sfx_bird_owl" path="l_woodland_sfx">
+   <Event name="l_global_sfx_owl.ogg" type="start" volume="-22" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="35" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_cin_toad_rockimpact_01" path="l_woodland_cin">
+   <Event name="l_woodland_cin_toad_rockimpact_01.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_cin_toad_rockimpact_02" path="l_woodland_cin">
+   <Event name="l_woodland_cin_toad_rockimpact_02.ogg" type="start" volume="-14" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sce_bird_fly_off" path="l_woodland_sce">
+   <Event name="l_woodland_sce_bird_fly_off.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_l_woodland_sce_entering_ravine" path="l_woodland_sce">
+   <Event name="l_woodland_sfx_wind_gust.ogg" type="start" volume="-35" loop_count="1"/>
+  </Trigger>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="l_woodland_mus"/>
+   <Folder name="l_woodland_amb"/>
+   <Folder name="l_woodland_sfx"/>
+   <Folder name="l_woodland_cin"/>
+   <Folder name="l_woodland_sce"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

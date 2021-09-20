@@ -1,0 +1,113 @@
+<AudioSystemData name="p_pro" version="5" triggers="46">
+ <ImplData events="26"/>
+ <Triggers>
+  <Trigger name="Play_p_pro_casing_bullet_concrete" path="p_pro_casing">
+   <Event name="p_pro_casing_concrete.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_dirt" path="p_pro_casing">
+   <Event name="p_pro_casing_dirt.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_grass" path="p_pro_casing">
+   <Event name="p_pro_casing_grass.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_gravel" path="p_pro_casing">
+   <Event name="p_pro_casing_dirt.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_metal_grate" path="p_pro_casing">
+   <Event name="p_pro_casing_metal_grate.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_metal_thick" path="p_pro_casing">
+   <Event name="p_pro_casing_metal_thick.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_metal_thin" path="p_pro_casing">
+   <Event name="p_pro_casing_metal_grate.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_mud" path="p_pro_casing">
+   <Event name="p_pro_casing_mud.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_water" path="p_pro_casing">
+   <Event name="p_pro_casing_water.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_wood_hollow" path="p_pro_casing">
+   <Event name="p_pro_casing_wood_hollow.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_casing_bullet_wood_solid" path="p_pro_casing">
+   <Event name="p_pro_casing_wood_hollow.ogg" type="start" volume="-18" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_concrete" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_concrete.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_flesh" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_flesh.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_glass" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_glass_thin.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_grass" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_vegetation.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_gravel" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_gravel.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_leaves" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_vegetation.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_metal" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_metal_thick.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_mud" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_mud.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_rock" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_concrete.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_sand" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_sand.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_soil" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_dirt.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_vegetation" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_vegetation.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_water" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_water_deep.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_wood" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_wood_hollow.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_concrete" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_default" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_flesh" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_grass" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_metal" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_rock" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_soil" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_water" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_wood" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_fabric" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_ice" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_metal_barbwire" path="p_pro_impact">
+   <Event name="p_pro_impact_bullet_impact_metal_thick.ogg" type="start" volume="-12" enable_panning="true" enable_dist_attenuation="true" attenuation_dist_min="0" attenuation_dist_max="50" loop_count="1"/>
+  </Trigger>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_rubber" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_bullet_hit_mat_snow" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_impact_melee_hit_mat_glass" path="p_pro_impact"/>
+  <Trigger name="Play_p_pro_flyby_bullet_close" path="p_pro_flyby"/>
+  <Trigger name="Play_p_pro_flyby_missile_close" path="p_pro_flyby"/>
+  <Trigger name="Play_p_pro_ricochet_bullet" path="p_pro_ricochet"/>
+  <Trigger name="Play_p_pro_ricochet_bullet_impact" path="p_pro_ricochet"/>
+  <Trigger name="Play_p_pro_ricochet_bullet_shrapnel" path="p_pro_ricochet"/>
+  <Trigger name="Play_p_pro_hit_mat_default"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders>
+   <Folder name="p_pro_casing"/>
+   <Folder name="p_pro_impact"/>
+   <Folder name="p_pro_flyby"/>
+   <Folder name="p_pro_ricochet"/>
+  </Folders>
+  <Controls />
+ </EditorData>
+</AudioSystemData>

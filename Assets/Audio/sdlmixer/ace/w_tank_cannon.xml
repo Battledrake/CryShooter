@@ -1,0 +1,12 @@
+<AudioSystemData name="w_tank_cannon" version="5" triggers="3">
+ <Triggers>
+  <Trigger name="Play_w_tank_cannon_fire"/>
+  <Trigger name="Play_w_tank_cannon_reload"/>
+  <Trigger name="Play_w_tank_cannon_dryfire"/>
+ </Triggers>
+ <EditorData>
+  <Library />
+  <Folders />
+  <Controls />
+ </EditorData>
+</AudioSystemData>
