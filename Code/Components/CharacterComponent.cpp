@@ -33,13 +33,19 @@ namespace
 
 void CCharacterComponent::Initialize()
 {
-	m_pAnimComp = m_pEntity->GetComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
 	m_pCharController = m_pEntity->GetComponent<Cry::DefaultComponents::CCharacterControllerComponent>();
 	m_pInterfaceComp = m_pEntity->GetOrCreateComponent<CInterfaceComponent>();
 	m_pBodyDamageComp = m_pEntity->GetOrCreateComponent<CBodyDamageComponent>();
+	m_pEntity->RemoveAllComponents<CEquipmentComponent>();
 	m_pEquipmentComp = m_pEntity->GetOrCreateComponent<CEquipmentComponent>();
 
+	m_pAnimComp = m_pEntity->GetComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
+	m_activeFragment = "Locomotion";
+	m_pAnimComp->QueueFragment(m_activeFragment);
+
 	CryCreateClassInstanceForInterface(cryiidof<IAnimationPoseModifierTorsoAim>(), m_ikTorsoAim);
+
+	m_framesBeforeIsFalling = 2;
 }
 
 Cry::Entity::EventFlags CCharacterComponent::GetEventMask() const
@@ -140,6 +146,7 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 			m_pAnimComp->ResetCharacter();
 			m_activeFragment = "Locomotion";
 			m_pAnimComp->QueueFragment(m_activeFragment);
+			m_pCharController->Physicalize();
 		}
 		break;
 	}
@@ -363,10 +370,10 @@ void CCharacterComponent::SetCollisionParams()
 	m_pAnimComp->GetCharacter()->GetPhysEntity()->SetParams(&params);
 }
 
-void CCharacterComponent::PassDamage(float amount, int partId)
+void CCharacterComponent::PassDamage(float amount, int partId, Vec3 hitVelocity)
 {
 	if (m_pBodyDamageComp)
 	{
-		m_pBodyDamageComp->CalculateDamage(amount, partId);
+		m_pBodyDamageComp->CalculateDamage(amount, partId, hitVelocity);
 	}
 }

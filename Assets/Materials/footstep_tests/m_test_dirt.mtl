@@ -1,4 +1,4 @@
-<Material MtlFlags="524288" Shader="Illum" GenMask="4000000000000" StringGenMask="%SUBSURFACE_SCATTERING" SurfaceType="mat_dirt" MatTemplate="" Diffuse="0.12477184,0.12477184,0.12477184" Opacity="1" CloakAmount="0" vertModifType="0" LayerAct="1">
+<Material MtlFlags="524288" Shader="Illum" GenMask="4000000000000" StringGenMask="%SUBSURFACE_SCATTERING" SurfaceType="mat_dirt" MatTemplate="" Diffuse="0.19806935,0.046665095,0" Opacity="1" CloakAmount="0" vertModifType="0" LayerAct="1">
  <Textures>
   <Texture Map="Diffuse" File="%engine%/engineassets/textures/water_gloss.dds">
    <TexMod TexMod_RotateType="0" TexMod_TexGenType="0" TexMod_bTexGenProjected="0"/>

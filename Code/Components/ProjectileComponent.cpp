@@ -54,12 +54,11 @@ void CProjectileComponent::ProcessEvent(const SEntityEvent& event)
 			{
 				if (IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(pPhys->pEntity[1]))
 				{
-					CryLogAlways("EntId: %i", pEntity->GetId());
 					if (CInterfaceComponent* pInterfaceComp = pEntity->GetComponent<CInterfaceComponent>())
 					{
 						if (ITakeDamage* pDamageInterface = pInterfaceComp->GetInterface<ITakeDamage>())
 						{
-							pDamageInterface->PassDamage(10.0f, pPhys->partid[1]);
+							pDamageInterface->PassDamage(10.0f, pPhys->partid[1], pPhys->vloc[0]);
 						}
 					}
 				}

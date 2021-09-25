@@ -35,7 +35,9 @@ public:
 	CBodyDamageComponent() = default;
 	virtual ~CBodyDamageComponent() = default;
 
-	void CalculateDamage(float damage, int jointId);
+	virtual void Initialize() override;
+
+	void CalculateDamage(float damage, int jointId = -1, Vec3 hitVelocity = ZERO);
 
 	static void ReflectType(Schematyc::CTypeDesc<CBodyDamageComponent>& desc)
 	{

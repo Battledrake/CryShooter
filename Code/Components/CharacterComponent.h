@@ -48,7 +48,7 @@ public:
 	//~Events
 
 	//ITakeDamage
-	virtual void PassDamage(float amount, int partId = -1) override;
+	virtual void PassDamage(float amount, int partId = -1, Vec3 hitVelocity = ZERO) override;
 	//~ITakeDamage
 
 	Cry::DefaultComponents::CAdvancedAnimationComponent* GetAnimComp() { return m_pAnimComp; }
@@ -117,5 +117,5 @@ private:
 
 	int m_jumpFrameId;
 	int m_startFallFrameId;
-	int m_framesBeforeIsFalling = 60;
+	int m_framesBeforeIsFalling;
 };

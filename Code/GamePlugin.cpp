@@ -39,8 +39,6 @@ void CGamePlugin::OnSystemEvent(ESystemEvent event, UINT_PTR wparam, UINT_PTR lp
 		// Called when the game framework has initialized and we are ready for game logic to start
 		case ESYSTEM_EVENT_GAME_POST_INIT:
 		{
-			// Listen for client connection events, in order to create the local player
-// 			gEnv->pGameFramework->AddNetworkedClientListener(*this);
 
 			// Don't need to load the map in editor
 			if (!gEnv->IsEditor())
@@ -53,6 +51,7 @@ void CGamePlugin::OnSystemEvent(ESystemEvent event, UINT_PTR wparam, UINT_PTR lp
 
 		case ESYSTEM_EVENT_LEVEL_GAMEPLAY_START:
 		{
+			CryLog("Called");
 			SEntitySpawnParams charParams;
 			charParams.pClass = gEnv->pEntitySystem->GetClassRegistry()->FindClass("schematyc::entities::characters::playercharacter");
 			charParams.sName = "PlayerCharacter";

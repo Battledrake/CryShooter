@@ -27,6 +27,7 @@ public:
 		desc.SetEditorCategory("Custom");
 		desc.SetLabel("Equipment");
 		desc.SetDescription("This does your equipment handling");
+		desc.SetComponentFlags({ IEntityComponent::EFlags::Singleton });
 	}
 
 protected:

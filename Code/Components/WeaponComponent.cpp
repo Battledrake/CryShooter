@@ -21,9 +21,11 @@ void CWeaponComponent::Initialize()
 {
 	m_pInterfaceComponent = m_pEntity->GetOrCreateComponent<CInterfaceComponent>();
 
+	m_fireModesIndex = 0;
 	m_currentFireMode = m_fireModes.At(m_fireModesIndex);
 
 	m_clipCount = m_clipCapacity;
+	m_ammoCount = m_startingAmmo;
 
 	//Put here to prevent divide by 0 errors
 	m_fireRate = m_fireRate > 0 ? m_fireRate : 1;
@@ -44,7 +46,7 @@ void CWeaponComponent::ProcessEvent(const SEntityEvent& event)
 		case Cry::Entity::EEvent::GameplayStarted:
 		{
 			m_pInterfaceComponent->AddInterface<IInteractable>(this);
-			m_pInterfaceComponent->AddInterface<IEquippable>(this);
+			m_pInterfaceComponent->AddInterface<IEquippable>(this);	
 		}
 		break;
 		case Cry::Entity::EEvent::Update:
@@ -158,7 +160,7 @@ void CWeaponComponent::AddAmmo(int amount)
 
 void CWeaponComponent::Reload()
 {
-	if (m_ammoCount <= 0)
+	if (m_ammoCount <= 0 || m_clipCount == m_clipCapacity)
 		return;
 
 	PlayAudio(m_reloadAudio.value);

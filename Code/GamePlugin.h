@@ -13,7 +13,7 @@ class CGamePlugin
 {
 public:
 	CRYINTERFACE_SIMPLE(Cry::IEnginePlugin)
-	CRYGENERATE_SINGLETONCLASS_GUID(CGamePlugin, "FirstPersonShooter", "{FC9BD884-49DE-4494-9D64-191734BBB7E3}"_cry_guid)
+	CRYGENERATE_SINGLETONCLASS_GUID(CGamePlugin, "ShooterTemplate", "{FC9BD884-49DE-4494-9D64-191734BBB7E3}"_cry_guid)
 
 	virtual ~CGamePlugin();
 	

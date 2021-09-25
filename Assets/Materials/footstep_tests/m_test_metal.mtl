@@ -1,6 +1,8 @@
-<Material MtlFlags="524288" Shader="Illum" GenMask="4000000000000" StringGenMask="%SUBSURFACE_SCATTERING" SurfaceType="mat_metal" MatTemplate="" Diffuse="0.21223079,0.21223079,0.21223079" Opacity="1" Shininess="255" CloakAmount="0" vertModifType="0" LayerAct="1">
+<Material MtlFlags="524288" Shader="Illum" GenMask="4000000000000" StringGenMask="%SUBSURFACE_SCATTERING" SurfaceType="mat_metal" MatTemplate="" Diffuse="0,0,0" Specular="0.1070231,0.1070231,0.1070231" Opacity="1" Shininess="127.5" CloakAmount="0" vertModifType="0" LayerAct="1">
  <Textures>
-  <Texture Map="Diffuse" File="%engine%/engineassets/textures/caustics_sampler.dds"/>
+  <Texture Map="Diffuse" File="%engine%/engineassets/textures/caustics_sampler.dds">
+   <TexMod TexMod_RotateType="0" TexMod_TexGenType="0" TexMod_bTexGenProjected="0"/>
+  </Texture>
  </Textures>
  <PublicParams EmittanceMapGamma="1" SSSIndex="0"/>
 </Material>

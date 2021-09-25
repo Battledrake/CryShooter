@@ -8,6 +8,8 @@
 #include <DefaultComponents/Geometry/AdvancedAnimationComponent.h>
 #include <CryRenderer/IRenderAuxGeom.h>
 
+#include <Components/HealthComponent.h>
+
 namespace
 {
 	static void RegisterBodyDamageComponent(Schematyc::IEnvRegistrar& registrar)
@@ -30,6 +32,11 @@ bool CBodyDamageComponent::SBodyPartsDefinition::Serialize(Serialization::IArchi
 	ar.closeBlock();
 
 	return true;
+}
+
+void CBodyDamageComponent::Initialize()
+{
+	m_pHealthComp = m_pEntity->GetComponent<CHealthComponent>();
 }
 
 Cry::Entity::EventFlags CBodyDamageComponent::GetEventMask() const
@@ -79,7 +86,7 @@ void CBodyDamageComponent::FillJointMap()
 	}
 }
 
-void CBodyDamageComponent::CalculateDamage(float damage, int jointId)
+void CBodyDamageComponent::CalculateDamage(float damage, int jointId, Vec3 hitVelocity)
 {
 	float calcDmg = damage;
 	string jointName = "other";
@@ -89,6 +96,7 @@ void CBodyDamageComponent::CalculateDamage(float damage, int jointId)
 		calcDmg *= jointIter->second.m_damageMultiplier;
 		jointName = jointIter->second.m_jointName.c_str();
 	}
-	CryLogAlways("Hit: %s, Damage: %i", jointName, (int)calcDmg);
-	//TODO: m_pHealthComp->ApplyDamage(baseDamage);
+
+ 	if (m_pHealthComp)
+ 		m_pHealthComp->ApplyDamage(calcDmg, jointId, hitVelocity);
 }

@@ -4,5 +4,5 @@
 
 struct ITakeDamage : public IInterfaceBase
 {
-	virtual void PassDamage(float amount, int partId) = 0;
+	virtual void PassDamage(float amount, int partId, Vec3 hitVelocity) = 0;
 };
