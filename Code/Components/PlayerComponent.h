@@ -137,11 +137,11 @@
  	CUIComponent* m_pUIComponent = nullptr;
  
  	//Private variables
- 	IInteractable* m_pActiveInteractable;
+    IEntity* m_pInteractEntity;
  
  	CEnumFlags<EInputFlag> m_inputFlags;
  	Vec2 m_mouseDeltaRotation;
-  	MovingAverage<Vec2, 10> m_mouseDeltaSmoothingFilter; //Makes look ik and recoil smoother. Keep!
+  	MovingAverage<Vec2, 5> m_mouseDeltaSmoothingFilter; //Increase for editor, decrease for game. 5 is an okay balance for swapping between the two.
  	Quat m_lookOrientation;
  
  	EViewMode m_currentViewMode;

@@ -176,29 +176,48 @@ void CPlayerComponent::CheckInteractables()
 	ray_hit hitInfo;
 	if (gEnv->pPhysicalWorld->RayWorldIntersection(origin, direction * distance, ent_all, rayFlags, &hitInfo, 1, m_pCharacter->GetEntity()->GetPhysicalEntity()))
 	{
-		if (IEntity* pHitEnt = gEnv->pEntitySystem->GetEntityFromPhysics(hitInfo.pCollider))
+		if (IEntity* pHitEntity = gEnv->pEntitySystem->GetEntityFromPhysics(hitInfo.pCollider))
 		{
-			if (CInterfaceComponent* pInterfaceComp = pHitEnt->GetComponent<CInterfaceComponent>())
+			if (pHitEntity == m_pInteractEntity)
+				return;
+
+			if (CInterfaceComponent* pInterfaceComp = pHitEntity->GetComponent<CInterfaceComponent>())
 			{
 				if (IInteractable* pInteractable = pInterfaceComp->GetInterface<IInteractable>())
 				{
-					if (m_pActiveInteractable != pInteractable)
+					if (m_pInteractEntity)
 					{
-						SObjectData objData;
-						pInteractable->Observe(m_pCharacter, objData);
-						m_pActiveInteractable = pInteractable;
-
-						m_interactEvent.Invoke(objData, true);
-						return;
+						if (IRenderNode* pRenderNode = m_pInteractEntity->GetRenderNode())
+						{
+							pRenderNode->m_nHUDSilhouettesParam = RGBA8(0.0f, 0.0f, 0.0f, 0.0f);
+						}
 					}
+ 					m_pInteractEntity = pHitEntity;
+
+					if (IRenderNode* pRenderNode = pHitEntity->GetRenderNode())
+					{
+						//RGBA8 for Silhouette is actually ABGR instead of RGBA
+						pRenderNode->m_nHUDSilhouettesParam = RGBA8(1.0f, 0.0f, 0.0f, 255.0f);
+					}
+
+					SObjectData objData;
+					pInteractable->Observe(m_pCharacter, objData);
+					m_interactEvent.Invoke(objData, true);
 					return;
 				}
 			}
 		}
 	}
 
-	m_interactEvent.Invoke(SObjectData(), false); //I should make this a separate event, but I probably won't.
-	m_pActiveInteractable = nullptr;
+	if (m_pInteractEntity)
+	{
+		m_interactEvent.Invoke(SObjectData(), false);
+		if (IRenderNode* pRenderNode = m_pInteractEntity->GetRenderNode())
+		{
+			pRenderNode->m_nHUDSilhouettesParam = RGBA8(0.0f, 0.0f, 0.0f, 0.0f);
+		}
+		m_pInteractEntity = nullptr;
+	}
 }
 
 void CPlayerComponent::RegisterInputs()
@@ -260,10 +279,16 @@ void CPlayerComponent::RegisterInputs()
 		if (!m_pCharacter || m_currentViewMode == EViewMode::Spectator)
 			return;
 
-		if (m_pActiveInteractable)
-		{
-			m_pActiveInteractable->Interact(m_pCharacter);
-		}
+ 		if (m_pInteractEntity)
+ 		{
+ 			if (CInterfaceComponent* pInterfaceComp = m_pInteractEntity->GetComponent<CInterfaceComponent>())
+ 			{
+ 				if (IInteractable* pInteract = pInterfaceComp->GetInterface<IInteractable>())
+ 				{
+ 					pInteract->Interact(m_pCharacter);
+ 				}
+ 			}
+ 		}
 	});
 	m_pInputComponent->BindAction("player", "interact", eAID_KeyboardMouse, eKI_E, true, false, false);
 

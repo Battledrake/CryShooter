@@ -142,7 +142,6 @@ void CCharacterComponent::ProcessEvent(const SEntityEvent& event)
 			{
 				m_pActiveWeapon = nullptr;
 			}
-
 			m_pAnimComp->ResetCharacter();
 			m_activeFragment = "Locomotion";
 			m_pAnimComp->QueueFragment(m_activeFragment);
