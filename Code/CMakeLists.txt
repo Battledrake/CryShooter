@@ -15,7 +15,7 @@ start_sources()
 
 sources_platform(ALL)
 add_sources("Code_uber.cpp"
-    PROJECTS Game
+    PROJECTS ShooterTemplate
     SOURCE_GROUP "Root"
 		"GamePlugin.cpp"
 		"StdAfx.cpp"
@@ -23,7 +23,7 @@ add_sources("Code_uber.cpp"
 		"StdAfx.h"
 )
 add_sources("Components_uber.cpp"
-    PROJECTS Game
+    PROJECTS ShooterTemplate
     SOURCE_GROUP "Components"
 		"Components/AmmoPickupComponent.cpp"
 		"Components/BodyDamageComponent.cpp"
@@ -51,17 +51,17 @@ add_sources("Components_uber.cpp"
 		"Components/WeaponComponent.h"
 )
 add_sources("Events_uber.cpp"
-    PROJECTS Game
+    PROJECTS ShooterTemplate
     SOURCE_GROUP "Events"
 		"Events/SimpleEvent.h"
 )
 add_sources("Helpers_uber.cpp"
-    PROJECTS Game
+    PROJECTS ShooterTemplate
     SOURCE_GROUP "Helpers"
 		"Helpers/Conversions.h"
 )
 add_sources("Interfaces_uber.cpp"
-    PROJECTS Game
+    PROJECTS ShooterTemplate
     SOURCE_GROUP "Interfaces"
 		"Interfaces/IControllable.h"
 		"Interfaces/IEquippable.h"
@@ -87,7 +87,7 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/EngineDefineOverrides.h")
 endif()
 end_sources()
 
-CryGameModule(Game FORCE_SHARED PCH "StdAfx.cpp" SOLUTION_FOLDER "Project")
+CryGameModule(ShooterTemplate FORCE_SHARED PCH "StdAfx.cpp" SOLUTION_FOLDER "Project")
 
 target_include_directories(${THIS_PROJECT}
 PRIVATE
@@ -149,26 +149,26 @@ if(OPTION_ENGINE)
         add_library(Editor STATIC "${CRYENGINE_DIR}/Code/CryEngine/CryCommon/CryCore/Platform/platform.h")
         set_target_properties(Editor PROPERTIES LINKER_LANGUAGE CXX)
         if (WIN32)
-            set_visual_studio_debugger_command(Editor "${CRYENGINE_DIR}/bin/win_x64/Sandbox.exe" "-project \"${PROJECT_DIR}/Game.cryproject\"")
+            set_visual_studio_debugger_command(Editor "${CRYENGINE_DIR}/bin/win_x64/Sandbox.exe" "-project \"${PROJECT_DIR}/ShooterTemplate.cryproject\"")
         endif()
     endif()
 else()
     add_library(GameLauncher STATIC "${CRYENGINE_DIR}/Code/CryEngine/CryCommon/CryCore/Platform/platform.h")
     set_target_properties(GameLauncher PROPERTIES LINKER_LANGUAGE CXX)
     if (WIN32)
-        set_visual_studio_debugger_command(GameLauncher "${CRYENGINE_DIR}/bin/win_x64/GameLauncher.exe" "-project \"${PROJECT_DIR}/Game.cryproject\"")
+        set_visual_studio_debugger_command(GameLauncher "${CRYENGINE_DIR}/bin/win_x64/GameLauncher.exe" "-project \"${PROJECT_DIR}/ShooterTemplate.cryproject\"")
     endif()
 
     add_library(Editor STATIC "${CRYENGINE_DIR}/Code/CryEngine/CryCommon/CryCore/Platform/platform.h")
     set_target_properties(Editor PROPERTIES LINKER_LANGUAGE CXX)
     if (WIN32)
-        set_visual_studio_debugger_command(Editor "${CRYENGINE_DIR}/bin/win_x64/Sandbox.exe" "-project \"${PROJECT_DIR}/Game.cryproject\"")
+        set_visual_studio_debugger_command(Editor "${CRYENGINE_DIR}/bin/win_x64/Sandbox.exe" "-project \"${PROJECT_DIR}/ShooterTemplate.cryproject\"")
     endif()
 
     add_library(GameServer STATIC "${CRYENGINE_DIR}/Code/CryEngine/CryCommon/CryCore/Platform/platform.h")
     set_target_properties(GameServer PROPERTIES LINKER_LANGUAGE CXX)
     if (WIN32)
-        set_visual_studio_debugger_command(GameServer "${CRYENGINE_DIR}/bin/win_x64/Game_Server.exe" "-project \"${PROJECT_DIR}/Game.cryproject\"")
+        set_visual_studio_debugger_command(GameServer "${CRYENGINE_DIR}/bin/win_x64/Game_Server.exe" "-project \"${PROJECT_DIR}/ShooterTemplate.cryproject\"")
     endif()
 endif()
 
@@ -176,7 +176,7 @@ endif()
 set_solution_startup_target(GameLauncher)
 
 if (WIN32)
-    set_visual_studio_debugger_command( ${THIS_PROJECT} "${CRYENGINE_DIR}/bin/win_x64/GameLauncher.exe" "-project \"${PROJECT_DIR}/Game.cryproject\"" )
+    set_visual_studio_debugger_command( ${THIS_PROJECT} "${CRYENGINE_DIR}/bin/win_x64/GameLauncher.exe" "-project \"${PROJECT_DIR}/ShooterTemplate.cryproject\"" )
 endif()
 
 #BEGIN-CUSTOM

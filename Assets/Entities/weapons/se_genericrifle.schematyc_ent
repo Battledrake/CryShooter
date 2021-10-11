@@ -86,7 +86,7 @@
     <children />
    </element>
    <element elementType="ComponentInstance" guid="2af72c77-e3bd-4cc9-8f6e-84e1ce401236" name="WeaponComponent" accessor="Private" typeGUID="acc5078e-bccc-404e-8989-2152fcfcabcd">
-    <properties WeaponName="Generic Rifle" FireAudio="Play_w_pistol_fire_3p" ReloadAudio="Play_w_rifle_clip_in_fp" DryFireAudio="Play_w_rifle_dryfire_fp" PickupAudio="Play_w_rifle_hand_on_gun_fp" SelectAudio="Play_w_rifle_select_fp" SwitchFireModeAudio="Play_w_rifle_switch_firemode_fp" IconPath="Icons/genericrifle_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Rifle" WeaponCategory="Primary" HolsterSlot="Back" FireRate="500" Burst="5" BurstDelay="0.5" ClipCapacity="25" AmmoCount="0" MaxAmmo="300">
+    <properties WeaponName="Generic Rifle" FireAudio="Play_w_pistol_fire_3p" ReloadAudio="Play_w_rifle_clip_in_fp" DryFireAudio="Play_w_rifle_dryfire_fp" PickupAudio="Play_w_rifle_hand_on_gun_fp" SelectAudio="Play_w_rifle_select_fp" SwitchFireModeAudio="Play_w_rifle_switch_firemode_fp" IconPath="Icons/genericrifle_icon.dds" ProjectileClass="schematyc::entities::projectiles::projectile" WeaponType="Rifle" WeaponCategory="Primary" HolsterSlot="Back" FireRate="500" Burst="5" BurstDelay="0.5" ClipCapacity="25" StartingAmmo="0" MaxAmmo="300">
      <FireModes>
       <element element="Auto"/>
       <element element="Burst"/>
